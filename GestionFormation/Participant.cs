@@ -17,7 +17,7 @@ namespace GestionFormation
         private Session laSessionChoisie;
 
         //
-        //Construct
+        //Builders
         //
         public Participant()
         {
@@ -58,16 +58,12 @@ namespace GestionFormation
 
         public void save()
         {
-            //
             // Call ConnectToDb(), check if there have been any changes & save Participant from the given id
-            //
         }
 
         public void delete()
         {
-            //
             // Call ConnectToDb(), delete Participant from the given id
-            //
         }
 
 
@@ -76,9 +72,7 @@ namespace GestionFormation
         //
         private void ConnectToDb()
         {
-            //
             // Connection to the Db
-            //
         }
     }
 }

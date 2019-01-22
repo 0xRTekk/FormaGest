@@ -8,7 +8,9 @@ namespace GestionFormation
 {
     class Session
     {
+        //
         //Properties
+        //
         private int id;
         private string dateBegin;
         private string dateEnd;
@@ -16,7 +18,9 @@ namespace GestionFormation
         private Formation laFormation;
         private Participant lesParticipants;
 
-        //Construct
+        //
+        //Builders
+        //
         public Session()
         {
             LaFormation = null;
@@ -33,7 +37,9 @@ namespace GestionFormation
             }
         }
 
+        //
         //Getters & Setters
+        //
         public int Id { get; set; }
         public string DateBegin { get; set; }
         public string DateEnd { get; set; }

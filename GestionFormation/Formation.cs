@@ -8,13 +8,17 @@ namespace GestionFormation
 {
     class Formation
     {
+        //
         //Properties
+        //
         private int id;
         private string name;
         private int level;
         private List<Session> lesSessions = new List<Session>();
 
-        //Construct
+        //
+        //Builders
+        //
         public Formation()
         {
             name = "inconnue";
@@ -42,7 +46,9 @@ namespace GestionFormation
             }
         }
 
+        //
         //Getters & Setters
+        //
         public int Id { get; }
         public string Name { get; set; }
         public int Level { get; set; }

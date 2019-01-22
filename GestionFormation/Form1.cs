@@ -12,9 +12,29 @@ namespace GestionFormation
 {
     public partial class Form1 : Form
     {
+        private DbGestionFormation db = new DbGestionFormation();
         public Form1()
         {
             InitializeComponent();
+            db.InitDb(); //Init connection to database
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboBoxFormations.DataSource = db.GetFormations();
+            comboBoxFormations.DisplayMember = "Name";
+            comboBoxFormations.ValueMember = "Id";
+
+            Formation formationObject = comboBoxFormations.SelectedItem as Formation;
+            if (formationObject != null)
+                dataGridViewSessions.DataSource = db.GetSessions(formationObject.Id);
+        }
+
+        private void comboBoxFormations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Formation formationObject = comboBoxFormations.SelectedItem as Formation;
+            if (formationObject != null)
+                dataGridViewSessions.DataSource = db.GetSessions(formationObject.Id);
         }
     }
 }

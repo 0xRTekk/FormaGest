@@ -41,6 +41,7 @@
             this.comboBoxFormations.Size = new System.Drawing.Size(379, 24);
             this.comboBoxFormations.TabIndex = 0;
             this.comboBoxFormations.Text = "Liste des formations";
+            this.comboBoxFormations.SelectedIndexChanged += new System.EventHandler(this.comboBoxFormations_SelectedIndexChanged);
             // 
             // dataGridViewSessions
             // 
@@ -60,6 +61,7 @@
             this.Controls.Add(this.comboBoxFormations);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSessions)).EndInit();
             this.ResumeLayout(false);
 
