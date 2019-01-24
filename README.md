@@ -6,4 +6,4 @@ Develop with the .NET Framework 4.6.1 Framework
 
 Using ORM Dapper
 
-Using MyslConnector/Net 
+Using MyslConnector/Net for connecting to MySQL
