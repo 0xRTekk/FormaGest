@@ -49,7 +49,7 @@ namespace GestionFormation
         //
         //Getters & Setters
         //
-        public int Id { get; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Level { get; set; }
         public Session LesSessions { get; set; }

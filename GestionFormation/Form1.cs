@@ -23,18 +23,22 @@ namespace GestionFormation
         {
             comboBoxFormations.DataSource = db.GetFormations();
             comboBoxFormations.DisplayMember = "Name";
-            comboBoxFormations.ValueMember = "Id";
-
-            Formation formationObject = comboBoxFormations.SelectedItem as Formation;
-            if (formationObject != null)
-                dataGridViewSessions.DataSource = db.GetSessions(formationObject.Id);
+            comboBoxFormations.ValueMember = "Value";
+            
+            var formationObject = (ComboValue)comboBoxFormations.SelectedItem;
+            String indexFormation;
+            indexFormation = formationObject.Value;
+            
+            dataGridViewSessions.DataSource = db.GetSessions(indexFormation);
         }
 
         private void comboBoxFormations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Formation formationObject = comboBoxFormations.SelectedItem as Formation;
-            if (formationObject != null)
-                dataGridViewSessions.DataSource = db.GetSessions(formationObject.Id);
+            var formationObject = (ComboValue)comboBoxFormations.SelectedItem;
+            String indexFormation;
+            indexFormation = formationObject.Value;
+
+            dataGridViewSessions.DataSource = db.GetSessions(indexFormation);
         }
     }
 }
