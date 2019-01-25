@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestionFormation
 {
+    //Generic class for ComboBox Class
     class ComboValue
     {
         public String Name { get; set; }

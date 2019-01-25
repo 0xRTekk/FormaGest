@@ -51,6 +51,7 @@
             this.dataGridViewSessions.RowTemplate.Height = 24;
             this.dataGridViewSessions.Size = new System.Drawing.Size(379, 230);
             this.dataGridViewSessions.TabIndex = 1;
+            this.dataGridViewSessions.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSessions_CellDoubleClick);
             // 
             // Form1
             // 

@@ -13,6 +13,8 @@ namespace GestionFormation
     public partial class Form1 : Form
     {
         private DbGestionFormation db = new DbGestionFormation();
+        List<Formation> contextFormation = new List<Formation>();
+
         public Form1()
         {
             InitializeComponent();
@@ -21,13 +23,20 @@ namespace GestionFormation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBoxFormations.DataSource = db.GetFormations();
+            contextFormation = db.GetFormations();
+
+            //Using ComboValue to fill the ComboBox
+            var comboListeFormations = new List<ComboValue>();
+            foreach (Formation uneFormation in contextFormation)
+                comboListeFormations.Add(new ComboValue() { Name = uneFormation.Name, Value = uneFormation.Id.ToString() });
+            comboBoxFormations.DataSource = comboListeFormations;
             comboBoxFormations.DisplayMember = "Name";
             comboBoxFormations.ValueMember = "Value";
             
-            var formationObject = (ComboValue)comboBoxFormations.SelectedItem;
+            //Extract the Id's Formation selected
+            var objectFormation = (ComboValue)comboBoxFormations.SelectedItem;
             String indexFormation;
-            indexFormation = formationObject.Value;
+            indexFormation = objectFormation.Value;
             
             dataGridViewSessions.DataSource = db.GetSessions(indexFormation);
         }
@@ -39,6 +48,21 @@ namespace GestionFormation
             indexFormation = formationObject.Value;
 
             dataGridViewSessions.DataSource = db.GetSessions(indexFormation);
+        }
+
+        private void dataGridViewSessions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Extract the Name's Formation selected
+            var objectFormation = (ComboValue)comboBoxFormations.SelectedItem;
+            String nameFormation;
+            nameFormation = objectFormation.Name;
+
+            //Extract 
+            var objectSession = (Session)dataGridViewSessions.CurrentRow.DataBoundItem;
+            string idSession = objectSession.Id.ToString();
+
+            Form2 form2 = new Form2(nameFormation, idSession);
+            form2.ShowDialog();
         }
     }
 }

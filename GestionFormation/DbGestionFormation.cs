@@ -27,25 +27,23 @@ namespace GestionFormation
             dbConn = new MySqlConnection(connString);
         }
 
-        public List<ComboValue> GetFormations()
+        public List<Formation> GetFormations()
         {
-            var comboListeFormations = new List<ComboValue>();
             dbConn.Open();
             var formations = dbConn.Query<Formation>("SELECT * FROM Formation").ToList();
-            foreach (Formation uneFormation in formations)
-            {
-                comboListeFormations.Add(new ComboValue() { Name = uneFormation.Name, Value = uneFormation.Id.ToString() });
-            }
             dbConn.Close();
 
-            return comboListeFormations;
+            return formations;
         }
 
         public List<Session> GetSessions(String formationId)
         {
             List<Session> sessions = new List<Session>();
+            String strQuery = "SELECT * FROM session WHERE id_formation = @idFormation";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idFormation", formationId);
             dbConn.Open();
-            sessions = dbConn.Query<Session>("SELECT * FROM session WHERE id_formation = "+formationId).ToList();
+            sessions = dbConn.Query<Session>(strQuery, dynamicParameters).ToList();
             dbConn.Close();
 
             return sessions;

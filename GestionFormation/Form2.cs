@@ -12,9 +12,34 @@ namespace GestionFormation
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        DbGestionFormation db = new DbGestionFormation();
+
+        //
+        //Properties
+        //
+        private string nameFormation;
+        private string idSession;
+
+
+        //
+        //Builder
+        //
+        public Form2(string NameFormation, string IdSession)
         {
             InitializeComponent();
+            db.InitDb();
+            nameFormation = NameFormation;
+            idSession = IdSession;
+        }
+
+
+
+        //
+        //Methods & Functions
+        //
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            textBoxFormation.Text = nameFormation;
         }
     }
 }

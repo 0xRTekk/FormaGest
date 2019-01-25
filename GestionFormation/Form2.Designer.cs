@@ -33,14 +33,14 @@
             this.labelSession = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePickerSessionBegin = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerSessionEnd = new System.Windows.Forms.DateTimePicker();
             this.dataGridViewInscrits = new System.Windows.Forms.DataGridView();
             this.dataGridViewPostulants = new System.Windows.Forms.DataGridView();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonValidate = new System.Windows.Forms.Button();
             this.buttonArrowLeft = new System.Windows.Forms.Button();
             this.buttonArrowRight = new System.Windows.Forms.Button();
+            this.textBoxDateEnd = new System.Windows.Forms.TextBox();
+            this.textBoxDateBegin = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscrits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostulants)).BeginInit();
             this.SuspendLayout();
@@ -87,20 +87,6 @@
             this.label3.Size = new System.Drawing.Size(39, 17);
             this.label3.TabIndex = 7;
             this.label3.Text = "Fin : ";
-            // 
-            // dateTimePickerSessionBegin
-            // 
-            this.dateTimePickerSessionBegin.Location = new System.Drawing.Point(151, 130);
-            this.dateTimePickerSessionBegin.Name = "dateTimePickerSessionBegin";
-            this.dateTimePickerSessionBegin.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickerSessionBegin.TabIndex = 8;
-            // 
-            // dateTimePickerSessionEnd
-            // 
-            this.dateTimePickerSessionEnd.Location = new System.Drawing.Point(480, 129);
-            this.dateTimePickerSessionEnd.Name = "dateTimePickerSessionEnd";
-            this.dateTimePickerSessionEnd.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickerSessionEnd.TabIndex = 9;
             // 
             // dataGridViewInscrits
             // 
@@ -156,19 +142,33 @@
             this.buttonArrowRight.Text = "=>";
             this.buttonArrowRight.UseVisualStyleBackColor = true;
             // 
+            // textBoxDateEnd
+            // 
+            this.textBoxDateEnd.Location = new System.Drawing.Point(480, 130);
+            this.textBoxDateEnd.Name = "textBoxDateEnd";
+            this.textBoxDateEnd.Size = new System.Drawing.Size(166, 22);
+            this.textBoxDateEnd.TabIndex = 16;
+            // 
+            // textBoxDateBegin
+            // 
+            this.textBoxDateBegin.Location = new System.Drawing.Point(151, 130);
+            this.textBoxDateBegin.Name = "textBoxDateBegin";
+            this.textBoxDateBegin.Size = new System.Drawing.Size(166, 22);
+            this.textBoxDateBegin.TabIndex = 17;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 528);
+            this.Controls.Add(this.textBoxDateBegin);
+            this.Controls.Add(this.textBoxDateEnd);
             this.Controls.Add(this.buttonArrowRight);
             this.Controls.Add(this.buttonArrowLeft);
             this.Controls.Add(this.buttonValidate);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.dataGridViewPostulants);
             this.Controls.Add(this.dataGridViewInscrits);
-            this.Controls.Add(this.dateTimePickerSessionEnd);
-            this.Controls.Add(this.dateTimePickerSessionBegin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelSession);
@@ -176,6 +176,7 @@
             this.Controls.Add(this.labelFormation);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscrits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostulants)).EndInit();
             this.ResumeLayout(false);
@@ -190,13 +191,13 @@
         private System.Windows.Forms.Label labelSession;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePickerSessionBegin;
-        private System.Windows.Forms.DateTimePicker dateTimePickerSessionEnd;
         private System.Windows.Forms.DataGridView dataGridViewInscrits;
         private System.Windows.Forms.DataGridView dataGridViewPostulants;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonValidate;
         private System.Windows.Forms.Button buttonArrowLeft;
         private System.Windows.Forms.Button buttonArrowRight;
+        private System.Windows.Forms.TextBox textBoxDateEnd;
+        private System.Windows.Forms.TextBox textBoxDateBegin;
     }
 }
