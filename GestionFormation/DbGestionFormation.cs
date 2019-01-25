@@ -59,5 +59,18 @@ namespace GestionFormation
 
             return participants;
         }
+
+        public List<Participant> GetInscrits(String idSession)
+        {
+            List<Participant> inscrits = new List<Participant>();
+            String strQuery = "SELECT * FROM participant WHERE id_session = @idSession";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idSession", idSession);
+            dbConn.Open();
+            inscrits = dbConn.Query<Participant>(strQuery, dynamicParameters).ToList();
+            dbConn.Close();
+
+            return inscrits;
+        }
     }
 }
