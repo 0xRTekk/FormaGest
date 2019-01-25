@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridViewInscrits = new System.Windows.Forms.DataGridView();
-            this.dataGridViewPostulants = new System.Windows.Forms.DataGridView();
+            this.dataGridViewParticipants = new System.Windows.Forms.DataGridView();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonValidate = new System.Windows.Forms.Button();
             this.buttonArrowLeft = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@
             this.textBoxDateEnd = new System.Windows.Forms.TextBox();
             this.textBoxDateBegin = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscrits)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostulants)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).BeginInit();
             this.SuspendLayout();
             // 
             // labelFormation
@@ -97,14 +97,14 @@
             this.dataGridViewInscrits.Size = new System.Drawing.Size(334, 229);
             this.dataGridViewInscrits.TabIndex = 10;
             // 
-            // dataGridViewPostulants
+            // dataGridViewParticipants
             // 
-            this.dataGridViewPostulants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPostulants.Location = new System.Drawing.Point(454, 209);
-            this.dataGridViewPostulants.Name = "dataGridViewPostulants";
-            this.dataGridViewPostulants.RowTemplate.Height = 24;
-            this.dataGridViewPostulants.Size = new System.Drawing.Size(334, 229);
-            this.dataGridViewPostulants.TabIndex = 11;
+            this.dataGridViewParticipants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewParticipants.Location = new System.Drawing.Point(454, 209);
+            this.dataGridViewParticipants.Name = "dataGridViewParticipants";
+            this.dataGridViewParticipants.RowTemplate.Height = 24;
+            this.dataGridViewParticipants.Size = new System.Drawing.Size(334, 229);
+            this.dataGridViewParticipants.TabIndex = 11;
             // 
             // buttonCancel
             // 
@@ -167,7 +167,7 @@
             this.Controls.Add(this.buttonArrowLeft);
             this.Controls.Add(this.buttonValidate);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.dataGridViewPostulants);
+            this.Controls.Add(this.dataGridViewParticipants);
             this.Controls.Add(this.dataGridViewInscrits);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -178,7 +178,7 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInscrits)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostulants)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewParticipants)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,7 +192,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridViewInscrits;
-        private System.Windows.Forms.DataGridView dataGridViewPostulants;
+        private System.Windows.Forms.DataGridView dataGridViewParticipants;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonValidate;
         private System.Windows.Forms.Button buttonArrowLeft;

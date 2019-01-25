@@ -39,7 +39,18 @@ namespace GestionFormation
         //
         private void Form2_Load(object sender, EventArgs e)
         {
-            textBoxFormation.Text = nameFormation;
+            //DISGUSTING ! HAVE TO PASS THE FORMATION OBJECT !!!!!!
+            //DISGUSTING ! HAVE TO PASS THE FORMATION OBJECT !!!!!!
+            //DISGUSTING ! HAVE TO PASS THE FORMATION OBJECT !!!!!!
+            textBoxFormation.Text = nameFormation; // !!!!!!!!!!!!!
+            //DISGUSTING ! HAVE TO PASS THE FORMATION OBJECT !!!!!!
+            //DISGUSTING ! HAVE TO PASS THE FORMATION OBJECT !!!!!!
+            //DISGUSTING ! HAVE TO PASS THE FORMATION OBJECT !!!!!!
+
+
+            //Fill dataGridViewParticipants with all participants
+            var participants = db.GetParticipants();
+            dataGridViewParticipants.DataSource = participants;
         }
     }
 }

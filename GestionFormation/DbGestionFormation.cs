@@ -48,5 +48,16 @@ namespace GestionFormation
 
             return sessions;
         }
+
+        public List<Participant> GetParticipants()
+        {
+            List<Participant> participants = new List<Participant>();
+            String strQuery = "SELECT * FROM participant";
+            dbConn.Open();
+            participants = dbConn.Query<Participant>(strQuery).ToList();
+            dbConn.Close();
+
+            return participants;
+        }
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 24 jan. 2019 à 17:33
+-- Généré le :  ven. 25 jan. 2019 à 04:36
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -43,6 +43,21 @@ CREATE TABLE IF NOT EXISTS `formation` (
 INSERT INTO `formation` (`id`, `name`, `level`) VALUES
 (1, 'Mathématique', 2),
 (2, 'Développement', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `inscrit`
+--
+
+DROP TABLE IF EXISTS `inscrit`;
+CREATE TABLE IF NOT EXISTS `inscrit` (
+  `session_id` int(11) NOT NULL,
+  `participant_id` int(11) NOT NULL,
+  PRIMARY KEY (`session_id`,`participant_id`),
+  KEY `fk_session_has_participant_participant1_idx` (`participant_id`),
+  KEY `fk_session_has_participant_session1_idx` (`session_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -92,6 +107,17 @@ INSERT INTO `session` (`id`, `date_begin`, `date_end`, `place`, `id_formation`) 
 (2, '26/01/2019', '28/01/2019', 'Campus montsouris', 1),
 (3, '22/01/2019', '23/01/2019', 'Maison des examens', 2),
 (4, '01/02/2019', '03/02/2019', 'Maison des examens', 2);
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `inscrit`
+--
+ALTER TABLE `inscrit`
+  ADD CONSTRAINT `fk_inscrit_participant1` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_inscrit_session1` FOREIGN KEY (`session_id`) REFERENCES `session` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
