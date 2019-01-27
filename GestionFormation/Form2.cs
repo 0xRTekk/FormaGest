@@ -60,6 +60,34 @@ namespace GestionFormation
             dataGridViewInscrits.DataSource = ContextInscrits;
         }
 
-        
+        private void buttonArrowLeft_Click(object sender, EventArgs e)
+        {
+            //Update the dataGridViewInscrits display
+            foreach (DataGridViewRow row in dataGridViewParticipants.SelectedRows)
+            {
+                var objectParticipant = (Participant)dataGridViewParticipants.CurrentRow.DataBoundItem;
+                Participant unInscrit = row.DataBoundItem as Participant;
+                
+                ContextInscrits.Add(unInscrit);
+                dataGridViewInscrits.DataSource = null;
+                dataGridViewInscrits.DataSource = ContextInscrits;
+            }
+        }
+
+        private void buttonArrowRight_Click(object sender, EventArgs e)
+        {
+            //Update the dataGridViewParticipant display
+            foreach (DataGridViewRow row in dataGridViewInscrits.SelectedRows)
+            {
+                var objectInscrit = (Participant)dataGridViewInscrits.CurrentRow.DataBoundItem;
+                Participant unInscrit = row.DataBoundItem as Participant;
+
+                int posInscritInSource = -1;
+                posInscritInSource = ContextInscrits.IndexOf(objectInscrit);
+                ContextInscrits.RemoveAt(posInscritInSource);
+                dataGridViewInscrits.DataSource = null;
+                dataGridViewInscrits.DataSource = ContextInscrits;
+            }
+        }
     }
 }

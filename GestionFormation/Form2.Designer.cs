@@ -132,6 +132,7 @@
             this.buttonArrowLeft.TabIndex = 14;
             this.buttonArrowLeft.Text = "<=";
             this.buttonArrowLeft.UseVisualStyleBackColor = true;
+            this.buttonArrowLeft.Click += new System.EventHandler(this.buttonArrowLeft_Click);
             // 
             // buttonArrowRight
             // 
@@ -141,6 +142,7 @@
             this.buttonArrowRight.TabIndex = 15;
             this.buttonArrowRight.Text = "=>";
             this.buttonArrowRight.UseVisualStyleBackColor = true;
+            this.buttonArrowRight.Click += new System.EventHandler(this.buttonArrowRight_Click);
             // 
             // textBoxDateEnd
             // 
