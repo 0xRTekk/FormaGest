@@ -13,7 +13,8 @@ namespace GestionFormation
     public partial class Form1 : Form
     {
         private DbGestionFormation db = new DbGestionFormation();
-        List<Formation> contextFormation = new List<Formation>();
+        List<Formation> contextFormations = new List<Formation>();
+        List<Session> contextSessions = new List<Session>();
 
         public Form1()
         {
@@ -23,11 +24,11 @@ namespace GestionFormation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            contextFormation = db.GetFormations();
+            contextFormations = db.GetFormations();
 
             //Using ComboValue to fill the ComboBox
             var comboListeFormations = new List<ComboValue>();
-            foreach (Formation uneFormation in contextFormation)
+            foreach (Formation uneFormation in contextFormations)
                 comboListeFormations.Add(new ComboValue() { Name = uneFormation.Name, Value = uneFormation.Id.ToString() });
             comboBoxFormations.DataSource = comboListeFormations;
             comboBoxFormations.DisplayMember = "Name";
@@ -47,21 +48,16 @@ namespace GestionFormation
             String indexFormation;
             indexFormation = formationObject.Value;
 
-            dataGridViewSessions.DataSource = db.GetSessions(indexFormation);
+            contextSessions = db.GetSessions(indexFormation);
+            dataGridViewSessions.DataSource = contextSessions;
         }
 
         private void dataGridViewSessions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Extract the Name's Formation selected
             var objectFormation = (ComboValue)comboBoxFormations.SelectedItem;
-            String nameFormation;
-            nameFormation = objectFormation.Name;
-
-            //Extract 
             var objectSession = (Session)dataGridViewSessions.CurrentRow.DataBoundItem;
-            string idSession = objectSession.Id.ToString();
 
-            Form2 form2 = new Form2(nameFormation, idSession);
+            Form2 form2 = new Form2(objectFormation, objectSession);
             form2.ShowDialog();
         }
     }

@@ -19,19 +19,26 @@ namespace GestionFormation
         //
         //Properties
         //
-        private string nameFormation;
-        private string idSession;
+        private ComboValue formation;
+        private Session session;
+
+
+        //
+        //Getters & Setters
+        //
+        public Formation Formation { get; set; }
+        public Session Session { get; set; }
 
 
         //
         //Builder
         //
-        public Form2(string NameFormation, string IdSession)
+        public Form2(ComboValue passedFormation, Session passedSession)
         {
             InitializeComponent();
             db.InitDb();
-            nameFormation = NameFormation;
-            idSession = IdSession;
+            formation = passedFormation;
+            session = passedSession;
         }
 
 
@@ -41,13 +48,9 @@ namespace GestionFormation
         //
         private void Form2_Load(object sender, EventArgs e)
         {
-            //DISGUSTING ! HAVE TO PASS THE ENTIRE FORMATION OBJECT !!!!!!
-            //DISGUSTING ! HAVE TO PASS THE ENTIRE FORMATION OBJECT !!!!!!
-            //DISGUSTING ! HAVE TO PASS THE ENTIRE FORMATION OBJECT !!!!!!
-            textBoxFormation.Text = nameFormation; // !!!!!!!!!!!!!
-            //DISGUSTING ! HAVE TO PASS THE ENTIRE FORMATION OBJECT !!!!!!
-            //DISGUSTING ! HAVE TO PASS THE ENTIRE FORMATION OBJECT !!!!!!
-            //DISGUSTING ! HAVE TO PASS THE ENTIRE FORMATION OBJECT !!!!!!
+            textBoxFormation.Text = formation.Name;
+            textBoxDateBegin.Text = session.DateBegin;
+            textBoxDateEnd.Text = session.DateEnd;
 
 
             //Fill dataGridViewParticipants with all participants
@@ -56,7 +59,7 @@ namespace GestionFormation
 
 
             //Fill dataGridViewInscrits with all inscrits
-            ContextInscrits = db.GetInscrits(idSession);
+            ContextInscrits = db.GetInscrits(session.Id.ToString());
             dataGridViewInscrits.DataSource = ContextInscrits;
         }
 

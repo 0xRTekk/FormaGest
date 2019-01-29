@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestionFormation
 {
-    class Session
+    public class Session
     {
         //
         //Properties
