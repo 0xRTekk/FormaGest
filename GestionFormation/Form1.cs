@@ -24,29 +24,23 @@ namespace GestionFormation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            contextFormations = db.GetFormations();
-
-            //Using ComboValue to fill the ComboBox
-            var comboListeFormations = new List<ComboValue>();
-            foreach (Formation uneFormation in contextFormations)
-                comboListeFormations.Add(new ComboValue() { Name = uneFormation.Name, Value = uneFormation.Id.ToString() });
-            comboBoxFormations.DataSource = comboListeFormations;
+            //Data binding with List<Formation> contextFormations
+            comboBoxFormations.DataSource = db.GetFormations(); 
             comboBoxFormations.DisplayMember = "Name";
-            comboBoxFormations.ValueMember = "Value";
-            
+
             //Extract the Id's Formation selected
-            var objectFormation = (ComboValue)comboBoxFormations.SelectedItem;
+            Formation formationObject = (Formation)comboBoxFormations.SelectedItem;
             String indexFormation;
-            indexFormation = objectFormation.Value;
-            
+            indexFormation = formationObject.Id.ToString();
+
             dataGridViewSessions.DataSource = db.GetSessions(indexFormation);
         }
 
         private void comboBoxFormations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var formationObject = (ComboValue)comboBoxFormations.SelectedItem;
+            Formation formationObject = (Formation)comboBoxFormations.SelectedItem;
             String indexFormation;
-            indexFormation = formationObject.Value;
+            indexFormation = formationObject.Id.ToString();
 
             contextSessions = db.GetSessions(indexFormation);
             dataGridViewSessions.DataSource = contextSessions;
@@ -54,7 +48,7 @@ namespace GestionFormation
 
         private void dataGridViewSessions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var objectFormation = (ComboValue)comboBoxFormations.SelectedItem;
+            Formation objectFormation = (Formation)comboBoxFormations.SelectedItem;
             var objectSession = (Session)dataGridViewSessions.CurrentRow.DataBoundItem;
 
             Form2 form2 = new Form2(objectFormation, objectSession);

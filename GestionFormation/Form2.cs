@@ -19,7 +19,7 @@ namespace GestionFormation
         //
         //Properties
         //
-        private ComboValue formation;
+        private Formation formation;
         private Session session;
 
 
@@ -33,7 +33,7 @@ namespace GestionFormation
         //
         //Builder
         //
-        public Form2(ComboValue passedFormation, Session passedSession)
+        public Form2(Formation passedFormation, Session passedSession)
         {
             InitializeComponent();
             db.InitDb();
