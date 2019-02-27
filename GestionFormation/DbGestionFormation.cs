@@ -27,6 +27,24 @@ namespace GestionFormation
             dbConn = new MySqlConnection(connString);
         }
 
+        public Boolean Authentification(String login, String pass)
+        {
+            Boolean present = false;
+            
+            String auth = "SELECT * FROM user WHERE login = @theLogin AND pass = @thePass";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theLogin", login);
+            dynamicParameters.Add("thePass", pass);
+            dbConn.Open();
+            var authVerif = dbConn.Query(auth, dynamicParameters);
+            dbConn.Close();
+
+            if (authVerif != null)
+                present = true;
+
+            return present;
+        }
+
         public List<Formation> GetFormations()
         {
             dbConn.Open();

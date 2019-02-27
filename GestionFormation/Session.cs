@@ -16,7 +16,7 @@ namespace GestionFormation
         private string dateEnd;
         private string place;
         private Formation laFormation;
-        private Participant lesParticipants;
+        private List<Participant> lesParticipants;
 
         //
         //Builders
@@ -29,12 +29,9 @@ namespace GestionFormation
 
         public Session(string TheBegin, string TheEnd, string ThePlace)
         {
-            if (TheBegin is string && TheEnd is string && ThePlace is string)
-            {
-                dateBegin = TheBegin;
-                dateEnd = TheEnd;
-                place = ThePlace;
-            }
+            dateBegin = TheBegin;
+            dateEnd = TheEnd;
+            place = ThePlace;
         }
 
         //
@@ -45,7 +42,7 @@ namespace GestionFormation
         public string DateEnd { get; set; }
         public string Place { get; set; }
         public Formation LaFormation { get; set; }
-        public Participant LesParticipants { get; set; }
+        public List<Participant> LesParticipants { get; set; }
 
 
 
