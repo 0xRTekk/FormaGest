@@ -23,13 +23,22 @@ namespace GestionFormation
         {
             String login = tb_co_login.ToString();
             String pass = tb_co_pass.ToString();
-            if (db.Authentification(login, pass))
+            if (db.Authentification(login, pass) == true)
             {
                 Form1 form1 = new Form1();
-                form1.Show();
+                form1.ShowDialog();
                 this.Hide();
             }
+            else
+            {
+                MessageBox.Show("Mauvais login ou mot de passe");
+            }
                 
+        }
+
+        private void btn_co_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

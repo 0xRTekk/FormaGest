@@ -31,10 +31,11 @@
             this.btn_co_validate = new System.Windows.Forms.Button();
             this.btn_co_cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lb_co_login = new System.Windows.Forms.Label();
-            this.lb_co_pass = new System.Windows.Forms.Label();
-            this.tb_co_login = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tb_co_pass = new System.Windows.Forms.TextBox();
+            this.tb_co_login = new System.Windows.Forms.TextBox();
+            this.lb_co_pass = new System.Windows.Forms.Label();
+            this.lb_co_login = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,9 +57,11 @@
             this.btn_co_cancel.TabIndex = 1;
             this.btn_co_cancel.Text = "Annuler";
             this.btn_co_cancel.UseVisualStyleBackColor = true;
+            this.btn_co_cancel.Click += new System.EventHandler(this.btn_co_cancel_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.tb_co_pass);
             this.groupBox1.Controls.Add(this.tb_co_login);
             this.groupBox1.Controls.Add(this.btn_co_validate);
@@ -70,7 +73,41 @@
             this.groupBox1.Size = new System.Drawing.Size(414, 205);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Connection";
+            this.groupBox1.Text = "Connexion";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(243, 116);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(147, 17);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Mot de passe oublié ?";
+            // 
+            // tb_co_pass
+            // 
+            this.tb_co_pass.Location = new System.Drawing.Point(111, 80);
+            this.tb_co_pass.Name = "tb_co_pass";
+            this.tb_co_pass.PasswordChar = '*';
+            this.tb_co_pass.Size = new System.Drawing.Size(279, 22);
+            this.tb_co_pass.TabIndex = 6;
+            // 
+            // tb_co_login
+            // 
+            this.tb_co_login.Location = new System.Drawing.Point(111, 30);
+            this.tb_co_login.Name = "tb_co_login";
+            this.tb_co_login.Size = new System.Drawing.Size(279, 22);
+            this.tb_co_login.TabIndex = 5;
+            // 
+            // lb_co_pass
+            // 
+            this.lb_co_pass.AutoSize = true;
+            this.lb_co_pass.Location = new System.Drawing.Point(2, 85);
+            this.lb_co_pass.Name = "lb_co_pass";
+            this.lb_co_pass.Size = new System.Drawing.Size(97, 17);
+            this.lb_co_pass.TabIndex = 4;
+            this.lb_co_pass.Text = "Mot de passe:";
             // 
             // lb_co_login
             // 
@@ -81,38 +118,15 @@
             this.lb_co_login.TabIndex = 3;
             this.lb_co_login.Text = "Login:";
             // 
-            // lb_co_pass
-            // 
-            this.lb_co_pass.AutoSize = true;
-            this.lb_co_pass.Location = new System.Drawing.Point(2, 112);
-            this.lb_co_pass.Name = "lb_co_pass";
-            this.lb_co_pass.Size = new System.Drawing.Size(97, 17);
-            this.lb_co_pass.TabIndex = 4;
-            this.lb_co_pass.Text = "Mot de passe:";
-            // 
-            // tb_co_login
-            // 
-            this.tb_co_login.Location = new System.Drawing.Point(111, 30);
-            this.tb_co_login.Name = "tb_co_login";
-            this.tb_co_login.Size = new System.Drawing.Size(279, 22);
-            this.tb_co_login.TabIndex = 5;
-            // 
-            // tb_co_pass
-            // 
-            this.tb_co_pass.Location = new System.Drawing.Point(111, 107);
-            this.tb_co_pass.Name = "tb_co_pass";
-            this.tb_co_pass.PasswordChar = '*';
-            this.tb_co_pass.Size = new System.Drawing.Size(279, 22);
-            this.tb_co_pass.TabIndex = 6;
-            // 
             // Connection_form
             // 
+            this.AcceptButton = this.btn_co_validate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 229);
             this.Controls.Add(this.groupBox1);
             this.Name = "Connection_form";
-            this.Text = "Connection";
+            this.Text = "Connexion";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -128,5 +142,6 @@
         private System.Windows.Forms.TextBox tb_co_login;
         private System.Windows.Forms.Label lb_co_pass;
         private System.Windows.Forms.Label lb_co_login;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

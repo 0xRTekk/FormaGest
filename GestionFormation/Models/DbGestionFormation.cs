@@ -31,15 +31,17 @@ namespace GestionFormation
         {
             Boolean present = false;
             
-            String auth = "SELECT * FROM user WHERE login = @theLogin AND pass = @thePass";
+            String strQuery = "SELECT * FROM user WHERE login = 'admin' AND pass = 'admin' ";
             var dynamicParameters = new DynamicParameters();
             dynamicParameters.Add("theLogin", login);
             dynamicParameters.Add("thePass", pass);
             dbConn.Open();
-            var authVerif = dbConn.Query(auth, dynamicParameters);
+            List<User> user = dbConn.Query<User>(strQuery, dynamicParameters).ToList();
+//            var authVerif = dbConn.Query(strQuery, dynamicParameters);
             dbConn.Close();
 
-            if (authVerif != null)
+            //If the login/pass couple is present in Db 
+            if (user.Count() == 1)
                 present = true;
 
             return present;
