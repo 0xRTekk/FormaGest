@@ -16,5 +16,24 @@ namespace GestionFormation
         {
             InitializeComponent();
         }
+
+        private void btnAddSession_Click(object sender, EventArgs e)
+        {
+            AdminSessionManagement adminAddSession = new AdminSessionManagement();
+            adminAddSession.ShowDialog();
+            this.Hide();
+        }
+
+        //
+        //Passer l'objet session selectionné dans la dgvSessions en parametre
+        //
+        private void btnEditSession_Click(object sender, EventArgs e)
+        {
+            Session session = (Session)dgvSessions.CurrentRow.DataBoundItem;
+
+            AdminSessionManagement adminEditSession = new AdminSessionManagement(session);
+            adminEditSession.ShowDialog();
+            this.Hide();
+        }
     }
 }

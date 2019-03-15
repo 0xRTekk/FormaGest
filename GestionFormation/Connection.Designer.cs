@@ -31,7 +31,7 @@
             this.btn_co_validate = new System.Windows.Forms.Button();
             this.btn_co_cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.llbForgottenPass = new System.Windows.Forms.LinkLabel();
             this.tb_co_pass = new System.Windows.Forms.TextBox();
             this.tb_co_login = new System.Windows.Forms.TextBox();
             this.lb_co_pass = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.linkLabel1);
+            this.groupBox1.Controls.Add(this.llbForgottenPass);
             this.groupBox1.Controls.Add(this.tb_co_pass);
             this.groupBox1.Controls.Add(this.tb_co_login);
             this.groupBox1.Controls.Add(this.btn_co_validate);
@@ -75,15 +75,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Connexion";
             // 
-            // linkLabel1
+            // llbForgottenPass
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(243, 116);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(147, 17);
-            this.linkLabel1.TabIndex = 7;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Mot de passe oublié ?";
+            this.llbForgottenPass.AutoSize = true;
+            this.llbForgottenPass.Location = new System.Drawing.Point(243, 116);
+            this.llbForgottenPass.Name = "llbForgottenPass";
+            this.llbForgottenPass.Size = new System.Drawing.Size(147, 17);
+            this.llbForgottenPass.TabIndex = 7;
+            this.llbForgottenPass.TabStop = true;
+            this.llbForgottenPass.Text = "Mot de passe oublié ?";
             // 
             // tb_co_pass
             // 
@@ -142,6 +142,6 @@
         private System.Windows.Forms.TextBox tb_co_login;
         private System.Windows.Forms.Label lb_co_pass;
         private System.Windows.Forms.Label lb_co_login;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel llbForgottenPass;
     }
 }

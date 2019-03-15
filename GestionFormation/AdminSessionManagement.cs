@@ -12,9 +12,33 @@ namespace GestionFormation
 {
     public partial class AdminSessionManagement : Form
     {
+        //
+        //Properties
+        //
+        private Session session;
+
+
+        //
+        //Getters & Setters
+        //
+        public Session Session { get; set; }
+
+
+        //
+        //Builders
+        //
         public AdminSessionManagement()
         {
             InitializeComponent();
+            this.Session = null;
         }
+
+        public AdminSessionManagement(Session theSession)
+        {
+            InitializeComponent();
+            this.Session = theSession;
+        }
+
+        
     }
 }

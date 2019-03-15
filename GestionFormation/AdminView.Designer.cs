@@ -30,7 +30,7 @@
         {
             this.btnUsersManagement = new System.Windows.Forms.Button();
             this.btnApplicationManagement = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCalendarManagement = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUsersManagement
@@ -41,6 +41,7 @@
             this.btnUsersManagement.TabIndex = 0;
             this.btnUsersManagement.Text = "Gestion des utilisateurs";
             this.btnUsersManagement.UseVisualStyleBackColor = true;
+            this.btnUsersManagement.Click += new System.EventHandler(this.btnUsersManagement_Click);
             // 
             // btnApplicationManagement
             // 
@@ -50,22 +51,24 @@
             this.btnApplicationManagement.TabIndex = 1;
             this.btnApplicationManagement.Text = "Gestion des candidatures";
             this.btnApplicationManagement.UseVisualStyleBackColor = true;
+            this.btnApplicationManagement.Click += new System.EventHandler(this.btnApplicationManagement_Click);
             // 
-            // button3
+            // btnCalendarManagement
             // 
-            this.button3.Location = new System.Drawing.Point(77, 338);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 59);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Gestion du calendrier";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCalendarManagement.Location = new System.Drawing.Point(77, 338);
+            this.btnCalendarManagement.Name = "btnCalendarManagement";
+            this.btnCalendarManagement.Size = new System.Drawing.Size(158, 59);
+            this.btnCalendarManagement.TabIndex = 2;
+            this.btnCalendarManagement.Text = "Gestion du calendrier";
+            this.btnCalendarManagement.UseVisualStyleBackColor = true;
+            this.btnCalendarManagement.Click += new System.EventHandler(this.btnCalendarManagement_Click);
             // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 450);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnCalendarManagement);
             this.Controls.Add(this.btnApplicationManagement);
             this.Controls.Add(this.btnUsersManagement);
             this.Name = "AdminView";
@@ -78,6 +81,6 @@
 
         private System.Windows.Forms.Button btnUsersManagement;
         private System.Windows.Forms.Button btnApplicationManagement;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnCalendarManagement;
     }
 }

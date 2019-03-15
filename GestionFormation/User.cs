@@ -17,7 +17,7 @@ namespace GestionFormation
         private String role;
         private DateTime heurePremiereCo;
         private int tentativeCo;
-        private int demandeChangePass;
+        private Boolean demandeChangePass;
 
         //
         //Builders
@@ -29,10 +29,10 @@ namespace GestionFormation
             this.role = "Inconnue";
             this.heurePremiereCo = DateTime.Now;
             this.tentativeCo = 0;
-            this.demandeChangePass = 0;
+            this.demandeChangePass = false;
         }
 
-        public User(String theLogin, String thePass, String theRole, DateTime premiereCo, int nbTentativeCo, int changePassDemande)
+        public User(String theLogin, String thePass, String theRole, DateTime premiereCo, int nbTentativeCo, Boolean changePassDemande)
         {
             this.login = theLogin;
             this.pass = thePass;
@@ -51,6 +51,6 @@ namespace GestionFormation
         public String Role { get; set; }
         public DateTime HeurePremiereCo { get; set; }
         public int TentativeCo { get; set; }
-        public int DemandeChangePass { get; set; }
+        public Boolean DemandeChangePass { get; set; }
     }
 }

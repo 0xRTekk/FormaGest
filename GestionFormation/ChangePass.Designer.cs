@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnValidate = new System.Windows.Forms.Button();
+            this.tbNewPass = new System.Windows.Forms.TextBox();
+            this.tbNewPassConfirm = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.btnCancel);
+            this.groupBox1.Controls.Add(this.btnValidate);
+            this.groupBox1.Controls.Add(this.tbNewPass);
+            this.groupBox1.Controls.Add(this.tbNewPassConfirm);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
@@ -53,14 +53,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Changement de mot de passe";
             // 
-            // label1
+            // btnCancel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nouveau mdp:";
+            this.btnCancel.Location = new System.Drawing.Point(246, 148);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(112, 36);
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "Annuler";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnValidate
+            // 
+            this.btnValidate.Location = new System.Drawing.Point(70, 148);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(112, 36);
+            this.btnValidate.TabIndex = 4;
+            this.btnValidate.Text = "Valider";
+            this.btnValidate.UseVisualStyleBackColor = true;
+            // 
+            // tbNewPass
+            // 
+            this.tbNewPass.Location = new System.Drawing.Point(113, 47);
+            this.tbNewPass.Name = "tbNewPass";
+            this.tbNewPass.Size = new System.Drawing.Size(270, 22);
+            this.tbNewPass.TabIndex = 3;
+            // 
+            // tbNewPassConfirm
+            // 
+            this.tbNewPassConfirm.Location = new System.Drawing.Point(113, 95);
+            this.tbNewPassConfirm.Name = "tbNewPassConfirm";
+            this.tbNewPassConfirm.Size = new System.Drawing.Size(270, 22);
+            this.tbNewPassConfirm.TabIndex = 2;
             // 
             // label2
             // 
@@ -71,37 +95,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Confirmation:";
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 95);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(270, 22);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(113, 47);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(270, 22);
-            this.textBox2.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(70, 148);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 36);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(246, 148);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 36);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nouveau mdp:";
             // 
             // ChangePass
             // 
@@ -120,10 +121,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnValidate;
+        private System.Windows.Forms.TextBox tbNewPass;
+        private System.Windows.Forms.TextBox tbNewPassConfirm;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }

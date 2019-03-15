@@ -101,6 +101,7 @@
             this.btnAddSession.TabIndex = 6;
             this.btnAddSession.Text = "Ajouter session";
             this.btnAddSession.UseVisualStyleBackColor = true;
+            this.btnAddSession.Click += new System.EventHandler(this.btnAddSession_Click);
             // 
             // btnRemoveSession
             // 
@@ -119,6 +120,7 @@
             this.btnEditSession.TabIndex = 8;
             this.btnEditSession.Text = "Modifier session";
             this.btnEditSession.UseVisualStyleBackColor = true;
+            this.btnEditSession.Click += new System.EventHandler(this.btnEditSession_Click);
             // 
             // AdminCalendarManagement
             // 

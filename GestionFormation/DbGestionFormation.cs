@@ -27,55 +27,18 @@ namespace GestionFormation
             dbConn = new MySqlConnection(connString);
         }
 
-        public Boolean VerifLogin(String login)
+        public List<User> Connection(String login, String pass)
         {
-            Boolean present = false;
-
-            String strQuery = "SELECT id FROM user WHERE login = @theLogin";
-            var dynamicParameters = new DynamicParameters();
-            dynamicParameters.Add("theLogin", login);
-            dbConn.Open();
-            var user = dbConn.Query(strQuery, dynamicParameters);
-            dbConn.Close();
-
-            if (user.Count() == 1)
-                present = true;
-
-            return present;
-        }
-
-        public User GetUserInfos(String login)
-        {
-            User userInfos = new User();
-
-            String strQuery = "SELECT * FROM user WHERE login = @theLogin";
-            var dynamicParameters = new DynamicParameters();
-            dynamicParameters.Add("theLogin", login);
-            dbConn.Open();
-            userInfos = dbConn.Query<User>(strQuery, dynamicParameters).ToList();
-            dbConn.Close();
-
-            return userInfos;
-        }
-
-        public Boolean Authentification(String login, String pass)
-        {
-            Boolean present = false;
-            
-            String strQuery = "SELECT * FROM user WHERE login = 'admin' AND pass = 'admin' ";
+            List<User> user = new List<User>();
+            String strQuery = "SELECT * FROM user WHERE login = @theLogin AND pass = @thePass"; //infos connexion en dur car dyna param fonctionnent pas
             var dynamicParameters = new DynamicParameters();
             dynamicParameters.Add("theLogin", login);
             dynamicParameters.Add("thePass", pass);
             dbConn.Open();
-            List<User> user = dbConn.Query<User>(strQuery, dynamicParameters).ToList();
-//            var authVerif = dbConn.Query(strQuery, dynamicParameters);
+            user = dbConn.Query<User>(strQuery, dynamicParameters).ToList();
             dbConn.Close();
 
-            //If the login/pass couple is present in Db 
-            if (user.Count() == 1)
-                present = true;
-
-            return present;
+            return user;
         }
 
         public List<Formation> GetFormations()

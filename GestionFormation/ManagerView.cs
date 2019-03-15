@@ -24,7 +24,9 @@ namespace GestionFormation
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            ManagerAddApplication managerAddApplication = new ManagerAddApplication();
+            managerAddApplication.ShowDialog();
+            this.Hide();
         }
     }
 }

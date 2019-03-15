@@ -16,5 +16,26 @@ namespace GestionFormation
         {
             InitializeComponent();
         }
+
+        private void btnUsersManagement_Click(object sender, EventArgs e)
+        {
+            AdminUserManagement adminUserManagement = new AdminUserManagement();
+            adminUserManagement.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnApplicationManagement_Click(object sender, EventArgs e)
+        {
+            AdminApplicationManagement adminApplicationManagement = new AdminApplicationManagement();
+            adminApplicationManagement.ShowDialog();
+            this.Hide();
+        }
+
+        private void btnCalendarManagement_Click(object sender, EventArgs e)
+        {
+            AdminCalendarManagement adminCalendarManagement = new AdminCalendarManagement();
+            adminCalendarManagement.ShowDialog();
+            this.Hide();
+        }
     }
 }
