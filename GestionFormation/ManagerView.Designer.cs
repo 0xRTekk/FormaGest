@@ -31,12 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbTraining = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvSessionCalendar = new System.Windows.Forms.DataGridView();
+            this.dgvSession = new System.Windows.Forms.DataGridView();
             this.btnAddApplication = new System.Windows.Forms.Button();
             this.btnEditConvocation = new System.Windows.Forms.Button();
             this.btnSendSms = new System.Windows.Forms.Button();
             this.btnRegistrationPreview = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSessionCalendar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSession)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,6 +55,7 @@
             this.cbTraining.Name = "cbTraining";
             this.cbTraining.Size = new System.Drawing.Size(269, 24);
             this.cbTraining.TabIndex = 1;
+            this.cbTraining.SelectedIndexChanged += new System.EventHandler(this.cbTraining_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -65,14 +66,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Calendrier des sessions:";
             // 
-            // dgvSessionCalendar
+            // dgvSession
             // 
-            this.dgvSessionCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSessionCalendar.Location = new System.Drawing.Point(13, 103);
-            this.dgvSessionCalendar.Name = "dgvSessionCalendar";
-            this.dgvSessionCalendar.RowTemplate.Height = 24;
-            this.dgvSessionCalendar.Size = new System.Drawing.Size(775, 204);
-            this.dgvSessionCalendar.TabIndex = 3;
+            this.dgvSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSession.Location = new System.Drawing.Point(13, 103);
+            this.dgvSession.Name = "dgvSession";
+            this.dgvSession.RowTemplate.Height = 24;
+            this.dgvSession.Size = new System.Drawing.Size(775, 204);
+            this.dgvSession.TabIndex = 3;
             // 
             // btnAddApplication
             // 
@@ -120,14 +121,14 @@
             this.Controls.Add(this.btnSendSms);
             this.Controls.Add(this.btnEditConvocation);
             this.Controls.Add(this.btnAddApplication);
-            this.Controls.Add(this.dgvSessionCalendar);
+            this.Controls.Add(this.dgvSession);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbTraining);
             this.Controls.Add(this.label1);
             this.Name = "ManagerView";
             this.Text = "Panneau gestionnaire";
             this.Load += new System.EventHandler(this.ManagerView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSessionCalendar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSession)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,7 +139,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbTraining;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgvSessionCalendar;
+        private System.Windows.Forms.DataGridView dgvSession;
         private System.Windows.Forms.Button btnAddApplication;
         private System.Windows.Forms.Button btnEditConvocation;
         private System.Windows.Forms.Button btnSendSms;
