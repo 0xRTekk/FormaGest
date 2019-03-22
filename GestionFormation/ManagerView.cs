@@ -32,7 +32,7 @@ namespace GestionFormation
             dgvSession.DataSource = db.GetSessions(formationObject.Id.ToString());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddApplication_Click(object sender, EventArgs e)
         {
             ManagerAddApplication managerAddApplication = new ManagerAddApplication();
             managerAddApplication.ShowDialog();

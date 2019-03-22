@@ -83,7 +83,7 @@
             this.btnAddApplication.TabIndex = 4;
             this.btnAddApplication.Text = "Ajouter une candidature";
             this.btnAddApplication.UseVisualStyleBackColor = true;
-            this.btnAddApplication.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddApplication.Click += new System.EventHandler(this.btnAddApplication_Click);
             // 
             // btnEditConvocation
             // 

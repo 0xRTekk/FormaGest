@@ -48,6 +48,7 @@
             this.cbTraining.Name = "cbTraining";
             this.cbTraining.Size = new System.Drawing.Size(258, 24);
             this.cbTraining.TabIndex = 0;
+            this.cbTraining.SelectedIndexChanged += new System.EventHandler(this.cbTraining_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -150,6 +151,7 @@
             this.Controls.Add(this.cbTraining);
             this.Name = "AdminCalendarManagement";
             this.Text = "Gestion du calendrier";
+            this.Load += new System.EventHandler(this.AdminCalendarManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

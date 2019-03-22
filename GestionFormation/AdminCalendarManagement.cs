@@ -12,9 +12,12 @@ namespace GestionFormation
 {
     public partial class AdminCalendarManagement : Form
     {
+        private DbGestionFormation db = new DbGestionFormation();
+
         public AdminCalendarManagement()
         {
             InitializeComponent();
+            db.InitDb();
         }
 
         private void btnAddSession_Click(object sender, EventArgs e)
@@ -40,6 +43,25 @@ namespace GestionFormation
         {
             AdminView adminView = new AdminView();
             adminView.ShowDialog();
+        }
+
+        private void AdminCalendarManagement_Load(object sender, EventArgs e)
+        {
+            //Data binding with List<Formation>
+            cbTraining.DataSource = db.GetFormations();
+            cbTraining.DisplayMember = "name";
+            cbTraining.ValueMember = "id";
+
+            //DataGrid binding from Session of Formation selected
+            Formation formationObject = (Formation)cbTraining.SelectedItem;
+            dgvSessions.DataSource = db.GetSessions(formationObject.Id.ToString());
+        }
+
+        private void cbTraining_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //DataGrid binding from Session of Formation selected
+            Formation formationObject = (Formation)cbTraining.SelectedItem;
+            dgvSessions.DataSource = db.GetSessions(formationObject.Id.ToString());
         }
     }
 }
