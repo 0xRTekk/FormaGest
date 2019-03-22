@@ -16,5 +16,11 @@ namespace GestionFormation
         {
             InitializeComponent();
         }
+
+        private void btnAdminView_Click(object sender, EventArgs e)
+        {
+            AdminView adminView = new AdminView();
+            adminView.ShowDialog();
+        }
     }
 }

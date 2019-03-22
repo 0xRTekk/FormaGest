@@ -16,7 +16,37 @@ namespace GestionFormation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Connection_form());
+            Connection_form connection_Form = new Connection_form();
+
+            //Permet de fermer la fenetre de connection une fois que l'utilisateur est connecte
+            connection_Form.ShowDialog();
+            if (connection_Form.DialogResult == DialogResult.OK)
+            {
+                String role = connection_Form.contextUser.Role;
+
+                connection_Form.Close();
+                
+                switch (role) //Redirection vers la bonne vue selon le role
+                {
+                    case "administrateur":
+                        AdminView adminView = new AdminView();
+                        adminView.ShowDialog();
+                        break;
+                    case "gestionnaire":
+                        ManagerView managerView = new ManagerView();
+                        managerView.ShowDialog();
+                        break;
+                    case "utilisateur":
+                        GuestView guestView = new GuestView();
+                        guestView.ShowDialog();
+                        break;
+                    default:
+                        connection_Form.ShowDialog();
+                        break;
+                }
+            }
+            else
+                connection_Form.Close();
         }
     }
 }

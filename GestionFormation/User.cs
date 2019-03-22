@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestionFormation
 {
-    class User
+    public class User
     {
         //
         //Properties

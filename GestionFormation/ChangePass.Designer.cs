@@ -71,6 +71,7 @@
             this.btnValidate.TabIndex = 4;
             this.btnValidate.Text = "Valider";
             this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
             // tbNewPass
             // 

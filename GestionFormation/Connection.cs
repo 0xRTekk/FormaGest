@@ -12,8 +12,12 @@ namespace GestionFormation
 {
     public partial class Connection_form : Form
     {
-        User contextUser = new User();
+        DateTime dateCourante = DateTime.Now;
+        public User contextUser = new User();
         private DbGestionFormation db = new DbGestionFormation();
+
+        public User ContextUser { get; set; }
+
 
         public Connection_form()
         {
@@ -26,54 +30,50 @@ namespace GestionFormation
             String login = tb_co_login.Text;
             String pass = tb_co_pass.Text;
             
-            if (db.Connection(login, pass).Count() == 1) //PB avec la requête. Login et MDP en dur dans le requete pour pouvoir ^poursuivre le dev de l'appli
+            if (db.Connection(login, pass).Count() == 1)
             {
+                this.DialogResult = DialogResult.OK;
+
                 List<User> accounts = db.Connection(login, pass);
                 foreach (User userAccount in accounts)
                 {
                     contextUser = userAccount;
                 }
-                if (contextUser.TentativeCo >= 6)
+
+                var hours = (dateCourante - contextUser.HeurePremiereCo).TotalHours; // Difference d'heure entre la dernière co et l'heure courante
+                if (contextUser.HeurePremiereCo == null)// Initialisation de l'heure de première co
+                {
+                    contextUser.HeurePremiereCo = dateCourante;
+                }
+                else if (hours >= 24)// Si 24h se sont écoulés depuis la dernière co, remet le compteur à la date courante
+                {
+                    contextUser.HeurePremiereCo = dateCourante;
+                }
+                if (contextUser.TentativeCo >= 6 && hours <= 24) //6 mauvais logs en moins de 24h
                 {
                     MessageBox.Show("Votre compte est gelé. Veuillez contacter et attendre l'action de l'administrateur.");
                 }
                 else if (contextUser.DemandeChangePass)
                 {
-                    ChangePass changePass = new ChangePass();
+                    // Fermet la fenetre lors du clic sur les boutons Valider et Annuler
+                    ChangePass changePass = new ChangePass(contextUser);
                     changePass.ShowDialog();
+                    if (changePass.DialogResult == DialogResult.OK)
+                        changePass.Close();
+                    else
+                        changePass.Close();
                 }
-                else //Redirection vers la bonne vue selon le role
-                {
-                    String role = contextUser.Role;
-                    switch (role)
-                    {
-                        case "administrateur":
-                            AdminView adminView = new AdminView();
-                            adminView.ShowDialog();
-                            break;
-                        case "gestionnaire":
-                            ManagerView managerView = new ManagerView();
-                            managerView.ShowDialog();
-                            break;
-                        default:
-                            GuestView guestView = new GuestView();
-                            guestView.ShowDialog();
-                            break;
-                    }
-                }
-                //Appeler une fonction pour determiner si c'est la premiere connexion en 24.
-                //Si le resultat = null : on initialise USer.heurePremiereCo = DateTime.Now (voir constructeur)
-                //Si le resultat >= 24h mais tentativeCo < 6 : le nb de mdp faux n'est pas atteint, alors on initialise User.heurePremiereCo = DateTime.Now
-                //Si le resultat >= 24h et tentativeCo > 6 : le nb de tentative de co par jour est dépassé, alors on freeze le compte
-
             }
             else if (db.Connection(login, pass).Count() > 1)
             {
+                this.DialogResult = DialogResult.Cancel;
                 MessageBox.Show("Erreur: plusieurs utilisateurs ont le même couple login/mdp que vous. Veuillez contacter l'administrateur de l'application");
             }
             else
             {
+                this.DialogResult = DialogResult.Cancel;
                 //Requete qui va incrémenter tentativeCo de l'utilisateur dont soit le login correspond, soit le mdp.
+
                 MessageBox.Show("Mauvais login ou mot de passe");
             }
                 
@@ -81,7 +81,19 @@ namespace GestionFormation
 
         private void btn_co_cancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+
+
+        //
+        // Private Methods
+        //
+        private void premiereCoJour()
+        {
+            
+            
+            
         }
     }
 }

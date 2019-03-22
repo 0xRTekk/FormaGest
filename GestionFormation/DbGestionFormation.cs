@@ -27,6 +27,17 @@ namespace GestionFormation
             dbConn = new MySqlConnection(connString);
         }
 
+        public void UpdatePass(int id, String pass)
+        {
+            String strQuery = "UPDATE user SET pass = @thePass, tentativeCo = 0, demandeChangePass = 0, heurePremiereCo = null WHERE id = @theId";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theId", id);
+            dynamicParameters.Add("thePass", pass);
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+
         public List<User> Connection(String login, String pass)
         {
             List<User> user = new List<User>();

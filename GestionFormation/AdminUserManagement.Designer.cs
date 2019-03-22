@@ -33,13 +33,14 @@
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.btnAdminView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvUsers
             // 
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(12, 91);
+            this.dgvUsers.Location = new System.Drawing.Point(12, 131);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.RowTemplate.Height = 24;
             this.dgvUsers.Size = new System.Drawing.Size(776, 339);
@@ -48,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 39);
+            this.label1.Location = new System.Drawing.Point(13, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 17);
             this.label1.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(72, 466);
+            this.btnAddUser.Location = new System.Drawing.Point(72, 506);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(149, 50);
             this.btnAddUser.TabIndex = 2;
@@ -65,7 +66,7 @@
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(329, 466);
+            this.btnEditUser.Location = new System.Drawing.Point(329, 506);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(149, 50);
             this.btnEditUser.TabIndex = 3;
@@ -74,18 +75,29 @@
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(570, 466);
+            this.btnDeleteUser.Location = new System.Drawing.Point(570, 506);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(149, 50);
             this.btnDeleteUser.TabIndex = 4;
             this.btnDeleteUser.Text = "Supprimer utilisateur";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
             // 
+            // btnAdminView
+            // 
+            this.btnAdminView.Location = new System.Drawing.Point(12, 12);
+            this.btnAdminView.Name = "btnAdminView";
+            this.btnAdminView.Size = new System.Drawing.Size(75, 23);
+            this.btnAdminView.TabIndex = 5;
+            this.btnAdminView.Text = "Retour";
+            this.btnAdminView.UseVisualStyleBackColor = true;
+            this.btnAdminView.Click += new System.EventHandler(this.btnAdminView_Click);
+            // 
             // AdminUserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 544);
+            this.ClientSize = new System.Drawing.Size(800, 601);
+            this.Controls.Add(this.btnAdminView);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnEditUser);
             this.Controls.Add(this.btnAddUser);
@@ -106,5 +118,6 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnEditUser;
         private System.Windows.Forms.Button btnDeleteUser;
+        private System.Windows.Forms.Button btnAdminView;
     }
 }
