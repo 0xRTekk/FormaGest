@@ -52,10 +52,19 @@ namespace GestionFormation
             return user;
         }
 
+        public List<User> GetUsers()
+        {
+            dbConn.Open();
+            var users = dbConn.Query<User>("SELECT * FROM user").ToList();
+            dbConn.Close();
+
+            return users;
+        }
+
         public List<Formation> GetFormations()
         {
             dbConn.Open();
-            var formations = dbConn.Query<Formation>("SELECT * FROM Formation").ToList();
+            var formations = dbConn.Query<Formation>("SELECT * FROM formation").ToList();
             dbConn.Close();
 
             return formations;

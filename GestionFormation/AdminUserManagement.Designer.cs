@@ -105,6 +105,7 @@
             this.Controls.Add(this.dgvUsers);
             this.Name = "AdminUserManagement";
             this.Text = "Gestion des utilisateurs";
+            this.Load += new System.EventHandler(this.AdminUserManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
