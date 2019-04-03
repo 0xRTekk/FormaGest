@@ -74,6 +74,12 @@
     <Compile Include="AdminSessionManagement.Designer.cs">
       <DependentUpon>AdminSessionManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminTicketsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminTicketsView.Designer.cs">
+      <DependentUpon>AdminTicketsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminUserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,7 @@
     <Compile Include="GuestView.Designer.cs">
       <DependentUpon>GuestView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Incident.cs" />
     <Compile Include="ManagerAddApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +148,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserTicket.Designer.cs">
+      <DependentUpon>UserTicket.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminAddTraining.resx">
       <DependentUpon>AdminAddTraining.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSessionManagement.resx">
       <DependentUpon>AdminSessionManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminTicketsView.resx">
+      <DependentUpon>AdminTicketsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUserManagement.resx">
       <DependentUpon>AdminUserManagement.cs</DependentUpon>
@@ -192,6 +208,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserTicket.resx">
+      <DependentUpon>UserTicket.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

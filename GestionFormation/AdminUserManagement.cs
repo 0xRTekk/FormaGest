@@ -31,5 +31,16 @@ namespace GestionFormation
             //Data binding with List<Formation> contextFormations
             dgvUsers.DataSource = db.GetUsers();
         }
+
+        private void btnDeleteUser_Click(object sender, EventArgs e)
+        {
+            User objectUser = (User)dgvUsers.CurrentRow.DataBoundItem;
+            int idUser = objectUser.Id;
+
+            db.DeleteUser(idUser);
+            //Refresh the DataGridView
+            dgvUsers.DataSource = null;
+            dgvUsers.DataSource = db.GetUsers();
+        }
     }
 }

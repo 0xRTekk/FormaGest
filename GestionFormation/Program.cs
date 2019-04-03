@@ -22,7 +22,8 @@ namespace GestionFormation
             connection_Form.ShowDialog();
             if (connection_Form.DialogResult == DialogResult.OK)
             {
-                String role = connection_Form.contextUser.Role;
+                User contextUser = connection_Form.contextUser;
+                String role = contextUser.Role;
 
                 connection_Form.Close();
                 
@@ -37,7 +38,7 @@ namespace GestionFormation
                         managerView.ShowDialog();
                         break;
                     case "utilisateur":
-                        GuestView guestView = new GuestView();
+                        GuestView guestView = new GuestView(contextUser);
                         guestView.ShowDialog();
                         break;
                     default:
