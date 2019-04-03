@@ -98,6 +98,20 @@ namespace GestionFormation
             return users;
         }
 
+        public void AddUser(String login, String pass, String role, int tentativeCo, int demandeChangePass)
+        {
+            String strQuery = "INSERT INTO user (login, pass, role, tentativeCo, demandeChangePass) VALUES (@theLogin, @thePass, @theRole, @theTentativeCo, @theDemandeChangePass)";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theLogin", login);
+            dynamicParameters.Add("thePass", pass);
+            dynamicParameters.Add("theRole", role);
+            dynamicParameters.Add("theTentativeCo", tentativeCo);
+            dynamicParameters.Add("theDemandeChangePass", demandeChangePass);
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+
         public void DeleteUser(int idUser)
         {
             String strQuery = "DELETE FROM user WHERE id = @theId";

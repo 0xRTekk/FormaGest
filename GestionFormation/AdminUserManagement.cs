@@ -42,5 +42,17 @@ namespace GestionFormation
             dgvUsers.DataSource = null;
             dgvUsers.DataSource = db.GetUsers();
         }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            AdminAddUser adminAddUser = new AdminAddUser();
+            adminAddUser.ShowDialog();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            dgvUsers.DataSource = null;
+            dgvUsers.DataSource = db.GetUsers();
+        }
     }
 }
