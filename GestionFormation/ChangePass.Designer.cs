@@ -58,7 +58,7 @@
             this.btnCancel.Location = new System.Drawing.Point(246, 148);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 36);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -68,7 +68,7 @@
             this.btnValidate.Location = new System.Drawing.Point(70, 148);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(112, 36);
-            this.btnValidate.TabIndex = 4;
+            this.btnValidate.TabIndex = 3;
             this.btnValidate.Text = "Valider";
             this.btnValidate.UseVisualStyleBackColor = true;
             this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
@@ -78,7 +78,7 @@
             this.tbNewPass.Location = new System.Drawing.Point(113, 47);
             this.tbNewPass.Name = "tbNewPass";
             this.tbNewPass.Size = new System.Drawing.Size(270, 22);
-            this.tbNewPass.TabIndex = 3;
+            this.tbNewPass.TabIndex = 1;
             // 
             // tbNewPassConfirm
             // 
@@ -93,7 +93,7 @@
             this.label2.Location = new System.Drawing.Point(7, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 17);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 6;
             this.label2.Text = "Confirmation:";
             // 
             // label1
@@ -102,7 +102,7 @@
             this.label1.Location = new System.Drawing.Point(7, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 17);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 5;
             this.label1.Text = "Nouveau mdp:";
             // 
             // ChangePass

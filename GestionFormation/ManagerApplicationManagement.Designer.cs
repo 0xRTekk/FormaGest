@@ -1,6 +1,6 @@
 ﻿namespace GestionFormation
 {
-    partial class AdminApplicationManagement
+    partial class ManagerApplicationManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             this.btnAddUser = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
-            this.btnAdminView = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,28 +82,28 @@
             this.dgvUsers.Size = new System.Drawing.Size(776, 339);
             this.dgvUsers.TabIndex = 5;
             // 
-            // btnAdminView
+            // btnBack
             // 
-            this.btnAdminView.Location = new System.Drawing.Point(16, 13);
-            this.btnAdminView.Name = "btnAdminView";
-            this.btnAdminView.Size = new System.Drawing.Size(75, 23);
-            this.btnAdminView.TabIndex = 10;
-            this.btnAdminView.Text = "Retour";
-            this.btnAdminView.UseVisualStyleBackColor = true;
-            this.btnAdminView.Click += new System.EventHandler(this.btnAdminView_Click);
+            this.btnBack.Location = new System.Drawing.Point(16, 13);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 10;
+            this.btnBack.Text = "Retour";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnAdminView_Click);
             // 
-            // AdminApplicationManagement
+            // GuestApplicationManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 591);
-            this.Controls.Add(this.btnAdminView);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnEditUser);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvUsers);
-            this.Name = "AdminApplicationManagement";
+            this.Name = "GuestApplicationManagement";
             this.Text = "Gestion des candidatures";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
@@ -118,6 +118,6 @@
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvUsers;
-        private System.Windows.Forms.Button btnAdminView;
+        private System.Windows.Forms.Button btnBack;
     }
 }

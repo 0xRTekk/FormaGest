@@ -1,6 +1,6 @@
 ﻿namespace GestionFormation
 {
-    partial class ManagerAddApplication
+    partial class GuestAddApplication
     {
         /// <summary>
         /// Required designer variable.
@@ -119,6 +119,7 @@
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label3
             // 
@@ -193,7 +194,7 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informations du candidat";
             // 
-            // ManagerAddApplication
+            // GuestAddApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -215,7 +216,7 @@
             this.Controls.Add(this.dgvInterest);
             this.Controls.Add(this.dgvTraining);
             this.Controls.Add(this.groupBox1);
-            this.Name = "ManagerAddApplication";
+            this.Name = "GuestAddApplication";
             this.Text = "Ajouter candidature";
             this.Load += new System.EventHandler(this.ManagerAddApplication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTraining)).EndInit();

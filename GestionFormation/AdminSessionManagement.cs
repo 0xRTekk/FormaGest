@@ -39,6 +39,9 @@ namespace GestionFormation
             this.Session = theSession;
         }
 
-        
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

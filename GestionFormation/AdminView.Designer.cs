@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.btnUsersManagement = new System.Windows.Forms.Button();
-            this.btnApplicationManagement = new System.Windows.Forms.Button();
             this.btnCalendarManagement = new System.Windows.Forms.Button();
+            this.btnTicketsView = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUsersManagement
@@ -43,19 +43,9 @@
             this.btnUsersManagement.UseVisualStyleBackColor = true;
             this.btnUsersManagement.Click += new System.EventHandler(this.btnUsersManagement_Click);
             // 
-            // btnApplicationManagement
-            // 
-            this.btnApplicationManagement.Location = new System.Drawing.Point(77, 194);
-            this.btnApplicationManagement.Name = "btnApplicationManagement";
-            this.btnApplicationManagement.Size = new System.Drawing.Size(158, 59);
-            this.btnApplicationManagement.TabIndex = 1;
-            this.btnApplicationManagement.Text = "Gestion des candidatures";
-            this.btnApplicationManagement.UseVisualStyleBackColor = true;
-            this.btnApplicationManagement.Click += new System.EventHandler(this.btnApplicationManagement_Click);
-            // 
             // btnCalendarManagement
             // 
-            this.btnCalendarManagement.Location = new System.Drawing.Point(77, 338);
+            this.btnCalendarManagement.Location = new System.Drawing.Point(77, 199);
             this.btnCalendarManagement.Name = "btnCalendarManagement";
             this.btnCalendarManagement.Size = new System.Drawing.Size(158, 59);
             this.btnCalendarManagement.TabIndex = 2;
@@ -63,13 +53,23 @@
             this.btnCalendarManagement.UseVisualStyleBackColor = true;
             this.btnCalendarManagement.Click += new System.EventHandler(this.btnCalendarManagement_Click);
             // 
+            // btnTicketsView
+            // 
+            this.btnTicketsView.Location = new System.Drawing.Point(77, 335);
+            this.btnTicketsView.Name = "btnTicketsView";
+            this.btnTicketsView.Size = new System.Drawing.Size(158, 59);
+            this.btnTicketsView.TabIndex = 3;
+            this.btnTicketsView.Text = "Gestion des tickets";
+            this.btnTicketsView.UseVisualStyleBackColor = true;
+            this.btnTicketsView.Click += new System.EventHandler(this.btnTicketsView_Click);
+            // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(316, 450);
+            this.ClientSize = new System.Drawing.Size(316, 456);
+            this.Controls.Add(this.btnTicketsView);
             this.Controls.Add(this.btnCalendarManagement);
-            this.Controls.Add(this.btnApplicationManagement);
             this.Controls.Add(this.btnUsersManagement);
             this.Name = "AdminView";
             this.Text = "Panneau administrateur";
@@ -80,7 +80,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnUsersManagement;
-        private System.Windows.Forms.Button btnApplicationManagement;
         private System.Windows.Forms.Button btnCalendarManagement;
+        private System.Windows.Forms.Button btnTicketsView;
     }
 }

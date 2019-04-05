@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestionFormation.Views.Manager
+namespace GestionFormation
 {
-    public partial class ManagerCandidateInscription : Form
+    public partial class GuestAddApplication : Form
     {
-        public ManagerCandidateInscription()
+        public GuestAddApplication()
         {
             InitializeComponent();
+        }
+
+        private void ManagerAddApplication_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

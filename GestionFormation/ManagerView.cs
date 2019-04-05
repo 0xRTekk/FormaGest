@@ -32,17 +32,16 @@ namespace GestionFormation
             dgvSession.DataSource = db.GetSessions(formationObject.Id.ToString());
         }
 
-        private void btnAddApplication_Click(object sender, EventArgs e)
-        {
-            ManagerAddApplication managerAddApplication = new ManagerAddApplication();
-            managerAddApplication.ShowDialog();
-            this.Hide();
-        }
-
         private void cbTraining_SelectedIndexChanged(object sender, EventArgs e)
         {
             Formation formationObject = (Formation)cbTraining.SelectedItem;
             dgvSession.DataSource = db.GetSessions(formationObject.Id.ToString());
+        }
+
+        private void btnApplicationManagement_Click(object sender, EventArgs e)
+        {
+            ManagerApplicationManagement managerApplicationManagement = new ManagerApplicationManagement();
+            managerApplicationManagement.ShowDialog();
         }
     }
 }

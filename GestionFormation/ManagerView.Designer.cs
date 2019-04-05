@@ -32,7 +32,7 @@
             this.cbTraining = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvSession = new System.Windows.Forms.DataGridView();
-            this.btnAddApplication = new System.Windows.Forms.Button();
+            this.btnApplicationManagement = new System.Windows.Forms.Button();
             this.btnEditConvocation = new System.Windows.Forms.Button();
             this.btnSendSms = new System.Windows.Forms.Button();
             this.btnRegistrationPreview = new System.Windows.Forms.Button();
@@ -75,15 +75,15 @@
             this.dgvSession.Size = new System.Drawing.Size(775, 204);
             this.dgvSession.TabIndex = 3;
             // 
-            // btnAddApplication
+            // btnApplicationManagement
             // 
-            this.btnAddApplication.Location = new System.Drawing.Point(73, 328);
-            this.btnAddApplication.Name = "btnAddApplication";
-            this.btnAddApplication.Size = new System.Drawing.Size(665, 49);
-            this.btnAddApplication.TabIndex = 4;
-            this.btnAddApplication.Text = "Ajouter une candidature";
-            this.btnAddApplication.UseVisualStyleBackColor = true;
-            this.btnAddApplication.Click += new System.EventHandler(this.btnAddApplication_Click);
+            this.btnApplicationManagement.Location = new System.Drawing.Point(73, 328);
+            this.btnApplicationManagement.Name = "btnApplicationManagement";
+            this.btnApplicationManagement.Size = new System.Drawing.Size(665, 49);
+            this.btnApplicationManagement.TabIndex = 4;
+            this.btnApplicationManagement.Text = "Gestion des candidatures";
+            this.btnApplicationManagement.UseVisualStyleBackColor = true;
+            this.btnApplicationManagement.Click += new System.EventHandler(this.btnApplicationManagement_Click);
             // 
             // btnEditConvocation
             // 
@@ -120,7 +120,7 @@
             this.Controls.Add(this.btnRegistrationPreview);
             this.Controls.Add(this.btnSendSms);
             this.Controls.Add(this.btnEditConvocation);
-            this.Controls.Add(this.btnAddApplication);
+            this.Controls.Add(this.btnApplicationManagement);
             this.Controls.Add(this.dgvSession);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbTraining);
@@ -140,7 +140,7 @@
         private System.Windows.Forms.ComboBox cbTraining;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvSession;
-        private System.Windows.Forms.Button btnAddApplication;
+        private System.Windows.Forms.Button btnApplicationManagement;
         private System.Windows.Forms.Button btnEditConvocation;
         private System.Windows.Forms.Button btnSendSms;
         private System.Windows.Forms.Button btnRegistrationPreview;

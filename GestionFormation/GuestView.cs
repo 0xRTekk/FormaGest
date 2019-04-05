@@ -13,12 +13,20 @@ namespace GestionFormation
     public partial class GuestView : Form
     {
         private DbGestionFormation db = new DbGestionFormation();
-
-        public GuestView()
+        
+        //PROP
+        private User contextUser;
+        //BUILDER
+        public GuestView(User ContextUser)
         {
             InitializeComponent();
             db.InitDb(); //Init connection to database
+
+            this.contextUser = ContextUser;
         }
+        //GET SET
+        public User ContextUser { get; set; }
+
 
         private void GuestView_Load(object sender, EventArgs e)
         {
@@ -37,6 +45,18 @@ namespace GestionFormation
             //DataGrid binding from Session of Formation selected
             Formation formationObj = (Formation)cbFormations.SelectedItem;
             dgvSessions.DataSource = db.GetSessions(formationObj.Id.ToString());
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UserTicket userTicket = new UserTicket(this.contextUser);
+            userTicket.ShowDialog();
+        }
+
+        private void btnAddApplication_Click(object sender, EventArgs e)
+        {
+            GuestAddApplication guestAddApplication = new GuestAddApplication();
+            guestAddApplication.ShowDialog();
         }
     }
 }

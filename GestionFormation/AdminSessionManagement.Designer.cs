@@ -122,6 +122,7 @@
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // AdminSessionManagement
             // 

@@ -10,17 +10,20 @@ using System.Windows.Forms;
 
 namespace GestionFormation
 {
-    public partial class AdminApplicationManagement : Form
+    public partial class AdminTicketsView : Form
     {
-        public AdminApplicationManagement()
+        DbGestionFormation db = new DbGestionFormation();
+        public AdminTicketsView()
         {
             InitializeComponent();
+            db.InitDb();
+
+            dgvListTickets.DataSource = db.GetTickets();
         }
 
-        private void btnAdminView_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            AdminView adminView = new AdminView();
-            adminView.ShowDialog();
+            this.Close();
         }
     }
 }

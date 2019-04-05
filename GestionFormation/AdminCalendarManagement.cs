@@ -41,8 +41,7 @@ namespace GestionFormation
 
         private void btnAdminView_Click(object sender, EventArgs e)
         {
-            AdminView adminView = new AdminView();
-            adminView.ShowDialog();
+            this.Close();
         }
 
         private void AdminCalendarManagement_Load(object sender, EventArgs e)

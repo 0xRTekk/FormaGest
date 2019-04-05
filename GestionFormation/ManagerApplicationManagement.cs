@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace GestionFormation
 {
-    public partial class ManagerAddApplication : Form
+    public partial class ManagerApplicationManagement : Form
     {
-        public ManagerAddApplication()
+        public ManagerApplicationManagement()
         {
             InitializeComponent();
         }
 
-        private void ManagerAddApplication_Load(object sender, EventArgs e)
+        private void btnAdminView_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSessions = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.lbITicket = new System.Windows.Forms.LinkLabel();
+            this.btnAddApplication = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,11 +73,34 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Sessions:";
             // 
+            // lbITicket
+            // 
+            this.lbITicket.AutoSize = true;
+            this.lbITicket.Location = new System.Drawing.Point(740, 13);
+            this.lbITicket.Name = "lbITicket";
+            this.lbITicket.Size = new System.Drawing.Size(46, 17);
+            this.lbITicket.TabIndex = 4;
+            this.lbITicket.TabStop = true;
+            this.lbITicket.Text = "Ticket";
+            this.lbITicket.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // btnAddApplication
+            // 
+            this.btnAddApplication.Location = new System.Drawing.Point(37, 461);
+            this.btnAddApplication.Name = "btnAddApplication";
+            this.btnAddApplication.Size = new System.Drawing.Size(721, 52);
+            this.btnAddApplication.TabIndex = 5;
+            this.btnAddApplication.Text = "Ajouter candidature";
+            this.btnAddApplication.UseVisualStyleBackColor = true;
+            this.btnAddApplication.Click += new System.EventHandler(this.btnAddApplication_Click);
+            // 
             // GuestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 540);
+            this.Controls.Add(this.btnAddApplication);
+            this.Controls.Add(this.lbITicket);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvSessions);
             this.Controls.Add(this.label1);
@@ -95,5 +120,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSessions;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel lbITicket;
+        private System.Windows.Forms.Button btnAddApplication;
     }
 }
