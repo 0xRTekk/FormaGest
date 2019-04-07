@@ -83,17 +83,5 @@ namespace GestionFormation
         {
             this.DialogResult = DialogResult.Cancel;
         }
-
-
-
-        //
-        // Private Methods
-        //
-        private void premiereCoJour()
-        {
-            
-            
-            
-        }
     }
 }

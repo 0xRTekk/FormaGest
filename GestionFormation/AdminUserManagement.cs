@@ -13,6 +13,7 @@ namespace GestionFormation
     public partial class AdminUserManagement : Form
     {
         private DbGestionFormation db = new DbGestionFormation();
+        private User contextUser = new User();
 
         public AdminUserManagement()
         {
@@ -27,16 +28,18 @@ namespace GestionFormation
 
         private void AdminUserManagement_Load(object sender, EventArgs e)
         {
-            //Data binding with List<Formation> contextFormations
+            dgvUsers.DataSource = null;
             dgvUsers.DataSource = db.GetUsers();
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            User objectUser = (User)dgvUsers.CurrentRow.DataBoundItem;
-            int idUser = objectUser.Id;
+            contextUser = (User)dgvUsers.CurrentRow.DataBoundItem;
+            int idUser = contextUser.Id;
 
             db.DeleteUser(idUser);
+
+            MessageBox.Show("utilisateur supprimé");
             //Refresh the DataGridView
             dgvUsers.DataSource = null;
             dgvUsers.DataSource = db.GetUsers();
@@ -52,6 +55,14 @@ namespace GestionFormation
         {
             dgvUsers.DataSource = null;
             dgvUsers.DataSource = db.GetUsers();
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            contextUser = (User)dgvUsers.CurrentRow.DataBoundItem;
+
+            AdminEditUser adminEditUser = new AdminEditUser(contextUser);
+            adminEditUser.ShowDialog();
         }
     }
 }

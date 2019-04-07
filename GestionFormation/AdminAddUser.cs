@@ -39,6 +39,7 @@ namespace GestionFormation
 
             db.AddUser(login, pass, role, tentativeCo, demandeChangePass);
 
+            MessageBox.Show("Utilisateur ajouté");
             this.Close();
         }
 

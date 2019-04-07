@@ -24,7 +24,6 @@ namespace GestionFormation
         {
             AdminSessionManagement adminAddSession = new AdminSessionManagement();
             adminAddSession.ShowDialog();
-            this.Hide();
         }
 
         //
@@ -36,7 +35,6 @@ namespace GestionFormation
 
             AdminSessionManagement adminEditSession = new AdminSessionManagement(session);
             adminEditSession.ShowDialog();
-            this.Hide();
         }
 
         private void btnAdminView_Click(object sender, EventArgs e)

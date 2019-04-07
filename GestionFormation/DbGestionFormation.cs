@@ -63,6 +63,15 @@ namespace GestionFormation
         }
 
 
+        public void ResetPass(int id)
+        {
+            String strQuery = "UPDATE user SET pass = '12345', demandeChangePass = 1 WHERE id = @theId";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theId", id);
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
 
         public void UpdatePass(int id, String pass)
         {
@@ -107,6 +116,18 @@ namespace GestionFormation
             dynamicParameters.Add("theRole", role);
             dynamicParameters.Add("theTentativeCo", tentativeCo);
             dynamicParameters.Add("theDemandeChangePass", demandeChangePass);
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+
+        public void UpdateUser(int id, String login, String role)
+        {
+            String strQuery = "UPDATE user SET login = @theLogin, role = @theRole WHERE id = @theId";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theId", id);
+            dynamicParameters.Add("theLogin", login);
+            dynamicParameters.Add("theRole", role);
             dbConn.Open();
             dbConn.Query(strQuery, dynamicParameters);
             dbConn.Close();

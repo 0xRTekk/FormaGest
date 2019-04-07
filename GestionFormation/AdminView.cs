@@ -21,14 +21,12 @@ namespace GestionFormation
         {
             AdminUserManagement adminUserManagement = new AdminUserManagement();
             adminUserManagement.ShowDialog();
-            this.Hide();
         }
 
         private void btnCalendarManagement_Click(object sender, EventArgs e)
         {
             AdminCalendarManagement adminCalendarManagement = new AdminCalendarManagement();
             adminCalendarManagement.ShowDialog();
-            this.Hide();
         }
 
         private void btnTicketsView_Click(object sender, EventArgs e)
