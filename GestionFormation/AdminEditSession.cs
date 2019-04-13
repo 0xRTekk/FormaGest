@@ -13,35 +13,61 @@ namespace GestionFormation
     public partial class AdminEditSession : Form
     {
         //
-        //Properties
+        //Props
         //
-        private Session session;
-
-
-        //
-        //Getters & Setters
-        //
-        public Session Session { get; set; }
-
+        private Session contextSession = new Session();
+        private Formation contextFormation = new Formation();
+        private DbGestionFormation db = new DbGestionFormation();
 
         //
-        //Builders
+        //Builder
         //
-        public AdminEditSession()
+        public AdminEditSession(Session TheSession, Formation TheFormation)
         {
             InitializeComponent();
-            this.Session = null;
+
+            this.contextFormation = TheFormation;
+            this.contextSession = TheSession;
         }
+        
+        //
+        //Get/Set
+        //
+        public Formation TheFormation { get; set; }
+        public Session TheSession { get; set; }
 
-        public AdminEditSession(Session theSession)
+
+        //
+        //Functions
+        //
+        private void AdminEditSession_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
-            this.Session = theSession;
+            db.InitDb();
+
+            tbTraining.Text = contextFormation.Name;
+            dateTimePicker.Value = contextSession.Date;
+            hourBegin.Value = contextSession.HourBegin;
+            hourEnd.Value = contextSession.HourEnd;
+            tbPlace.Text = contextSession.Place;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void btnValidate_Click(object sender, EventArgs e)
+        {
+            contextSession.Date = dateTimePicker.Value;
+            contextSession.HourBegin = (int)hourBegin.Value;
+            contextSession.HourEnd = (int)hourEnd.Value;
+            contextSession.Place = tbPlace.Text;
+
+            db.UpdateSession(contextSession.Id.ToString(), contextSession.Date, contextSession.HourBegin, contextSession.HourEnd, contextSession.Place);
+
+            MessageBox.Show("Session modifiée");
+            this.Close()
+;        }
+
     }
 }

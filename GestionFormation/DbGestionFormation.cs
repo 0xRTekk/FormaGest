@@ -162,7 +162,7 @@ namespace GestionFormation
         //
         public List<Session> GetSessions(String formationId)
         {
-            String strQuery = "SELECT date, hour_begin, hour_end, place FROM session WHERE id_formation = @idFormation";
+            String strQuery = "SELECT id, date, hour_begin, hour_end, place FROM session WHERE id_formation = @idFormation";
             var dynamicParameters = new DynamicParameters();
             dynamicParameters.Add("idFormation", formationId);
             dbConn.Open();
@@ -181,6 +181,30 @@ namespace GestionFormation
             dynamicParameters.Add("theHEnd", hourEnd);
             dynamicParameters.Add("thePlace", place);
             dynamicParameters.Add("theFormaId", formationId);
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+
+        public void UpdateSession(String id, DateTime date, int hourBegin, int hourEnd, String place)
+        {
+            String strQuery = "UPDATE session SET date = @theDate, hour_begin = @theHBegin, hour_end = @theHEnd, place = @thePlace WHERE id = @theId";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theId", id);
+            dynamicParameters.Add("theDate", date);
+            dynamicParameters.Add("theHBegin", hourBegin);
+            dynamicParameters.Add("theHEnd", hourEnd);
+            dynamicParameters.Add("thePlace", place);
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+
+        public void DeleteSession(String idSession)
+        {
+            String strQuery = "DELETE FROM session WHERE id = @theId";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theId", idSession);
             dbConn.Open();
             dbConn.Query(strQuery, dynamicParameters);
             dbConn.Close();

@@ -25,9 +25,7 @@ namespace GestionFormation
         public AdminAddSession(Formation TheFormation)
         {
             InitializeComponent();
-            this.contextFormation = TheFormation;
-
-            tbTraining.Text = contextFormation.Name;
+            this.contextFormation = TheFormation; 
         }
 
         //
@@ -42,6 +40,8 @@ namespace GestionFormation
         private void AdminAddSession_Load(object sender, EventArgs e)
         {
             db.InitDb();
+
+            tbTraining.Text = contextFormation.Name;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -58,6 +58,9 @@ namespace GestionFormation
             contextSession.LaFormation = contextFormation;
 
             db.AddSession(contextSession.Date, contextSession.HourBegin, contextSession.HourEnd, contextSession.Place, contextSession.LaFormation.Id.ToString());
+
+            MessageBox.Show("Session ajoutée");
+            this.Close();
         }
 
     }

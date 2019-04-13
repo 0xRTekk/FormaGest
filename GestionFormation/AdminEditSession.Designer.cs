@@ -28,119 +28,159 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbTraining = new System.Windows.Forms.TextBox();
-            this.tbHour = new System.Windows.Forms.TextBox();
-            this.tbDate = new System.Windows.Forms.TextBox();
-            this.tbPlace = new System.Windows.Forms.TextBox();
-            this.btnValidate = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnValidate = new System.Windows.Forms.Button();
+            this.tbPlace = new System.Windows.Forms.TextBox();
+            this.tbTraining = new System.Windows.Forms.TextBox();
+            this.lbHourBegin = new System.Windows.Forms.Label();
+            this.lbDate = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lbTraining = new System.Windows.Forms.Label();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.lbHourEnd = new System.Windows.Forms.Label();
+            this.hourEnd = new System.Windows.Forms.NumericUpDown();
+            this.hourBegin = new System.Windows.Forms.NumericUpDown();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.hourEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hourBegin)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // btnCancel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(252, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Libellé de la formation:";
+            this.btnCancel.Location = new System.Drawing.Point(163, 303);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(114, 29);
+            this.btnCancel.TabIndex = 15;
+            this.btnCancel.Text = "Annuler";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // label2
+            // btnValidate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 96);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Date:";
+            this.btnValidate.Location = new System.Drawing.Point(338, 303);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(114, 29);
+            this.btnValidate.TabIndex = 16;
+            this.btnValidate.Text = "Valider";
+            this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
-            // label3
+            // tbPlace
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(239, 96);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Heure:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(457, 96);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Lieu:";
+            this.tbPlace.Location = new System.Drawing.Point(366, 53);
+            this.tbPlace.Name = "tbPlace";
+            this.tbPlace.Size = new System.Drawing.Size(172, 22);
+            this.tbPlace.TabIndex = 9;
             // 
             // tbTraining
             // 
             this.tbTraining.Enabled = false;
-            this.tbTraining.Location = new System.Drawing.Point(195, 29);
+            this.tbTraining.Location = new System.Drawing.Point(163, 32);
             this.tbTraining.Name = "tbTraining";
             this.tbTraining.Size = new System.Drawing.Size(270, 22);
-            this.tbTraining.TabIndex = 4;
+            this.tbTraining.TabIndex = 14;
             // 
-            // tbHour
+            // lbHourBegin
             // 
-            this.tbHour.Location = new System.Drawing.Point(242, 116);
-            this.tbHour.Name = "tbHour";
-            this.tbHour.Size = new System.Drawing.Size(172, 22);
-            this.tbHour.TabIndex = 5;
+            this.lbHourBegin.AutoSize = true;
+            this.lbHourBegin.Location = new System.Drawing.Point(120, 140);
+            this.lbHourBegin.Name = "lbHourBegin";
+            this.lbHourBegin.Size = new System.Drawing.Size(95, 17);
+            this.lbHourBegin.TabIndex = 4;
+            this.lbHourBegin.Text = "Heure début :";
             // 
-            // tbDate
+            // lbDate
             // 
-            this.tbDate.Location = new System.Drawing.Point(24, 116);
-            this.tbDate.Name = "tbDate";
-            this.tbDate.Size = new System.Drawing.Size(172, 22);
-            this.tbDate.TabIndex = 6;
+            this.lbDate.AutoSize = true;
+            this.lbDate.Location = new System.Drawing.Point(21, 51);
+            this.lbDate.Name = "lbDate";
+            this.lbDate.Size = new System.Drawing.Size(42, 17);
+            this.lbDate.TabIndex = 2;
+            this.lbDate.Text = "Date:";
             // 
-            // tbPlace
+            // label4
             // 
-            this.tbPlace.Location = new System.Drawing.Point(460, 116);
-            this.tbPlace.Name = "tbPlace";
-            this.tbPlace.Size = new System.Drawing.Size(172, 22);
-            this.tbPlace.TabIndex = 7;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(321, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 17);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Lieu:";
             // 
-            // btnValidate
+            // lbTraining
             // 
-            this.btnValidate.Location = new System.Drawing.Point(179, 190);
-            this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(114, 29);
-            this.btnValidate.TabIndex = 8;
-            this.btnValidate.Text = "Valider";
-            this.btnValidate.UseVisualStyleBackColor = true;
+            this.lbTraining.AutoSize = true;
+            this.lbTraining.Location = new System.Drawing.Point(220, 12);
+            this.lbTraining.Name = "lbTraining";
+            this.lbTraining.Size = new System.Drawing.Size(151, 17);
+            this.lbTraining.TabIndex = 13;
+            this.lbTraining.Text = "Libellé de la formation:";
             // 
-            // btnCancel
+            // dateTimePicker
             // 
-            this.btnCancel.Location = new System.Drawing.Point(385, 190);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(114, 29);
-            this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Annuler";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.dateTimePicker.Location = new System.Drawing.Point(66, 51);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(222, 22);
+            this.dateTimePicker.TabIndex = 3;
+            // 
+            // lbHourEnd
+            // 
+            this.lbHourEnd.AutoSize = true;
+            this.lbHourEnd.Location = new System.Drawing.Point(311, 140);
+            this.lbHourEnd.Name = "lbHourEnd";
+            this.lbHourEnd.Size = new System.Drawing.Size(74, 17);
+            this.lbHourEnd.TabIndex = 6;
+            this.lbHourEnd.Text = "Heure fin :";
+            // 
+            // hourEnd
+            // 
+            this.hourEnd.Location = new System.Drawing.Point(391, 140);
+            this.hourEnd.Name = "hourEnd";
+            this.hourEnd.Size = new System.Drawing.Size(50, 22);
+            this.hourEnd.TabIndex = 7;
+            // 
+            // hourBegin
+            // 
+            this.hourBegin.Location = new System.Drawing.Point(221, 140);
+            this.hourBegin.Name = "hourBegin";
+            this.hourBegin.Size = new System.Drawing.Size(50, 22);
+            this.hourBegin.TabIndex = 5;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dateTimePicker);
+            this.groupBox1.Controls.Add(this.lbHourEnd);
+            this.groupBox1.Controls.Add(this.lbHourBegin);
+            this.groupBox1.Controls.Add(this.hourEnd);
+            this.groupBox1.Controls.Add(this.lbDate);
+            this.groupBox1.Controls.Add(this.tbPlace);
+            this.groupBox1.Controls.Add(this.hourBegin);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Location = new System.Drawing.Point(15, 72);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(564, 195);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Information de la session : ";
             // 
             // AdminEditSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 231);
+            this.ClientSize = new System.Drawing.Size(596, 351);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
-            this.Controls.Add(this.tbPlace);
-            this.Controls.Add(this.tbDate);
-            this.Controls.Add(this.tbHour);
             this.Controls.Add(this.tbTraining);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbTraining);
+            this.Controls.Add(this.groupBox1);
             this.Name = "AdminEditSession";
-            this.Text = "Modification de session";
+            this.Text = "AdminEditSession";
+            this.Load += new System.EventHandler(this.AdminEditSession_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.hourEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hourBegin)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,15 +188,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbTraining;
-        private System.Windows.Forms.TextBox tbHour;
-        private System.Windows.Forms.TextBox tbDate;
-        private System.Windows.Forms.TextBox tbPlace;
-        private System.Windows.Forms.Button btnValidate;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnValidate;
+        private System.Windows.Forms.TextBox tbPlace;
+        private System.Windows.Forms.TextBox tbTraining;
+        private System.Windows.Forms.Label lbHourBegin;
+        private System.Windows.Forms.Label lbDate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbTraining;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Label lbHourEnd;
+        private System.Windows.Forms.NumericUpDown hourEnd;
+        private System.Windows.Forms.NumericUpDown hourBegin;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

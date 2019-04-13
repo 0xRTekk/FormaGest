@@ -35,9 +35,10 @@ namespace GestionFormation
         //
         private void btnEditSession_Click(object sender, EventArgs e)
         {
+            contextFormation = (Formation)cbTraining.SelectedItem;
             contextSession = (Session)dgvSessions.CurrentRow.DataBoundItem;
 
-            AdminEditSession adminEditSession = new AdminEditSession(contextSession);
+            AdminEditSession adminEditSession = new AdminEditSession(contextSession, contextFormation);
             adminEditSession.ShowDialog();
         }
 
@@ -54,15 +55,26 @@ namespace GestionFormation
             cbTraining.ValueMember = "id";
 
             //DataGrid binding from Session of Formation selected
-            Formation formationObject = (Formation)cbTraining.SelectedItem;
-            dgvSessions.DataSource = db.GetSessions(formationObject.Id.ToString());
+            contextFormation = (Formation)cbTraining.SelectedItem;
+            dgvSessions.DataSource = db.GetSessions(contextFormation.Id.ToString());
         }
 
         private void cbTraining_SelectedIndexChanged(object sender, EventArgs e)
         {
             //DataGrid binding from Session of Formation selected
-            Formation formationObject = (Formation)cbTraining.SelectedItem;
-            dgvSessions.DataSource = db.GetSessions(formationObject.Id.ToString());
+            contextFormation = (Formation)cbTraining.SelectedItem;
+            dgvSessions.DataSource = db.GetSessions(contextFormation.Id.ToString());
+        }
+
+        private void btnRemoveSession_Click(object sender, EventArgs e)
+        {
+            contextSession = (Session)dgvSessions.CurrentRow.DataBoundItem;
+            db.DeleteSession(contextSession.Id.ToString());
+
+            MessageBox.Show("Session supprimée");
+            dgvSessions.DataSource = null;
+            dgvSessions.DataSource = db.GetSessions(contextFormation.Id.ToString());
+
         }
     }
 }

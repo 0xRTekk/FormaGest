@@ -113,6 +113,7 @@
             this.btnRemoveSession.TabIndex = 7;
             this.btnRemoveSession.Text = "Supprimer session";
             this.btnRemoveSession.UseVisualStyleBackColor = true;
+            this.btnRemoveSession.Click += new System.EventHandler(this.btnRemoveSession_Click);
             // 
             // btnEditSession
             // 

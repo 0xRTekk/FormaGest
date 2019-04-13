@@ -68,6 +68,12 @@
     <Compile Include="AdminAddUser.Designer.cs">
       <DependentUpon>AdminAddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminEditSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminEditSession.Designer.cs">
+      <DependentUpon>AdminEditSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,12 +91,6 @@
     </Compile>
     <Compile Include="AdminCalendarManagement.Designer.cs">
       <DependentUpon>AdminCalendarManagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminEditSession.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminEditSession.Designer.cs">
-      <DependentUpon>AdminEditSession.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminTicketsView.cs">
       <SubType>Form</SubType>
@@ -181,6 +181,9 @@
     <EmbeddedResource Include="AdminAddUser.resx">
       <DependentUpon>AdminAddUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminEditSession.resx">
+      <DependentUpon>AdminEditSession.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminEditUser.resx">
       <DependentUpon>AdminEditUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,9 +192,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminCalendarManagement.resx">
       <DependentUpon>AdminCalendarManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminEditSession.resx">
-      <DependentUpon>AdminEditSession.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminTicketsView.resx">
       <DependentUpon>AdminTicketsView.cs</DependentUpon>

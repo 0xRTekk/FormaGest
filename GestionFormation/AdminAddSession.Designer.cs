@@ -121,7 +121,7 @@
             // 
             this.dateTimePicker.Location = new System.Drawing.Point(66, 51);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(205, 22);
+            this.dateTimePicker.Size = new System.Drawing.Size(221, 22);
             this.dateTimePicker.TabIndex = 3;
             // 
             // hourBegin
