@@ -12,37 +12,54 @@ namespace GestionFormation
         //Properties
         //
         private int id;
-        private string dateBegin;
-        private string dateEnd;
-        private string place;
+        private DateTime date;
+        private int hour_begin;
+        private int hour_end;
+        private String place;
         private Formation laFormation;
         private List<Participant> lesParticipants;
+
+
+        //
+        //Getters & Setters
+        //
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public int HourBegin { get; set; }
+        public int HourEnd { get; set; }
+        public String Place { get; set; }
+        public Formation LaFormation { get; set; }
+        public List<Participant> LesParticipants { get; set; }
+
 
         //
         //Builders
         //
         public Session()
         {
-            LaFormation = null;
-            LesParticipants = null;
+            this.date = Date;
+            this.hour_begin = HourBegin;
+            this.hour_end = HourEnd;
+            this.place = Place;
         }
 
-        public Session(string TheBegin, string TheEnd, string ThePlace)
+        public Session(DateTime Date, int HourBegin, int HourEnd, String Place)
         {
-            dateBegin = TheBegin;
-            dateEnd = TheEnd;
-            place = ThePlace;
+            this.date = Date;
+            this.hour_begin = HourBegin;
+            this.hour_end = HourEnd;
+            this.place = Place;
         }
 
-        //
-        //Getters & Setters
-        //
-        public int Id { get; set; }
-        public string DateBegin { get; set; }
-        public string DateEnd { get; set; }
-        public string Place { get; set; }
-        public Formation LaFormation { get; set; }
-        public List<Participant> LesParticipants { get; set; }
+        public Session(DateTime Date, int HourBegin, int HourEnd, String Place, Formation Formation)
+        {
+            this.date = Date;
+            this.hour_begin = HourBegin;
+            this.hour_end = HourEnd;
+            this.place = Place;
+            this.laFormation = Formation;
+        }
+
 
 
 
@@ -51,32 +68,8 @@ namespace GestionFormation
         //
         public string StrSession()
         {
-            string StrSession = "L'épreuve de " + laFormation + " se déroulera à " + place + " du " + dateBegin + " au " + dateEnd;
+            string StrSession = "L'épreuve de " + laFormation + " se déroulera à " + place + " du " + hour_begin + " au " + hour_end;
             return StrSession;
-        }
-
-        public void deleteParticipant()
-        {
-            // Call ConnectToDb(), delete Participant from the given id of the Session
-        }
-
-        public void save()
-        {
-            // Call ConnectToDb(), check if there have been any changes & save Session from the given id
-        }
-
-        public void delete()
-        {
-            // Call ConnectToDb(), delete Session from the given id
-        }
-
-
-        //
-        //Private methods & functions
-        //
-        private void ConnectToDb()
-        {
-            // Connection to the Db
         }
     }
 }

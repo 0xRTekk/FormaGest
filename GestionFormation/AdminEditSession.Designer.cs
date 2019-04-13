@@ -1,6 +1,6 @@
 ﻿namespace GestionFormation
 {
-    partial class AdminSessionManagement
+    partial class AdminEditSession
     {
         /// <summary>
         /// Required designer variable.
@@ -124,7 +124,7 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // AdminSessionManagement
+            // AdminEditSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,8 +139,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "AdminSessionManagement";
-            this.Text = "Gestion de session";
+            this.Name = "AdminEditSession";
+            this.Text = "Modification de session";
             this.ResumeLayout(false);
             this.PerformLayout();
 

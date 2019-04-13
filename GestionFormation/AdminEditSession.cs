@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GestionFormation
 {
-    public partial class AdminSessionManagement : Form
+    public partial class AdminEditSession : Form
     {
         //
         //Properties
@@ -27,13 +27,13 @@ namespace GestionFormation
         //
         //Builders
         //
-        public AdminSessionManagement()
+        public AdminEditSession()
         {
             InitializeComponent();
             this.Session = null;
         }
 
-        public AdminSessionManagement(Session theSession)
+        public AdminEditSession(Session theSession)
         {
             InitializeComponent();
             this.Session = theSession;

@@ -14,9 +14,14 @@ namespace GestionFormation
     {
         private DbGestionFormation db = new DbGestionFormation();
         
-        //PROP
+        //
+        //PROPS
+        //
         private User contextUser;
+
+        //
         //BUILDER
+        //
         public GuestView(User ContextUser)
         {
             InitializeComponent();
@@ -24,10 +29,14 @@ namespace GestionFormation
 
             this.contextUser = ContextUser;
         }
+        //
         //GET SET
+        //
         public User ContextUser { get; set; }
 
-
+        //
+        //FUNCTIONS
+        //
         private void GuestView_Load(object sender, EventArgs e)
         {
             //Data binding with List<Formation> contextFormations

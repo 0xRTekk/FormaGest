@@ -12,6 +12,8 @@ namespace GestionFormation
 {
     public partial class AdminCalendarManagement : Form
     {
+        private Session contextSession = new Session();
+        private Formation contextFormation = new Formation();
         private DbGestionFormation db = new DbGestionFormation();
 
         public AdminCalendarManagement()
@@ -22,7 +24,9 @@ namespace GestionFormation
 
         private void btnAddSession_Click(object sender, EventArgs e)
         {
-            AdminSessionManagement adminAddSession = new AdminSessionManagement();
+            contextFormation = (Formation)cbTraining.SelectedItem;
+
+            AdminAddSession adminAddSession = new AdminAddSession(contextFormation);
             adminAddSession.ShowDialog();
         }
 
@@ -31,9 +35,9 @@ namespace GestionFormation
         //
         private void btnEditSession_Click(object sender, EventArgs e)
         {
-            Session session = (Session)dgvSessions.CurrentRow.DataBoundItem;
+            contextSession = (Session)dgvSessions.CurrentRow.DataBoundItem;
 
-            AdminSessionManagement adminEditSession = new AdminSessionManagement(session);
+            AdminEditSession adminEditSession = new AdminEditSession(contextSession);
             adminEditSession.ShowDialog();
         }
 

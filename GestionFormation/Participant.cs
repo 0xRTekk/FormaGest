@@ -12,8 +12,8 @@ namespace GestionFormation
         //Properties
         //
         private int id;
-        private string name;
-        private string firstName;
+        private String name;
+        private String firstName;
         private Session laSessionChoisie;
 
         //
@@ -24,16 +24,16 @@ namespace GestionFormation
             LaSessionChoisie = null;
         }
 
-        public Participant(string LeNom, string LePrenom, Session LaSession)
+        public Participant(String Name, String FirstName, Session LaSessionChoisie)
         {
-            if (LeNom is string)
+            if (Name is String)
             {
-                name = LeNom;
+                this.name = Name;
             }
 
-            if (LePrenom is string)
+            if (FirstName is String)
             {
-                firstName = LePrenom;
+                this.firstName = FirstName;
             }
         }
 
@@ -41,8 +41,8 @@ namespace GestionFormation
         //Getters & Setters
         //
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string FirstName { get; set; }
+        public String Name { get; set; }
+        public String FirstName { get; set; }
         public Session LaSessionChoisie { get; set; }
 
 
@@ -50,29 +50,10 @@ namespace GestionFormation
         //
         //Public methods & functions
         //
-        public string StrParticipant()
+        public String StrParticipant()
         {
-            string StrParticipant = "Nom du participant: " + name + ". Prénom du participant: " + firstName;
+            String StrParticipant = "Nom du participant: " + name + ". Prénom du participant: " + firstName;
             return StrParticipant;
-        }
-
-        public void save()
-        {
-            // Call ConnectToDb(), check if there have been any changes & save Participant from the given id
-        }
-
-        public void delete()
-        {
-            // Call ConnectToDb(), delete Participant from the given id
-        }
-
-
-        //
-        //Private methods & functions
-        //
-        private void ConnectToDb()
-        {
-            // Connection to the Db
         }
     }
 }

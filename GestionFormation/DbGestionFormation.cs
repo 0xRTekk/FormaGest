@@ -20,6 +20,10 @@ namespace GestionFormation
         //
         //Methods & functions
         //
+
+        //
+        //DB
+        //
         public void InitDb()
         {
             String connString = "Server='127.0.0.1'; User='root'; Password=''; Database='gestion_formation'; SslMode=none";
@@ -27,6 +31,11 @@ namespace GestionFormation
             dbConn = new MySqlConnection(connString);
         }
 
+
+
+        //
+        //TICKETS
+        //
         public List<Incident> GetTickets()
         {
             dbConn.Open();
@@ -40,10 +49,7 @@ namespace GestionFormation
                 String exep = e.Message;
                 throw;
             }
-            
             dbConn.Close();
-
-            
         }
 
         public void CreateTicket(String libelle, String description, DateTime date_emission, String etat, int niveau, int idUser)
@@ -63,6 +69,11 @@ namespace GestionFormation
         }
 
 
+        
+
+        //
+        // USERS
+        //
         public void ResetPass(int id)
         {
             String strQuery = "UPDATE user SET pass = '12345', demandeChangePass = 1 WHERE id = @theId";
@@ -143,6 +154,43 @@ namespace GestionFormation
             dbConn.Close();
         }
 
+
+
+
+        //
+        //SESSIONS
+        //
+        public List<Session> GetSessions(String formationId)
+        {
+            String strQuery = "SELECT date, hour_begin, hour_end, place FROM session WHERE id_formation = @idFormation";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idFormation", formationId);
+            dbConn.Open();
+            List<Session> sessions = dbConn.Query<Session>(strQuery, dynamicParameters).ToList();
+            dbConn.Close();
+
+            return sessions;
+        }
+
+        public void AddSession(DateTime date, int hourBegin, int hourEnd, String place, String formationId)
+        {
+            String strQuery = "INSERT INTO session (date, hour_begin, hour_end, place, id_formation) VALUES (@theDate, @theHBegin, @theHEnd, @thePlace, @theFormaId)";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theDate", date);
+            dynamicParameters.Add("theHBegin", hourBegin);
+            dynamicParameters.Add("theHEnd", hourEnd);
+            dynamicParameters.Add("thePlace", place);
+            dynamicParameters.Add("theFormaId", formationId);
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+
+
+
+        //
+        //FORMATIONS
+        //
         public List<Formation> GetFormations()
         {
             dbConn.Open();
@@ -152,19 +200,11 @@ namespace GestionFormation
             return formations;
         }
 
-        public List<Session> GetSessions(String formationId)
-        {
-            List<Session> sessions = new List<Session>();
-            String strQuery = "SELECT * FROM session WHERE id_formation = @idFormation";
-            var dynamicParameters = new DynamicParameters();
-            dynamicParameters.Add("idFormation", formationId);
-            dbConn.Open();
-            sessions = dbConn.Query<Session>(strQuery, dynamicParameters).ToList();
-            dbConn.Close();
 
-            return sessions;
-        }
 
+        //
+        //PARTICIPANTS
+        //
         public List<Participant> GetParticipants()
         {
             List<Participant> participants = new List<Participant>();

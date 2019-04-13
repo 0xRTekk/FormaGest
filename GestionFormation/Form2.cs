@@ -49,8 +49,8 @@ namespace GestionFormation
         private void Form2_Load(object sender, EventArgs e)
         {
             textBoxFormation.Text = formation.Name;
-            textBoxDateBegin.Text = session.DateBegin;
-            textBoxDateEnd.Text = session.DateEnd;
+            textBoxDateBegin.Text = session.HourBegin.ToString();
+            textBoxDateEnd.Text = session.HourEnd.ToString();
 
 
             //Fill dataGridViewParticipants with all participants

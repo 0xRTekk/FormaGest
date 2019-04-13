@@ -12,7 +12,7 @@ namespace GestionFormation
         //Properties
         //
         private int id;
-        private string name;
+        private String name;
         private int level;
         private List<Session> lesSessions = new List<Session>();
 
@@ -21,28 +21,28 @@ namespace GestionFormation
         //
         public Formation()
         {
-            name = "inconnue";
-            level = 0;
+            this.name = "inconnue";
+            this.level = 0;
         }
 
-        public Formation(string LeNom, int Lelevel)
+        public Formation(String Name, int Level)
         {
-            if (LeNom is string)
+            if (Name is String)
             {
-                name = LeNom;
+                this.name = Name;
             }
 
-            if (Lelevel >= 0 && level <= 10)
+            if (Level >= 0 && Level <= 10)
             {
-                level = Lelevel;
+                this.level = Level;
             }
         }
 
-        public Formation(string LeNom)
+        public Formation(String Name)
         {
-            if (LeNom is string)
+            if (Name is String)
             {
-                name = LeNom;
+                this.name = Name;
             }
         }
 
@@ -50,7 +50,7 @@ namespace GestionFormation
         //Getters & Setters
         //
         public int Id { get; set; }
-        public string Name { get; set; }
+        public String Name { get; set; }
         public int Level { get; set; }
         public Session LesSessions { get; set; }
 
@@ -59,9 +59,9 @@ namespace GestionFormation
         //
         //Public methods & functions
         //
-        public string StrFormation()
+        public String StrFormation()
         {
-            string StrFormation = "La formation " + name + " est de niveau : " + level;
+            String StrFormation = "La formation " + name + " est de niveau : " + level;
             return StrFormation;
         }
 

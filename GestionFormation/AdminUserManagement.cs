@@ -41,8 +41,9 @@ namespace GestionFormation
 
             MessageBox.Show("utilisateur supprimé");
             //Refresh the DataGridView
-            dgvUsers.DataSource = null;
-            dgvUsers.DataSource = db.GetUsers();
+            refreshDgv();
+            /*dgvUsers.DataSource = null;
+            dgvUsers.DataSource = db.GetUsers();*/
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -53,8 +54,9 @@ namespace GestionFormation
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            dgvUsers.DataSource = null;
-            dgvUsers.DataSource = db.GetUsers();
+            refreshDgv();
+            /*dgvUsers.DataSource = null;
+            dgvUsers.DataSource = db.GetUsers();*/
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
@@ -63,6 +65,17 @@ namespace GestionFormation
 
             AdminEditUser adminEditUser = new AdminEditUser(contextUser);
             adminEditUser.ShowDialog();
+        }
+
+
+
+        //
+        //Public functions
+        //
+        public void refreshDgv()
+        {
+            dgvUsers.DataSource = null;
+            dgvUsers.DataSource = db.GetUsers();
         }
     }
 }
