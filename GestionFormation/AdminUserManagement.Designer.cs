@@ -34,7 +34,6 @@
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnAdminView = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,22 +95,11 @@
             this.btnAdminView.UseVisualStyleBackColor = true;
             this.btnAdminView.Click += new System.EventHandler(this.btnAdminView_Click);
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(700, 89);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(88, 23);
-            this.btnRefresh.TabIndex = 6;
-            this.btnRefresh.Text = "Rafraichir";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // AdminUserManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 601);
-            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnAdminView);
             this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnEditUser);
@@ -135,6 +123,5 @@
         private System.Windows.Forms.Button btnEditUser;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.Button btnAdminView;
-        private System.Windows.Forms.Button btnRefresh;
     }
 }

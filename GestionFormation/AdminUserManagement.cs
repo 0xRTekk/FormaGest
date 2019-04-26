@@ -50,13 +50,10 @@ namespace GestionFormation
         {
             AdminAddUser adminAddUser = new AdminAddUser();
             adminAddUser.ShowDialog();
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            refreshDgv();
-            /*dgvUsers.DataSource = null;
-            dgvUsers.DataSource = db.GetUsers();*/
+            if (adminAddUser.DialogResult == DialogResult.OK)
+                refreshDgv();
+            else
+                adminAddUser.Close();
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
@@ -65,6 +62,10 @@ namespace GestionFormation
 
             AdminEditUser adminEditUser = new AdminEditUser(contextUser);
             adminEditUser.ShowDialog();
+            if (adminEditUser.DialogResult == DialogResult.OK)
+                refreshDgv();
+            else
+                adminEditUser.Close();
         }
 
 

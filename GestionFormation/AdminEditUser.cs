@@ -48,21 +48,24 @@ namespace GestionFormation
         
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
+            //this.Close();
         }
 
         private void btnResetPass_Click(object sender, EventArgs e)
         {
             db.ResetPass(user.Id);
             MessageBox.Show("Mot de passe remit à zéro");
-            this.Close();
+            //this.Close();
+            this.DialogResult = DialogResult.OK;
         }
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
             db.UpdateUser(user.Id, tbLogin.Text, cbRole.SelectedValue.ToString());
             MessageBox.Show("Modifications validés");
-            this.Close();
+            //this.Close();
+            this.DialogResult = DialogResult.OK;
         }
     }
 }
