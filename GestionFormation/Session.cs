@@ -13,9 +13,9 @@ namespace GestionFormation
         //
         private int id;
         private DateTime date;
-        private int hour_begin;
-        private int hour_end;
-        private String place;
+        private string hour_begin;
+        private string hour_end;
+        private string place;
         private Formation laFormation;
         private List<Participant> lesParticipants;
 
@@ -25,9 +25,9 @@ namespace GestionFormation
         //
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public int HourBegin { get; set; }
-        public int HourEnd { get; set; }
-        public String Place { get; set; }
+        public string Hour_begin { get; set; }
+        public string Hour_end { get; set; }
+        public string Place { get; set; }
         public Formation LaFormation { get; set; }
         public List<Participant> LesParticipants { get; set; }
 
@@ -37,25 +37,26 @@ namespace GestionFormation
         //
         public Session()
         {
+            /*this.date = Date;
+            /*this.hour_begin = HourBegin;
+            this.hour_end = HourEnd;*/
+            //this.place = Place;
+        }
+
+        public Session(int Id, DateTime Date, string Hour_begin, string Hour_end, string Place)
+        {
+            id = Id;
             this.date = Date;
-            this.hour_begin = HourBegin;
-            this.hour_end = HourEnd;
+            this.hour_begin = Hour_begin;
+            this.hour_end = Hour_end;
             this.place = Place;
         }
 
-        public Session(DateTime Date, int HourBegin, int HourEnd, String Place)
+        public Session(DateTime Date, string Hour_begin, string Hour_end, string Place, Formation Formation)
         {
             this.date = Date;
-            this.hour_begin = HourBegin;
-            this.hour_end = HourEnd;
-            this.place = Place;
-        }
-
-        public Session(DateTime Date, int HourBegin, int HourEnd, String Place, Formation Formation)
-        {
-            this.date = Date;
-            this.hour_begin = HourBegin;
-            this.hour_end = HourEnd;
+            this.hour_begin = Hour_begin;
+            this.hour_end = Hour_end;
             this.place = Place;
             this.laFormation = Formation;
         }

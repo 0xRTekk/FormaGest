@@ -43,5 +43,19 @@ namespace GestionFormation
             ManagerApplicationManagement managerApplicationManagement = new ManagerApplicationManagement();
             managerApplicationManagement.ShowDialog();
         }
+
+        private void btnEditConvocation_Click(object sender, EventArgs e)
+        {
+            ManagerConvocation managerConvocation = new ManagerConvocation();
+            managerConvocation.ShowDialog();
+        }
+
+        private void btnRegistrationPreview_Click(object sender, EventArgs e)
+        {
+            Session contextSession = (Session)dgvSession.CurrentRow.DataBoundItem;
+            ManagerSheet managerSheet = new ManagerSheet(contextSession);
+            managerSheet.ShowDialog();
+
+        }
     }
 }

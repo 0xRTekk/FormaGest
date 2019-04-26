@@ -38,11 +38,9 @@
             this.lbTraining = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lbHourEnd = new System.Windows.Forms.Label();
-            this.hourEnd = new System.Windows.Forms.NumericUpDown();
-            this.hourBegin = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.hourEnd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hourBegin)).BeginInit();
+            this.hourBegin = new System.Windows.Forms.TextBox();
+            this.hourEnd = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,12 +131,22 @@
             this.lbHourEnd.TabIndex = 6;
             this.lbHourEnd.Text = "Heure fin :";
             // 
-            // hourEnd
+            // groupBox1
             // 
-            this.hourEnd.Location = new System.Drawing.Point(391, 140);
-            this.hourEnd.Name = "hourEnd";
-            this.hourEnd.Size = new System.Drawing.Size(50, 22);
-            this.hourEnd.TabIndex = 7;
+            this.groupBox1.Controls.Add(this.hourEnd);
+            this.groupBox1.Controls.Add(this.hourBegin);
+            this.groupBox1.Controls.Add(this.dateTimePicker);
+            this.groupBox1.Controls.Add(this.lbHourEnd);
+            this.groupBox1.Controls.Add(this.lbHourBegin);
+            this.groupBox1.Controls.Add(this.lbDate);
+            this.groupBox1.Controls.Add(this.tbPlace);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Location = new System.Drawing.Point(15, 72);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(564, 195);
+            this.groupBox1.TabIndex = 17;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Information de la session : ";
             // 
             // hourBegin
             // 
@@ -147,22 +155,12 @@
             this.hourBegin.Size = new System.Drawing.Size(50, 22);
             this.hourBegin.TabIndex = 5;
             // 
-            // groupBox1
+            // hourEnd
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker);
-            this.groupBox1.Controls.Add(this.lbHourEnd);
-            this.groupBox1.Controls.Add(this.lbHourBegin);
-            this.groupBox1.Controls.Add(this.hourEnd);
-            this.groupBox1.Controls.Add(this.lbDate);
-            this.groupBox1.Controls.Add(this.tbPlace);
-            this.groupBox1.Controls.Add(this.hourBegin);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(15, 72);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(564, 195);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Information de la session : ";
+            this.hourEnd.Location = new System.Drawing.Point(391, 140);
+            this.hourEnd.Name = "hourEnd";
+            this.hourEnd.Size = new System.Drawing.Size(50, 22);
+            this.hourEnd.TabIndex = 7;
             // 
             // AdminEditSession
             // 
@@ -177,8 +175,6 @@
             this.Name = "AdminEditSession";
             this.Text = "AdminEditSession";
             this.Load += new System.EventHandler(this.AdminEditSession_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.hourEnd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hourBegin)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -198,8 +194,8 @@
         private System.Windows.Forms.Label lbTraining;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label lbHourEnd;
-        private System.Windows.Forms.NumericUpDown hourEnd;
-        private System.Windows.Forms.NumericUpDown hourBegin;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox hourEnd;
+        private System.Windows.Forms.TextBox hourBegin;
     }
 }

@@ -93,6 +93,7 @@
             this.btnEditConvocation.TabIndex = 5;
             this.btnEditConvocation.Text = "Editer la convocation";
             this.btnEditConvocation.UseVisualStyleBackColor = true;
+            this.btnEditConvocation.Click += new System.EventHandler(this.btnEditConvocation_Click);
             // 
             // btnSendSms
             // 
@@ -111,6 +112,7 @@
             this.btnRegistrationPreview.TabIndex = 7;
             this.btnRegistrationPreview.Text = "Feuille emargement";
             this.btnRegistrationPreview.UseVisualStyleBackColor = true;
+            this.btnRegistrationPreview.Click += new System.EventHandler(this.btnRegistrationPreview_Click);
             // 
             // ManagerView
             // 

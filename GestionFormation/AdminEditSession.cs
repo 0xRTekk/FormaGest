@@ -46,8 +46,8 @@ namespace GestionFormation
 
             tbTraining.Text = contextFormation.Name;
             dateTimePicker.Value = contextSession.Date;
-            hourBegin.Value = contextSession.HourBegin;
-            hourEnd.Value = contextSession.HourEnd;
+            hourBegin.Text = contextSession.Hour_begin;
+            hourEnd.Text = contextSession.Hour_end;
             tbPlace.Text = contextSession.Place;
         }
 
@@ -59,11 +59,11 @@ namespace GestionFormation
         private void btnValidate_Click(object sender, EventArgs e)
         {
             contextSession.Date = dateTimePicker.Value;
-            contextSession.HourBegin = (int)hourBegin.Value;
-            contextSession.HourEnd = (int)hourEnd.Value;
+            contextSession.Hour_begin = hourBegin.Text;
+            contextSession.Hour_end = hourEnd.Text;
             contextSession.Place = tbPlace.Text;
 
-            db.UpdateSession(contextSession.Id.ToString(), contextSession.Date, contextSession.HourBegin, contextSession.HourEnd, contextSession.Place);
+            db.UpdateSession(contextSession.Id.ToString(), contextSession.Date, contextSession.Hour_begin, contextSession.Hour_end, contextSession.Place);
 
             MessageBox.Show("Session modifiée");
             this.Close()

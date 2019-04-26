@@ -172,7 +172,7 @@ namespace GestionFormation
             return sessions;
         }
 
-        public void AddSession(DateTime date, int hourBegin, int hourEnd, String place, String formationId)
+        public void AddSession(DateTime date, string hourBegin, string hourEnd, string place, String formationId)
         {
             String strQuery = "INSERT INTO session (date, hour_begin, hour_end, place, id_formation) VALUES (@theDate, @theHBegin, @theHEnd, @thePlace, @theFormaId)";
             var dynamicParameters = new DynamicParameters();
@@ -186,7 +186,7 @@ namespace GestionFormation
             dbConn.Close();
         }
 
-        public void UpdateSession(String id, DateTime date, int hourBegin, int hourEnd, String place)
+        public void UpdateSession(String id, DateTime date, string hourBegin, string hourEnd, string place)
         {
             String strQuery = "UPDATE session SET date = @theDate, hour_begin = @theHBegin, hour_end = @theHEnd, place = @thePlace WHERE id = @theId";
             var dynamicParameters = new DynamicParameters();
@@ -242,12 +242,11 @@ namespace GestionFormation
 
         public List<Participant> GetInscrits(String idSession)
         {
-            List<Participant> inscrits = new List<Participant>();
-            String strQuery = "SELECT * FROM participant WHERE id_session = @idSession";
+            String strQuery = "SELECT name, first_name FROM participant WHERE id_session = @idSession";
             var dynamicParameters = new DynamicParameters();
             dynamicParameters.Add("idSession", idSession);
             dbConn.Open();
-            inscrits = dbConn.Query<Participant>(strQuery, dynamicParameters).ToList();
+            List<Participant> inscrits = dbConn.Query<Participant>(strQuery, dynamicParameters).ToList();
             dbConn.Close();
 
             return inscrits;

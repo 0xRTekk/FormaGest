@@ -13,28 +13,30 @@ namespace GestionFormation
         //
         private int id;
         private String name;
-        private String firstName;
-        private Session laSessionChoisie;
+        private String first_name;
+        private int idSession;
 
         //
         //Builders
         //
         public Participant()
         {
-            LaSessionChoisie = null;
+
         }
 
-        public Participant(String Name, String FirstName, Session LaSessionChoisie)
+        public Participant(String Name, String First_name)
         {
-            if (Name is String)
-            {
-                this.name = Name;
-            }
+            name = Name;
+            first_name = First_name;
+        }
 
-            if (FirstName is String)
-            {
-                this.firstName = FirstName;
-            }
+        public Participant(int Id, String Name, String First_name, int IdSession)
+        {
+            id = Id;
+            name = Name;
+            first_name = First_name;
+            idSession = IdSession;
+
         }
 
         //
@@ -42,8 +44,8 @@ namespace GestionFormation
         //
         public int Id { get; set; }
         public String Name { get; set; }
-        public String FirstName { get; set; }
-        public Session LaSessionChoisie { get; set; }
+        public String First_name { get; set; }
+        public int IdSession { get; set; }
 
 
 
@@ -52,7 +54,7 @@ namespace GestionFormation
         //
         public String StrParticipant()
         {
-            String StrParticipant = "Nom du participant: " + name + ". Prénom du participant: " + firstName;
+            String StrParticipant = "Nom du participant: " + name + ". Prénom du participant: " + first_name;
             return StrParticipant;
         }
     }

@@ -52,12 +52,12 @@ namespace GestionFormation
         private void btnValidate_Click(object sender, EventArgs e)
         {
             contextSession.Date = dateTimePicker.Value;
-            contextSession.HourBegin = (int)hourBegin.Value;
-            contextSession.HourEnd = (int)hourEnd.Value;
+            contextSession.Hour_begin = hourBegin.Value.ToString();
+            contextSession.Hour_end = hourEnd.Value.ToString();
             contextSession.Place = tbPlace.Text;
             contextSession.LaFormation = contextFormation;
 
-            db.AddSession(contextSession.Date, contextSession.HourBegin, contextSession.HourEnd, contextSession.Place, contextSession.LaFormation.Id.ToString());
+            db.AddSession(contextSession.Date, contextSession.Hour_begin, contextSession.Hour_end, contextSession.Place, contextSession.LaFormation.Id.ToString());
 
             MessageBox.Show("Session ajoutée");
             this.Close();
