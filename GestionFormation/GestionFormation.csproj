@@ -83,11 +83,12 @@
     <Compile Include="AdminEditUser.Designer.cs">
       <DependentUpon>AdminEditUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagerApplicationManagement.cs">
+    <Compile Include="Candidater.cs" />
+    <Compile Include="AdminApplicationManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManagerApplicationManagement.Designer.cs">
-      <DependentUpon>ManagerApplicationManagement.cs</DependentUpon>
+    <Compile Include="AdminApplicationManagement.Designer.cs">
+      <DependentUpon>AdminApplicationManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminCalendarManagement.cs">
       <SubType>Form</SubType>
@@ -134,11 +135,11 @@
       <DependentUpon>GuestView.cs</DependentUpon>
     </Compile>
     <Compile Include="Incident.cs" />
-    <Compile Include="GuestAddApplication.cs">
+    <Compile Include="ManagerAddApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GuestAddApplication.Designer.cs">
-      <DependentUpon>GuestAddApplication.cs</DependentUpon>
+    <Compile Include="ManagerAddApplication.Designer.cs">
+      <DependentUpon>ManagerAddApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagerCandidateInscription.cs">
       <SubType>Form</SubType>
@@ -190,8 +191,8 @@
     <EmbeddedResource Include="AdminEditUser.resx">
       <DependentUpon>AdminEditUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagerApplicationManagement.resx">
-      <DependentUpon>ManagerApplicationManagement.cs</DependentUpon>
+    <EmbeddedResource Include="AdminApplicationManagement.resx">
+      <DependentUpon>AdminApplicationManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminCalendarManagement.resx">
       <DependentUpon>AdminCalendarManagement.cs</DependentUpon>
@@ -214,8 +215,8 @@
     <EmbeddedResource Include="GuestView.resx">
       <DependentUpon>GuestView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GuestAddApplication.resx">
-      <DependentUpon>GuestAddApplication.cs</DependentUpon>
+    <EmbeddedResource Include="ManagerAddApplication.resx">
+      <DependentUpon>ManagerAddApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerCandidateInscription.resx">
       <DependentUpon>ManagerCandidateInscription.cs</DependentUpon>

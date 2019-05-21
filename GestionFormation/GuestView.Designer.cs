@@ -28,17 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbFormations = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSessions = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.lbITicket = new System.Windows.Forms.LinkLabel();
-            this.btnAddApplication = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).BeginInit();
             this.SuspendLayout();
             // 
             // cbFormations
             // 
+            this.cbFormations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFormations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbFormations.FormattingEnabled = true;
             this.cbFormations.Location = new System.Drawing.Point(289, 51);
             this.cbFormations.Name = "cbFormations";
@@ -49,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(289, 13);
+            this.label1.Location = new System.Drawing.Point(354, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 17);
             this.label1.TabIndex = 1;
@@ -57,17 +61,29 @@
             // 
             // dgvSessions
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvSessions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvSessions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSessions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSessions.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvSessions.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvSessions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSessions.Location = new System.Drawing.Point(12, 154);
             this.dgvSessions.Name = "dgvSessions";
+            this.dgvSessions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvSessions.RowHeadersVisible = false;
             this.dgvSessions.RowTemplate.Height = 24;
+            this.dgvSessions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSessions.Size = new System.Drawing.Size(776, 284);
             this.dgvSessions.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 108);
+            this.label2.Location = new System.Drawing.Point(12, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 3;
@@ -84,28 +100,19 @@
             this.lbITicket.Text = "Ticket";
             this.lbITicket.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // btnAddApplication
-            // 
-            this.btnAddApplication.Location = new System.Drawing.Point(37, 461);
-            this.btnAddApplication.Name = "btnAddApplication";
-            this.btnAddApplication.Size = new System.Drawing.Size(721, 52);
-            this.btnAddApplication.TabIndex = 5;
-            this.btnAddApplication.Text = "Ajouter candidature";
-            this.btnAddApplication.UseVisualStyleBackColor = true;
-            this.btnAddApplication.Click += new System.EventHandler(this.btnAddApplication_Click);
-            // 
             // GuestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 540);
-            this.Controls.Add(this.btnAddApplication);
+            this.ClientSize = new System.Drawing.Size(800, 458);
             this.Controls.Add(this.lbITicket);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvSessions);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbFormations);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "GuestView";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Planning des formations";
             this.Load += new System.EventHandler(this.GuestView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).EndInit();
@@ -121,6 +128,5 @@
         private System.Windows.Forms.DataGridView dgvSessions;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel lbITicket;
-        private System.Windows.Forms.Button btnAddApplication;
     }
 }

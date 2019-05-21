@@ -47,6 +47,14 @@ namespace GestionFormation
             //DataGrid binding from Session of Formation selected
             Formation formationObject = (Formation)cbFormations.SelectedItem;
             dgvSessions.DataSource = db.GetSessions(formationObject.Id.ToString());
+
+            // Personnalisation apparence dataGridView
+            dgvSessions.Columns["Id"].Visible = false;
+            dgvSessions.Columns["LaFormation"].Visible = false;
+            dgvSessions.Columns["Hour_begin"].HeaderText = "Heure de début";
+            dgvSessions.Columns["Hour_end"].HeaderText = "Heure de fin";
+            dgvSessions.Columns["Place"].HeaderText = "Adresse";
+            dgvSessions.Columns["Place"].Width = 270;
         }
 
         private void cbFormations_SelectedIndexChanged(object sender, EventArgs e)
@@ -60,12 +68,6 @@ namespace GestionFormation
         {
             UserTicket userTicket = new UserTicket(this.contextUser);
             userTicket.ShowDialog();
-        }
-
-        private void btnAddApplication_Click(object sender, EventArgs e)
-        {
-            GuestAddApplication guestAddApplication = new GuestAddApplication();
-            guestAddApplication.ShowDialog();
         }
     }
 }
