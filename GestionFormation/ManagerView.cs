@@ -38,12 +38,6 @@ namespace GestionFormation
             dgvSession.DataSource = db.GetSessions(formationObject.Id.ToString());
         }
 
-        private void btnApplicationManagement_Click(object sender, EventArgs e)
-        {
-            ManagerApplicationManagement managerApplicationManagement = new ManagerApplicationManagement();
-            managerApplicationManagement.ShowDialog();
-        }
-
         private void btnEditConvocation_Click(object sender, EventArgs e)
         {
             ManagerConvocation managerConvocation = new ManagerConvocation();
@@ -56,6 +50,12 @@ namespace GestionFormation
             ManagerSheet managerSheet = new ManagerSheet(contextSession);
             managerSheet.ShowDialog();
 
+        }
+
+        private void btnAddCandidat_Click(object sender, EventArgs e)
+        {
+            ManagerAddApplication managerAddApplication = new ManagerAddApplication();
+            managerAddApplication.ShowDialog();
         }
     }
 }
