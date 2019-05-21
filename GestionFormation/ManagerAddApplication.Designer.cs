@@ -1,6 +1,6 @@
 ﻿namespace GestionFormation
 {
-    partial class GuestAddApplication
+    partial class ManagerAddApplication
     {
         /// <summary>
         /// Required designer variable.
@@ -92,6 +92,7 @@
             this.btnArrowRight.TabIndex = 4;
             this.btnArrowRight.Text = "==>";
             this.btnArrowRight.UseVisualStyleBackColor = true;
+            this.btnArrowRight.Click += new System.EventHandler(this.btnArrowRight_Click);
             // 
             // btnArrowLeft
             // 
@@ -101,19 +102,21 @@
             this.btnArrowLeft.TabIndex = 5;
             this.btnArrowLeft.Text = "<==";
             this.btnArrowLeft.UseVisualStyleBackColor = true;
+            this.btnArrowLeft.Click += new System.EventHandler(this.btnArrowLeft_Click);
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(257, 442);
+            this.btnValidate.Location = new System.Drawing.Point(426, 442);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(121, 38);
             this.btnValidate.TabIndex = 6;
             this.btnValidate.Text = "Valider";
             this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(420, 442);
+            this.btnCancel.Location = new System.Drawing.Point(260, 442);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(121, 38);
             this.btnCancel.TabIndex = 7;

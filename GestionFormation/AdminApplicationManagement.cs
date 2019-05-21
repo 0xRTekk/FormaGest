@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GestionFormation
 {
-    public partial class ManagerApplicationManagement : Form
+    public partial class AdminApplicationManagement : Form
     {
-        public ManagerApplicationManagement()
+        public AdminApplicationManagement()
         {
             InitializeComponent();
         }

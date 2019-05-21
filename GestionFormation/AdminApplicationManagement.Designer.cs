@@ -1,6 +1,6 @@
 ﻿namespace GestionFormation
 {
-    partial class ManagerApplicationManagement
+    partial class AdminApplicationManagement
     {
         /// <summary>
         /// Required designer variable.
