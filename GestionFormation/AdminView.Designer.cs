@@ -30,7 +30,7 @@
         {
             this.btnUsersManagement = new System.Windows.Forms.Button();
             this.btnCalendarManagement = new System.Windows.Forms.Button();
-            this.btnTicketsView = new System.Windows.Forms.Button();
+            this.btnCandidature = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnUsersManagement
@@ -53,22 +53,22 @@
             this.btnCalendarManagement.UseVisualStyleBackColor = true;
             this.btnCalendarManagement.Click += new System.EventHandler(this.btnCalendarManagement_Click);
             // 
-            // btnTicketsView
+            // btnCandidature
             // 
-            this.btnTicketsView.Location = new System.Drawing.Point(77, 335);
-            this.btnTicketsView.Name = "btnTicketsView";
-            this.btnTicketsView.Size = new System.Drawing.Size(158, 59);
-            this.btnTicketsView.TabIndex = 3;
-            this.btnTicketsView.Text = "Gestion des tickets";
-            this.btnTicketsView.UseVisualStyleBackColor = true;
-            this.btnTicketsView.Click += new System.EventHandler(this.btnTicketsView_Click);
+            this.btnCandidature.Location = new System.Drawing.Point(77, 335);
+            this.btnCandidature.Name = "btnCandidature";
+            this.btnCandidature.Size = new System.Drawing.Size(158, 59);
+            this.btnCandidature.TabIndex = 3;
+            this.btnCandidature.Text = "Gestion des candidatures";
+            this.btnCandidature.UseVisualStyleBackColor = true;
+            this.btnCandidature.Click += new System.EventHandler(this.btnCandidature_Click);
             // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 456);
-            this.Controls.Add(this.btnTicketsView);
+            this.Controls.Add(this.btnCandidature);
             this.Controls.Add(this.btnCalendarManagement);
             this.Controls.Add(this.btnUsersManagement);
             this.Name = "AdminView";
@@ -81,6 +81,6 @@
 
         private System.Windows.Forms.Button btnUsersManagement;
         private System.Windows.Forms.Button btnCalendarManagement;
-        private System.Windows.Forms.Button btnTicketsView;
+        private System.Windows.Forms.Button btnCandidature;
     }
 }

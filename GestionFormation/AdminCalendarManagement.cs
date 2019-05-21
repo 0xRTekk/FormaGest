@@ -76,5 +76,11 @@ namespace GestionFormation
             dgvSessions.DataSource = db.GetSessions(contextFormation.Id.ToString());
 
         }
+
+        private void btnAddTraining_Click(object sender, EventArgs e)
+        {
+            AdminAddTraining adminAddTraining = new AdminAddTraining();
+            adminAddTraining.ShowDialog();
+        }
     }
 }

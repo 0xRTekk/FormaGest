@@ -29,10 +29,10 @@ namespace GestionFormation
             adminCalendarManagement.ShowDialog();
         }
 
-        private void btnTicketsView_Click(object sender, EventArgs e)
+        private void btnCandidature_Click(object sender, EventArgs e)
         {
-            AdminTicketsView adminTicketsView = new AdminTicketsView();
-            adminTicketsView.ShowDialog();
+            AdminApplicationManagement adminApplicationManagement = new AdminApplicationManagement();
+            adminApplicationManagement.ShowDialog();
         }
     }
 }

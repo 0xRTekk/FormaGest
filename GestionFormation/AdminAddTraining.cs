@@ -21,5 +21,16 @@ namespace GestionFormation
         {
             this.Close();
         }
+
+        private void btnValidate_Click(object sender, EventArgs e)
+        {
+            DbGestionFormation db = new DbGestionFormation();
+            db.InitDb();
+            db.AddFormation(tbFormation.Text);
+
+            MessageBox.Show("Formation ajoutée");
+
+            //REFRESH LA COMBO BOX
+        }
     }
 }

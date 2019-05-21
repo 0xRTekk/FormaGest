@@ -67,6 +67,7 @@
             this.btnAddTraining.TabIndex = 2;
             this.btnAddTraining.Text = "+";
             this.btnAddTraining.UseVisualStyleBackColor = true;
+            this.btnAddTraining.Click += new System.EventHandler(this.btnAddTraining_Click);
             // 
             // dgvSessions
             // 

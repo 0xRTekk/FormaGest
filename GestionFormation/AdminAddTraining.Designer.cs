@@ -31,21 +31,22 @@
             this.btnValidate = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbFormation = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(100, 118);
+            this.btnValidate.Location = new System.Drawing.Point(237, 118);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(88, 35);
             this.btnValidate.TabIndex = 0;
             this.btnValidate.Text = "Valider";
             this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.btnValidate_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(235, 118);
+            this.btnCancel.Location = new System.Drawing.Point(102, 118);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 35);
             this.btnCancel.TabIndex = 1;
@@ -62,19 +63,19 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Libellé de la formation:";
             // 
-            // textBox1
+            // tbFormation
             // 
-            this.textBox1.Location = new System.Drawing.Point(48, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(343, 22);
-            this.textBox1.TabIndex = 3;
+            this.tbFormation.Location = new System.Drawing.Point(48, 60);
+            this.tbFormation.Name = "tbFormation";
+            this.tbFormation.Size = new System.Drawing.Size(343, 22);
+            this.tbFormation.TabIndex = 3;
             // 
             // AdminAddTraining
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 176);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbFormation);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
@@ -90,6 +91,6 @@
         private System.Windows.Forms.Button btnValidate;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbFormation;
     }
 }
