@@ -26,6 +26,7 @@ namespace GestionFormation
         //
         public void InitDb()
         {
+            //Db locale WAMP
             String connString = "Server='127.0.0.1'; User='root'; Password=''; Database='gestion_formation'; SslMode=none";
             
             dbConn = new MySqlConnection(connString);
@@ -215,6 +216,17 @@ namespace GestionFormation
         //
         //FORMATIONS
         //
+        public void AddFormation(String name)
+        {
+            String strQuery = "INSERT INTO formation (name) VALUES (@theName)";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theNAme", name);
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+
+
         public List<Formation> GetFormations()
         {
             dbConn.Open();
@@ -229,7 +241,6 @@ namespace GestionFormation
         //
         //PARTICIPANTS
         //
-
         public List<Participant> GetInscrits(String idSession)
         {
             String strQuery = "SELECT name, first_name FROM participant WHERE id_session = @idSession";
@@ -240,6 +251,38 @@ namespace GestionFormation
             dbConn.Close();
 
             return inscrits;
+        }
+
+        public void AddParticipant(String name, String f_name, String email, String tel, String sess)
+        {
+            String strQuery = "INSERT INTO participant (name, first_name, email, telephone, id_session) " +
+                "VALUES (@theName,@theFirst_name,@theEmail,@theTel,@TheSess)";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theName", name);
+            dynamicParameters.Add("theFirst_name", f_name);
+            dynamicParameters.Add("theEmail", email);
+            dynamicParameters.Add("theTel", tel);
+            dynamicParameters.Add("TheSess", sess);
+
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+
+        public void UpdateParticipant(String name, String f_name, String email, String tel, String sess)
+        {
+            String strQuery = "UPDATE participant SET name = @theName, first_name = @theFirst_name, email = @theEmail, telephone = @theTel, id_session = @theSess";
+            
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theName", name);
+            dynamicParameters.Add("theFirst_name", f_name);
+            dynamicParameters.Add("theEmail", email);
+            dynamicParameters.Add("theTel", tel);
+            dynamicParameters.Add("theSess", sess);
+
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
         }
     }
 }

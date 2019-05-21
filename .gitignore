@@ -259,3 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+
+# Fichier avec identifiants de connexions aux bases de données
+GestionFormation/ConnectionStrings.txt

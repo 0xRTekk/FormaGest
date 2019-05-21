@@ -264,5 +264,8 @@
     <Folder Include="Views\Guest\" />
     <Folder Include="Views\Manager\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ConnectionStrings.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
