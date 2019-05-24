@@ -57,5 +57,11 @@ namespace GestionFormation
             ManagerAddApplication managerAddApplication = new ManagerAddApplication();
             managerAddApplication.ShowDialog();
         }
+
+        private void btnSendSms_Click(object sender, EventArgs e)
+        {
+            SmsSend sms = new SmsSend();
+            sms.ShowDialog();
+        }
     }
 }

@@ -103,6 +103,7 @@
             this.btnSendSms.TabIndex = 6;
             this.btnSendSms.Text = "Envoyer SMS";
             this.btnSendSms.UseVisualStyleBackColor = true;
+            this.btnSendSms.Click += new System.EventHandler(this.btnSendSms_Click);
             // 
             // btnRegistrationPreview
             // 
