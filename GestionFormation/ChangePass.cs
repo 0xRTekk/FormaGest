@@ -31,11 +31,12 @@ namespace GestionFormation
         {
             this.DialogResult = DialogResult.OK;
             String newPass = tbNewPass.Text;
+            String newPassSha = SHA.GenerateSHA256String(newPass);
             String confirmNewPass = tbNewPassConfirm.Text;
 
             if (newPass == confirmNewPass)
             {
-                db.UpdatePass(contextUser.Id, newPass);
+                db.UpdatePass(contextUser.Id, newPassSha);
                 MessageBox.Show("Mot de passe changé");
             }
             else

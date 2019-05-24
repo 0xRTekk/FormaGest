@@ -32,7 +32,7 @@ namespace GestionFormation
         private void btnValidate_Click(object sender, EventArgs e)
         {
             String login = tbLogin.Text;
-            String pass = "12345";
+            String pass = SHA.GenerateSHA256String("12345");
             String role = cbRole.SelectedValue.ToString();
             int tentativeCo = 0;
             int demandeChangePass = 1;

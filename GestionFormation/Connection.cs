@@ -29,6 +29,7 @@ namespace GestionFormation
         {
             String login = tb_co_login.Text;
             String pass = tb_co_pass.Text;
+            pass = SHA.GenerateSHA256String(pass);
             
             if (db.Connection(login, pass).Count() == 1)
             {
