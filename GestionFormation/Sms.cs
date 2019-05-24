@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Net;
+
+namespace GestionFormation
+{
+    public static class Sms
+    {
+        public static void Send(String msg)
+        {
+            String numero = "0783355654";
+
+            string sURL;
+            sURL = "https://SMStoB.com/http.php?email=accueil@agecif.com&pass=ZJ3R2Z&numero=$$num$$&message=$$msg$$";
+            sURL = sURL.Replace("$$num$$", numero);
+            sURL = sURL.Replace("$$msg$$", msg);
+            WebRequest wrGETURL;
+            wrGETURL = WebRequest.Create(sURL);
+            WebResponse response = wrGETURL.GetResponse();
+        }
+
+
+    }
+}
