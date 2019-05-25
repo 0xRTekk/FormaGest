@@ -48,9 +48,12 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(160, 300);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(160, 293);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(114, 29);
+            this.btnCancel.Size = new System.Drawing.Size(114, 36);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -58,9 +61,12 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(335, 300);
+            this.btnValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnValidate.Location = new System.Drawing.Point(335, 293);
             this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(114, 29);
+            this.btnValidate.Size = new System.Drawing.Size(114, 36);
             this.btnValidate.TabIndex = 11;
             this.btnValidate.Text = "Valider";
             this.btnValidate.UseVisualStyleBackColor = true;
@@ -166,14 +172,17 @@
             // 
             // AdminAddSession
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(588, 346);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.tbTraining);
             this.Controls.Add(this.lbTraining);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdminAddSession";
             this.Text = "Création d\'une session";
             this.Load += new System.EventHandler(this.AdminAddSession_Load);

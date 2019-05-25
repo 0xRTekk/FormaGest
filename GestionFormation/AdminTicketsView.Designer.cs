@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvListTickets = new System.Windows.Forms.DataGridView();
             this.lbTickets = new System.Windows.Forms.Label();
             this.rtbTicket = new System.Windows.Forms.RichTextBox();
@@ -39,7 +40,13 @@
             // 
             // dgvListTickets
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvListTickets.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvListTickets.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvListTickets.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListTickets.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvListTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListTickets.ColumnHeadersVisible = false;
             this.dgvListTickets.Location = new System.Drawing.Point(12, 42);
             this.dgvListTickets.Name = "dgvListTickets";
             this.dgvListTickets.Size = new System.Drawing.Size(776, 235);
@@ -64,6 +71,7 @@
             // 
             // cbEtat
             // 
+            this.cbEtat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbEtat.FormattingEnabled = true;
             this.cbEtat.Location = new System.Drawing.Point(276, 586);
             this.cbEtat.Name = "cbEtat";
@@ -72,7 +80,10 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(235, 653);
+            this.btnValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnValidate.Location = new System.Drawing.Point(425, 654);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(116, 43);
             this.btnValidate.TabIndex = 4;
@@ -81,7 +92,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(451, 653);
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Location = new System.Drawing.Point(250, 654);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 43);
             this.button2.TabIndex = 5;
@@ -91,8 +103,10 @@
             // 
             // AdminTicketsView
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(800, 720);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnValidate);
@@ -100,6 +114,7 @@
             this.Controls.Add(this.rtbTicket);
             this.Controls.Add(this.lbTickets);
             this.Controls.Add(this.dgvListTickets);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdminTicketsView";
             this.Text = "AdminTicketsView";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListTickets)).EndInit();

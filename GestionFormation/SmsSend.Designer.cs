@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.rtbMsg = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnModel = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnValidate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -52,45 +52,55 @@
             this.rtbMsg.TabIndex = 1;
             this.rtbMsg.Text = "";
             // 
-            // button1
+            // btnModel
             // 
-            this.button1.Location = new System.Drawing.Point(116, 279);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 45);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Charger modèle";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnModel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModel.Location = new System.Drawing.Point(115, 279);
+            this.btnModel.Name = "btnModel";
+            this.btnModel.Size = new System.Drawing.Size(188, 36);
+            this.btnModel.TabIndex = 2;
+            this.btnModel.Text = "Charger modèle";
+            this.btnModel.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(69, 339);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 42);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Annuler";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(58, 329);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(116, 42);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Annuler";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnValidate
             // 
-            this.button3.Location = new System.Drawing.Point(229, 339);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 42);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Envoyer";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnValidate.Location = new System.Drawing.Point(231, 329);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(127, 42);
+            this.btnValidate.TabIndex = 4;
+            this.btnValidate.Text = "Envoyer";
+            this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.button3_Click);
             // 
             // SmsSend
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 405);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(418, 383);
+            this.Controls.Add(this.btnValidate);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnModel);
             this.Controls.Add(this.rtbMsg);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SmsSend";
             this.Text = "SmsSend";
             this.ResumeLayout(false);
@@ -102,8 +112,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox rtbMsg;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnModel;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnValidate;
     }
 }

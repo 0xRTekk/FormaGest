@@ -35,6 +35,8 @@
             // 
             // btnUsersManagement
             // 
+            this.btnUsersManagement.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnUsersManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsersManagement.Location = new System.Drawing.Point(77, 62);
             this.btnUsersManagement.Name = "btnUsersManagement";
             this.btnUsersManagement.Size = new System.Drawing.Size(158, 59);
@@ -45,6 +47,8 @@
             // 
             // btnCalendarManagement
             // 
+            this.btnCalendarManagement.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCalendarManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalendarManagement.Location = new System.Drawing.Point(77, 199);
             this.btnCalendarManagement.Name = "btnCalendarManagement";
             this.btnCalendarManagement.Size = new System.Drawing.Size(158, 59);
@@ -55,6 +59,8 @@
             // 
             // btnCandidature
             // 
+            this.btnCandidature.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCandidature.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCandidature.Location = new System.Drawing.Point(77, 335);
             this.btnCandidature.Name = "btnCandidature";
             this.btnCandidature.Size = new System.Drawing.Size(158, 59);
@@ -71,6 +77,7 @@
             this.Controls.Add(this.btnCandidature);
             this.Controls.Add(this.btnCalendarManagement);
             this.Controls.Add(this.btnUsersManagement);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdminView";
             this.Text = "Panneau administrateur";
             this.ResumeLayout(false);

@@ -39,16 +39,19 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lbHourEnd = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.hourBegin = new System.Windows.Forms.TextBox();
             this.hourEnd = new System.Windows.Forms.TextBox();
+            this.hourBegin = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(163, 303);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(163, 295);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(114, 29);
+            this.btnCancel.Size = new System.Drawing.Size(114, 37);
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -56,9 +59,12 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(338, 303);
+            this.btnValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnValidate.Location = new System.Drawing.Point(338, 295);
             this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(114, 29);
+            this.btnValidate.Size = new System.Drawing.Size(114, 37);
             this.btnValidate.TabIndex = 16;
             this.btnValidate.Text = "Valider";
             this.btnValidate.UseVisualStyleBackColor = true;
@@ -148,13 +154,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information de la session : ";
             // 
-            // hourBegin
-            // 
-            this.hourBegin.Location = new System.Drawing.Point(221, 140);
-            this.hourBegin.Name = "hourBegin";
-            this.hourBegin.Size = new System.Drawing.Size(50, 22);
-            this.hourBegin.TabIndex = 5;
-            // 
             // hourEnd
             // 
             this.hourEnd.Location = new System.Drawing.Point(391, 140);
@@ -162,16 +161,26 @@
             this.hourEnd.Size = new System.Drawing.Size(50, 22);
             this.hourEnd.TabIndex = 7;
             // 
+            // hourBegin
+            // 
+            this.hourBegin.Location = new System.Drawing.Point(221, 140);
+            this.hourBegin.Name = "hourBegin";
+            this.hourBegin.Size = new System.Drawing.Size(50, 22);
+            this.hourBegin.TabIndex = 5;
+            // 
             // AdminEditSession
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(596, 351);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.tbTraining);
             this.Controls.Add(this.lbTraining);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdminEditSession";
             this.Text = "AdminEditSession";
             this.Load += new System.EventHandler(this.AdminEditSession_Load);

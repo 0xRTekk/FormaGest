@@ -36,9 +36,12 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(237, 118);
+            this.btnValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnValidate.Location = new System.Drawing.Point(239, 111);
             this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(88, 35);
+            this.btnValidate.Size = new System.Drawing.Size(104, 42);
             this.btnValidate.TabIndex = 0;
             this.btnValidate.Text = "Valider";
             this.btnValidate.UseVisualStyleBackColor = true;
@@ -46,9 +49,12 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(102, 118);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(94, 111);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(88, 35);
+            this.btnCancel.Size = new System.Drawing.Size(104, 42);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -72,13 +78,16 @@
             // 
             // AdminAddTraining
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(432, 176);
             this.Controls.Add(this.tbFormation);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AdminAddTraining";
             this.Text = "Ajouter une formation";
             this.ResumeLayout(false);

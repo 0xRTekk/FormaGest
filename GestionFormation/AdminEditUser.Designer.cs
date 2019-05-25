@@ -55,10 +55,12 @@
             // 
             // btnResetPass
             // 
+            this.btnResetPass.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnResetPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResetPass.ForeColor = System.Drawing.Color.Crimson;
-            this.btnResetPass.Location = new System.Drawing.Point(229, 104);
+            this.btnResetPass.Location = new System.Drawing.Point(197, 109);
             this.btnResetPass.Name = "btnResetPass";
-            this.btnResetPass.Size = new System.Drawing.Size(95, 38);
+            this.btnResetPass.Size = new System.Drawing.Size(150, 37);
             this.btnResetPass.TabIndex = 4;
             this.btnResetPass.Text = "Reset MDP";
             this.btnResetPass.UseVisualStyleBackColor = true;
@@ -66,6 +68,7 @@
             // 
             // cbRole
             // 
+            this.cbRole.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Location = new System.Drawing.Point(364, 48);
             this.cbRole.Name = "cbRole";
@@ -99,6 +102,9 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Location = new System.Drawing.Point(127, 201);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 37);
@@ -109,6 +115,9 @@
             // 
             // btnValidate
             // 
+            this.btnValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnValidate.Location = new System.Drawing.Point(324, 201);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(108, 37);
@@ -119,12 +128,15 @@
             // 
             // AdminEditUser
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(564, 269);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdminEditUser";
             this.Text = "Modification utilisateur";
             this.Load += new System.EventHandler(this.AdminEditUser_Load);

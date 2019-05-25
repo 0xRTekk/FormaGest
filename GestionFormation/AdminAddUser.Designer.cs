@@ -53,6 +53,7 @@
             // 
             // cbRole
             // 
+            this.cbRole.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Location = new System.Drawing.Point(364, 48);
             this.cbRole.Name = "cbRole";
@@ -71,6 +72,8 @@
             // tbLogin
             // 
             this.tbLogin.Location = new System.Drawing.Point(69, 51);
+            this.tbLogin.MaximumSize = new System.Drawing.Size(250, 35);
+            this.tbLogin.MinimumSize = new System.Drawing.Size(4, 20);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Size = new System.Drawing.Size(193, 22);
             this.tbLogin.TabIndex = 1;
@@ -86,6 +89,9 @@
             // 
             // btnValidate
             // 
+            this.btnValidate.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnValidate.Location = new System.Drawing.Point(325, 176);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(108, 37);
@@ -96,6 +102,9 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Location = new System.Drawing.Point(128, 176);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 37);
@@ -106,12 +115,15 @@
             // 
             // AdminAddUser
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(563, 231);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AdminAddUser";
             this.Text = "AdminAddUser";
             this.Load += new System.EventHandler(this.AdminAddUser_Load);

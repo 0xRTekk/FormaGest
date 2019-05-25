@@ -30,8 +30,8 @@ namespace GestionFormation
 
         private void ManagerSheet_Load(object sender, EventArgs e)
         {
-            contextParticipant = db.GetInscrits(contextSession.Id.ToString());
-            dgvParticipants.DataSource = contextParticipant;
+            //contextParticipant = db.GetInscrits(contextSession.Id.ToString());
+            //dgvParticipants.DataSource = contextParticipant;
         }
 
         private void button1_Click(object sender, EventArgs e)

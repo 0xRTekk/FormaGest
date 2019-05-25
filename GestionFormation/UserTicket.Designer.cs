@@ -71,7 +71,9 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(125, 378);
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnValidate.Location = new System.Drawing.Point(320, 379);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(90, 38);
             this.btnValidate.TabIndex = 4;
@@ -81,7 +83,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(358, 378);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(166, 379);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 38);
             this.btnCancel.TabIndex = 5;
@@ -91,8 +96,10 @@
             // 
             // UserTicket
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(583, 429);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
@@ -100,6 +107,7 @@
             this.Controls.Add(this.lbDescription);
             this.Controls.Add(this.tbLibelle);
             this.Controls.Add(this.lbLibelle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "UserTicket";
             this.Text = "UserTicket";
             this.ResumeLayout(false);

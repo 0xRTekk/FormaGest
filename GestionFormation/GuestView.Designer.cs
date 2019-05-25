@@ -42,7 +42,7 @@
             this.cbFormations.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbFormations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbFormations.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbFormations.FormattingEnabled = true;
             this.cbFormations.Location = new System.Drawing.Point(289, 51);
             this.cbFormations.Name = "cbFormations";
@@ -53,6 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Location = new System.Drawing.Point(354, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 17);
@@ -68,7 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvSessions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSessions.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvSessions.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvSessions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvSessions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSessions.Location = new System.Drawing.Point(12, 154);
@@ -83,6 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Location = new System.Drawing.Point(12, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);

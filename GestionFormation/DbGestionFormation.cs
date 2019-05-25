@@ -241,17 +241,20 @@ namespace GestionFormation
         //
         //PARTICIPANTS
         //
-        public List<Participant> GetInscrits(String idSession)
-        {
-            String strQuery = "SELECT name, first_name FROM participant WHERE id_session = @idSession";
-            var dynamicParameters = new DynamicParameters();
-            dynamicParameters.Add("idSession", idSession);
-            dbConn.Open();
-            List<Participant> inscrits = dbConn.Query<Participant>(strQuery, dynamicParameters).ToList();
-            dbConn.Close();
 
-            return inscrits;
-        }
+        //A REFAIRE !!!!!!!!!!!!!!!!!!
+
+        //public List<Participant> GetInscrits(String idSession)
+        //{
+        //    String strQuery = "SELECT name, first_name FROM participant WHERE id_session = @idSession";
+        //    var dynamicParameters = new DynamicParameters();
+        //    dynamicParameters.Add("idSession", idSession);
+        //    dbConn.Open();
+        //    List<Participant> inscrits = dbConn.Query<Participant>(strQuery, dynamicParameters).ToList();
+        //    dbConn.Close();
+
+        //    return inscrits;
+        //}
 
         public void AddParticipant(String name, String f_name, String email, String tel, String sess)
         {

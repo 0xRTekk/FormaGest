@@ -141,12 +141,6 @@
     <Compile Include="ManagerAddApplication.Designer.cs">
       <DependentUpon>ManagerAddApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagerCandidateInscription.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ManagerCandidateInscription.Designer.cs">
-      <DependentUpon>ManagerCandidateInscription.cs</DependentUpon>
-    </Compile>
     <Compile Include="ManagerConvocation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,9 +219,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerAddApplication.resx">
       <DependentUpon>ManagerAddApplication.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ManagerCandidateInscription.resx">
-      <DependentUpon>ManagerCandidateInscription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagerConvocation.resx">
       <DependentUpon>ManagerConvocation.cs</DependentUpon>

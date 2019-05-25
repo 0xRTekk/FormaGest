@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbTraining = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddTraining = new System.Windows.Forms.Button();
@@ -43,6 +44,8 @@
             // 
             // cbTraining
             // 
+            this.cbTraining.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTraining.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbTraining.FormattingEnabled = true;
             this.cbTraining.Location = new System.Drawing.Point(279, 27);
             this.cbTraining.Name = "cbTraining";
@@ -61,6 +64,8 @@
             // 
             // btnAddTraining
             // 
+            this.btnAddTraining.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddTraining.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddTraining.Location = new System.Drawing.Point(543, 27);
             this.btnAddTraining.Name = "btnAddTraining";
             this.btnAddTraining.Size = new System.Drawing.Size(28, 24);
@@ -71,9 +76,16 @@
             // 
             // dgvSessions
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvSessions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvSessions.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvSessions.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSessions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSessions.Location = new System.Drawing.Point(12, 126);
             this.dgvSessions.Name = "dgvSessions";
+            this.dgvSessions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvSessions.RowHeadersVisible = false;
             this.dgvSessions.RowTemplate.Height = 24;
             this.dgvSessions.Size = new System.Drawing.Size(776, 253);
             this.dgvSessions.TabIndex = 3;
@@ -89,6 +101,8 @@
             // 
             // btnRemoveTraining
             // 
+            this.btnRemoveTraining.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRemoveTraining.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveTraining.Location = new System.Drawing.Point(577, 26);
             this.btnRemoveTraining.Name = "btnRemoveTraining";
             this.btnRemoveTraining.Size = new System.Drawing.Size(28, 24);
@@ -98,6 +112,8 @@
             // 
             // btnAddSession
             // 
+            this.btnAddSession.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSession.Location = new System.Drawing.Point(58, 398);
             this.btnAddSession.Name = "btnAddSession";
             this.btnAddSession.Size = new System.Drawing.Size(173, 40);
@@ -108,6 +124,8 @@
             // 
             // btnRemoveSession
             // 
+            this.btnRemoveSession.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRemoveSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveSession.Location = new System.Drawing.Point(576, 398);
             this.btnRemoveSession.Name = "btnRemoveSession";
             this.btnRemoveSession.Size = new System.Drawing.Size(173, 40);
@@ -118,6 +136,8 @@
             // 
             // btnEditSession
             // 
+            this.btnEditSession.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnEditSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditSession.Location = new System.Drawing.Point(317, 398);
             this.btnEditSession.Name = "btnEditSession";
             this.btnEditSession.Size = new System.Drawing.Size(173, 40);
@@ -128,9 +148,11 @@
             // 
             // btnAdminView
             // 
+            this.btnAdminView.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAdminView.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdminView.Location = new System.Drawing.Point(12, 13);
             this.btnAdminView.Name = "btnAdminView";
-            this.btnAdminView.Size = new System.Drawing.Size(75, 23);
+            this.btnAdminView.Size = new System.Drawing.Size(75, 34);
             this.btnAdminView.TabIndex = 9;
             this.btnAdminView.Text = "Retour";
             this.btnAdminView.UseVisualStyleBackColor = true;
@@ -151,6 +173,7 @@
             this.Controls.Add(this.btnAddTraining);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbTraining);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdminCalendarManagement";
             this.Text = "Gestion du calendrier";
             this.Load += new System.EventHandler(this.AdminCalendarManagement_Load);

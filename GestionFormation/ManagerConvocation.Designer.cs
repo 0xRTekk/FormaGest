@@ -56,6 +56,8 @@
             // 
             // btnModel
             // 
+            this.btnModel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnModel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModel.Location = new System.Drawing.Point(38, 405);
             this.btnModel.Name = "btnModel";
             this.btnModel.Size = new System.Drawing.Size(195, 32);
@@ -66,6 +68,8 @@
             // 
             // btnReset
             // 
+            this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Location = new System.Drawing.Point(573, 405);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(195, 32);
@@ -76,9 +80,12 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(293, 460);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(240, 454);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(90, 32);
+            this.btnCancel.Size = new System.Drawing.Size(141, 38);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Annuler";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -86,9 +93,11 @@
             // 
             // btnValidate
             // 
-            this.btnValidate.Location = new System.Drawing.Point(416, 460);
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnValidate.Location = new System.Drawing.Point(419, 454);
             this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(90, 32);
+            this.btnValidate.Size = new System.Drawing.Size(141, 38);
             this.btnValidate.TabIndex = 5;
             this.btnValidate.Text = "Enregistrer";
             this.btnValidate.UseVisualStyleBackColor = true;
@@ -96,8 +105,10 @@
             // 
             // ManagerConvocation
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(800, 504);
             this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.btnCancel);
@@ -105,6 +116,7 @@
             this.Controls.Add(this.btnModel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtbConvocation);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ManagerConvocation";
             this.Text = "ManagerConvocation";
             this.ResumeLayout(false);

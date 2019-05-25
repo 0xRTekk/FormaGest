@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTraining = new System.Windows.Forms.DataGridView();
             this.dgvInterest = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,18 +53,32 @@
             // 
             // dgvTraining
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvTraining.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTraining.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvTraining.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTraining.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvTraining.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTraining.Location = new System.Drawing.Point(12, 219);
             this.dgvTraining.Name = "dgvTraining";
+            this.dgvTraining.RowHeadersVisible = false;
             this.dgvTraining.RowTemplate.Height = 24;
+            this.dgvTraining.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTraining.Size = new System.Drawing.Size(305, 185);
             this.dgvTraining.TabIndex = 0;
             // 
             // dgvInterest
             // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvInterest.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvInterest.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvInterest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvInterest.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvInterest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInterest.Location = new System.Drawing.Point(483, 219);
             this.dgvInterest.Name = "dgvInterest";
+            this.dgvInterest.RowHeadersVisible = false;
+            this.dgvInterest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInterest.Size = new System.Drawing.Size(305, 185);
             this.dgvInterest.TabIndex = 1;
             // 
@@ -86,6 +102,8 @@
             // 
             // btnArrowRight
             // 
+            this.btnArrowRight.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnArrowRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArrowRight.Location = new System.Drawing.Point(365, 219);
             this.btnArrowRight.Name = "btnArrowRight";
             this.btnArrowRight.Size = new System.Drawing.Size(70, 70);
@@ -96,6 +114,8 @@
             // 
             // btnArrowLeft
             // 
+            this.btnArrowLeft.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnArrowLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArrowLeft.Location = new System.Drawing.Point(365, 334);
             this.btnArrowLeft.Name = "btnArrowLeft";
             this.btnArrowLeft.Size = new System.Drawing.Size(70, 70);
@@ -106,6 +126,8 @@
             // 
             // btnValidate
             // 
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnValidate.Location = new System.Drawing.Point(426, 442);
             this.btnValidate.Name = "btnValidate";
             this.btnValidate.Size = new System.Drawing.Size(121, 38);
@@ -116,6 +138,9 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Location = new System.Drawing.Point(260, 442);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(121, 38);
@@ -197,10 +222,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informations du candidat";
             // 
-            // GuestAddApplication
+            // ManagerAddApplication
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(800, 492);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label6);
@@ -219,7 +246,8 @@
             this.Controls.Add(this.dgvInterest);
             this.Controls.Add(this.dgvTraining);
             this.Controls.Add(this.groupBox1);
-            this.Name = "GuestAddApplication";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "ManagerAddApplication";
             this.Text = "Ajouter candidature";
             this.Load += new System.EventHandler(this.ManagerAddApplication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTraining)).EndInit();

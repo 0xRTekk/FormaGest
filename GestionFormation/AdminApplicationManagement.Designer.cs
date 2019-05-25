@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
@@ -39,6 +40,8 @@
             // 
             // btnDeleteUser
             // 
+            this.btnDeleteUser.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteUser.Location = new System.Drawing.Point(553, 510);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(166, 50);
@@ -48,6 +51,8 @@
             // 
             // btnEditUser
             // 
+            this.btnEditUser.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditUser.Location = new System.Drawing.Point(317, 510);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(163, 50);
@@ -57,6 +62,8 @@
             // 
             // btnAddUser
             // 
+            this.btnAddUser.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddUser.Location = new System.Drawing.Point(72, 510);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(173, 50);
@@ -75,24 +82,34 @@
             // 
             // dgvUsers
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUsers.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Location = new System.Drawing.Point(12, 135);
             this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvUsers.RowHeadersVisible = false;
             this.dgvUsers.RowTemplate.Height = 24;
+            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsers.Size = new System.Drawing.Size(776, 339);
             this.dgvUsers.TabIndex = 5;
             // 
             // btnBack
             // 
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Location = new System.Drawing.Point(16, 13);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.Size = new System.Drawing.Size(75, 33);
             this.btnBack.TabIndex = 10;
             this.btnBack.Text = "Retour";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnAdminView_Click);
             // 
-            // GuestApplicationManagement
+            // AdminApplicationManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,7 +120,8 @@
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvUsers);
-            this.Name = "GuestApplicationManagement";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Name = "AdminApplicationManagement";
             this.Text = "Gestion des candidatures";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);

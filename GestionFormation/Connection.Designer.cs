@@ -41,7 +41,10 @@
             // 
             // btn_co_validate
             // 
-            this.btn_co_validate.Location = new System.Drawing.Point(73, 162);
+            this.btn_co_validate.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btn_co_validate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_co_validate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_co_validate.Location = new System.Drawing.Point(224, 162);
             this.btn_co_validate.Name = "btn_co_validate";
             this.btn_co_validate.Size = new System.Drawing.Size(99, 37);
             this.btn_co_validate.TabIndex = 0;
@@ -51,7 +54,10 @@
             // 
             // btn_co_cancel
             // 
-            this.btn_co_cancel.Location = new System.Drawing.Point(238, 162);
+            this.btn_co_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_co_cancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_co_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_co_cancel.Location = new System.Drawing.Point(93, 162);
             this.btn_co_cancel.Name = "btn_co_cancel";
             this.btn_co_cancel.Size = new System.Drawing.Size(99, 37);
             this.btn_co_cancel.TabIndex = 1;
@@ -68,6 +74,7 @@
             this.groupBox1.Controls.Add(this.btn_co_cancel);
             this.groupBox1.Controls.Add(this.lb_co_pass);
             this.groupBox1.Controls.Add(this.lb_co_login);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(414, 205);
@@ -103,6 +110,7 @@
             // lb_co_pass
             // 
             this.lb_co_pass.AutoSize = true;
+            this.lb_co_pass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lb_co_pass.Location = new System.Drawing.Point(2, 85);
             this.lb_co_pass.Name = "lb_co_pass";
             this.lb_co_pass.Size = new System.Drawing.Size(97, 17);
@@ -112,6 +120,7 @@
             // lb_co_login
             // 
             this.lb_co_login.AutoSize = true;
+            this.lb_co_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lb_co_login.Location = new System.Drawing.Point(2, 35);
             this.lb_co_login.Name = "lb_co_login";
             this.lb_co_login.Size = new System.Drawing.Size(47, 17);
@@ -123,8 +132,10 @@
             this.AcceptButton = this.btn_co_validate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btn_co_cancel;
             this.ClientSize = new System.Drawing.Size(438, 229);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Connection_form";
             this.Text = "Connexion";
             this.groupBox1.ResumeLayout(false);

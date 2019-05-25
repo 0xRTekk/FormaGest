@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvParticipants = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnValidate = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParticipants)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,31 +47,56 @@
             // 
             // dgvParticipants
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvParticipants.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvParticipants.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvParticipants.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvParticipants.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvParticipants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvParticipants.Location = new System.Drawing.Point(16, 76);
             this.dgvParticipants.Name = "dgvParticipants";
+            this.dgvParticipants.RowHeadersVisible = false;
             this.dgvParticipants.RowTemplate.Height = 24;
+            this.dgvParticipants.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvParticipants.Size = new System.Drawing.Size(366, 326);
             this.dgvParticipants.TabIndex = 1;
             // 
-            // button1
+            // btnValidate
             // 
-            this.button1.Location = new System.Drawing.Point(144, 418);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 41);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Enregistrer";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnValidate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnValidate.Location = new System.Drawing.Point(213, 415);
+            this.btnValidate.Name = "btnValidate";
+            this.btnValidate.Size = new System.Drawing.Size(105, 41);
+            this.btnValidate.TabIndex = 2;
+            this.btnValidate.Text = "Enregistrer";
+            this.btnValidate.UseVisualStyleBackColor = true;
+            this.btnValidate.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Location = new System.Drawing.Point(75, 415);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(105, 41);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Annuler";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // ManagerSheet
             // 
+            this.AcceptButton = this.btnValidate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(396, 468);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnValidate);
             this.Controls.Add(this.dgvParticipants);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ManagerSheet";
             this.Text = "ManagerSheet";
             this.Load += new System.EventHandler(this.ManagerSheet_Load);
@@ -83,6 +110,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvParticipants;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnValidate;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

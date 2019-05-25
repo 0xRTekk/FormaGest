@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.cbTraining = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             // 
             // cbTraining
             // 
+            this.cbTraining.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbTraining.FormattingEnabled = true;
             this.cbTraining.Location = new System.Drawing.Point(268, 9);
             this.cbTraining.Name = "cbTraining";
@@ -68,15 +70,24 @@
             // 
             // dgvSession
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgvSession.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvSession.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvSession.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvSession.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSession.Location = new System.Drawing.Point(13, 103);
             this.dgvSession.Name = "dgvSession";
+            this.dgvSession.RowHeadersVisible = false;
             this.dgvSession.RowTemplate.Height = 24;
+            this.dgvSession.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSession.Size = new System.Drawing.Size(775, 204);
             this.dgvSession.TabIndex = 3;
             // 
             // btnAddCandidat
             // 
+            this.btnAddCandidat.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddCandidat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCandidat.Location = new System.Drawing.Point(73, 328);
             this.btnAddCandidat.Name = "btnAddCandidat";
             this.btnAddCandidat.Size = new System.Drawing.Size(665, 49);
@@ -87,6 +98,8 @@
             // 
             // btnEditConvocation
             // 
+            this.btnEditConvocation.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnEditConvocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditConvocation.Location = new System.Drawing.Point(84, 415);
             this.btnEditConvocation.Name = "btnEditConvocation";
             this.btnEditConvocation.Size = new System.Drawing.Size(156, 43);
@@ -97,6 +110,8 @@
             // 
             // btnSendSms
             // 
+            this.btnSendSms.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSendSms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSendSms.Location = new System.Drawing.Point(312, 415);
             this.btnSendSms.Name = "btnSendSms";
             this.btnSendSms.Size = new System.Drawing.Size(157, 43);
@@ -107,6 +122,8 @@
             // 
             // btnRegistrationPreview
             // 
+            this.btnRegistrationPreview.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRegistrationPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrationPreview.Location = new System.Drawing.Point(541, 415);
             this.btnRegistrationPreview.Name = "btnRegistrationPreview";
             this.btnRegistrationPreview.Size = new System.Drawing.Size(183, 43);
@@ -128,6 +145,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbTraining);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ManagerView";
             this.Text = "Panneau gestionnaire";
             this.Load += new System.EventHandler(this.ManagerView_Load);
