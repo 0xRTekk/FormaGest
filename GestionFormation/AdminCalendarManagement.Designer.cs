@@ -34,7 +34,6 @@
             this.btnAddTraining = new System.Windows.Forms.Button();
             this.dgvSessions = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnRemoveTraining = new System.Windows.Forms.Button();
             this.btnAddSession = new System.Windows.Forms.Button();
             this.btnRemoveSession = new System.Windows.Forms.Button();
             this.btnEditSession = new System.Windows.Forms.Button();
@@ -66,11 +65,11 @@
             // 
             this.btnAddTraining.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btnAddTraining.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTraining.Location = new System.Drawing.Point(543, 27);
+            this.btnAddTraining.Location = new System.Drawing.Point(296, 67);
             this.btnAddTraining.Name = "btnAddTraining";
-            this.btnAddTraining.Size = new System.Drawing.Size(28, 24);
+            this.btnAddTraining.Size = new System.Drawing.Size(206, 42);
             this.btnAddTraining.TabIndex = 2;
-            this.btnAddTraining.Text = "+";
+            this.btnAddTraining.Text = "Ajouter une formation";
             this.btnAddTraining.UseVisualStyleBackColor = true;
             this.btnAddTraining.Click += new System.EventHandler(this.btnAddTraining_Click);
             // 
@@ -83,10 +82,13 @@
             this.dgvSessions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSessions.Location = new System.Drawing.Point(12, 126);
+            this.dgvSessions.MultiSelect = false;
             this.dgvSessions.Name = "dgvSessions";
+            this.dgvSessions.ReadOnly = true;
             this.dgvSessions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvSessions.RowHeadersVisible = false;
             this.dgvSessions.RowTemplate.Height = 24;
+            this.dgvSessions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSessions.Size = new System.Drawing.Size(776, 253);
             this.dgvSessions.TabIndex = 3;
             // 
@@ -98,17 +100,6 @@
             this.label2.Size = new System.Drawing.Size(128, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Liste des sessions:";
-            // 
-            // btnRemoveTraining
-            // 
-            this.btnRemoveTraining.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btnRemoveTraining.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveTraining.Location = new System.Drawing.Point(577, 26);
-            this.btnRemoveTraining.Name = "btnRemoveTraining";
-            this.btnRemoveTraining.Size = new System.Drawing.Size(28, 24);
-            this.btnRemoveTraining.TabIndex = 5;
-            this.btnRemoveTraining.Text = "-";
-            this.btnRemoveTraining.UseVisualStyleBackColor = true;
             // 
             // btnAddSession
             // 
@@ -167,7 +158,6 @@
             this.Controls.Add(this.btnEditSession);
             this.Controls.Add(this.btnRemoveSession);
             this.Controls.Add(this.btnAddSession);
-            this.Controls.Add(this.btnRemoveTraining);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvSessions);
             this.Controls.Add(this.btnAddTraining);
@@ -190,7 +180,6 @@
         private System.Windows.Forms.Button btnAddTraining;
         private System.Windows.Forms.DataGridView dgvSessions;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnRemoveTraining;
         private System.Windows.Forms.Button btnAddSession;
         private System.Windows.Forms.Button btnRemoveSession;
         private System.Windows.Forms.Button btnEditSession;

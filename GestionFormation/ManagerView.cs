@@ -30,6 +30,17 @@ namespace GestionFormation
             //DataGrid binding from Session of Formation selected
             Formation formationObject = (Formation)cbTraining.SelectedItem;
             dgvSession.DataSource = db.GetSessions(formationObject.Id.ToString());
+
+            // Personnalisation apparence dataGridView
+            dgvSession.Columns["Id"].Visible = false;
+            dgvSession.Columns["Id"].Width = 200;
+            dgvSession.Columns["LaFormation"].Visible = false;
+            dgvSession.Columns["Hour_begin"].HeaderText = "Heure de début";
+            dgvSession.Columns["Hour_begin"].Width = 130;
+            dgvSession.Columns["Hour_end"].HeaderText = "Heure de fin";
+            dgvSession.Columns["Hour_end"].Width = 130;
+            dgvSession.Columns["Place"].HeaderText = "Adresse";
+            dgvSession.Columns["Place"].Width = 220;
         }
 
         private void cbTraining_SelectedIndexChanged(object sender, EventArgs e)

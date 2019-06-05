@@ -51,6 +51,7 @@
             this.rtbMsg.Size = new System.Drawing.Size(394, 195);
             this.rtbMsg.TabIndex = 1;
             this.rtbMsg.Text = "";
+            this.rtbMsg.TextChanged += new System.EventHandler(this.rtbMsg_TextChanged);
             // 
             // btnModel
             // 
@@ -62,6 +63,7 @@
             this.btnModel.TabIndex = 2;
             this.btnModel.Text = "Charger modèle";
             this.btnModel.UseVisualStyleBackColor = true;
+            this.btnModel.Click += new System.EventHandler(this.btnModel_Click);
             // 
             // btnCancel
             // 

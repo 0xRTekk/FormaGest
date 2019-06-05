@@ -19,7 +19,7 @@ namespace GestionFormation
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void btnValidate_Click(object sender, EventArgs e)
@@ -27,10 +27,8 @@ namespace GestionFormation
             DbGestionFormation db = new DbGestionFormation();
             db.InitDb();
             db.AddFormation(tbFormation.Text);
-
-            MessageBox.Show("Formation ajoutée");
-
-            //REFRESH LA COMBO BOX
+            
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

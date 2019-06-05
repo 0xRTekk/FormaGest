@@ -220,13 +220,11 @@ namespace GestionFormation
         {
             String strQuery = "INSERT INTO formation (name) VALUES (@theName)";
             var dynamicParameters = new DynamicParameters();
-            dynamicParameters.Add("theNAme", name);
+            dynamicParameters.Add("theName", name);
             dbConn.Open();
             dbConn.Query(strQuery, dynamicParameters);
             dbConn.Close();
         }
-
-
         public List<Formation> GetFormations()
         {
             dbConn.Open();
@@ -235,7 +233,15 @@ namespace GestionFormation
 
             return formations;
         }
-
+        public void DeleteFormation(String idFormation)
+        {
+            String strQuery = "DELETE FROM formation WHERE id = @theId";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theId", idFormation);
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
 
 
         //

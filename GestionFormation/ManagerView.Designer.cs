@@ -78,6 +78,7 @@
             this.dgvSession.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSession.Location = new System.Drawing.Point(13, 103);
             this.dgvSession.Name = "dgvSession";
+            this.dgvSession.ReadOnly = true;
             this.dgvSession.RowHeadersVisible = false;
             this.dgvSession.RowTemplate.Height = 24;
             this.dgvSession.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

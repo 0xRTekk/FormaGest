@@ -30,6 +30,18 @@ namespace GestionFormation
         {
             dgvUsers.DataSource = null;
             dgvUsers.DataSource = db.GetUsers();
+
+            // Personnalisation apparence dataGridView
+            dgvUsers.Columns[0].Visible = false;
+            dgvUsers.Columns[2].Visible = false;
+            dgvUsers.Columns[3].HeaderText = "Habilitations";
+            dgvUsers.Columns[4].HeaderText = "1ère connexion";
+            dgvUsers.Columns[4].Width = 194;
+            dgvUsers.Columns[5].HeaderText = "Erreurs connexion";
+            dgvUsers.Columns[5].Width = 194;
+            dgvUsers.Columns[6].HeaderText = "Changement MDP";
+            dgvUsers.Columns[6].Width = 194;
+            //dgvUsers.Columns["Place"].Width = 270;
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)

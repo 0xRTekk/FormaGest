@@ -46,7 +46,7 @@ namespace GestionFormation
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void btnValidate_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace GestionFormation
             db.AddSession(contextSession.Date, contextSession.Hour_begin, contextSession.Hour_end, contextSession.Place, contextSession.LaFormation.Id.ToString());
 
             MessageBox.Show("Session ajoutée");
-            this.Close();
+            this.DialogResult = DialogResult.OK;
         }
 
     }
