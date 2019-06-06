@@ -81,7 +81,7 @@ namespace GestionFormation
             //Quand on crée un participant, son id est initialisé à 0
             if (participant.Id == 0)
             {
-                db.AddParticipant(participant.Name, participant.First_name, participant.Email, participant.Tel.ToString(), participant.IdSession.ToString());
+                db.AddParticipant(participant.Name, participant.First_name, participant.Email, participant.Tel.ToString());
                 //Faire proc server qui retourne l'id du participant ajouté
             }
             else //Si l'id est valorisé, c'est que l'on veut modifier le participant en question

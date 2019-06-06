@@ -27,6 +27,12 @@ namespace GestionFormation
         {
             contextFormations = db.GetFormations();
             dgvTraining.DataSource = contextFormations;
+
+            // Personnalisation apparence dataGridView
+            dgvTraining.Columns["Id"].Visible = false;
+            dgvTraining.Columns["LesSessions"].Visible = false;
+            dgvTraining.Columns["Name"].HeaderText = "Formation";
+            dgvTraining.Columns["Name"].Width = 212;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -36,7 +42,21 @@ namespace GestionFormation
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
+            // Add Participant
+            String name = tbName.Text;
+            String first_name = tbFirstName.Text;
+            String tel = tbTel.Text;
+            String mail = tbMail.Text;
+            int participantId = db.AddParticipantRtnId(name, first_name, mail, tel);
 
+            // Add Interest list
+            foreach (Formation interet in contextInterest)
+            {
+                db.addInterests(interet.Id.ToString(), participantId.ToString());
+            }
+
+            MessageBox.Show("Candidat et souhaits ajoutés");
+            this.Close();
         }
 
         private void btnArrowRight_Click(object sender, EventArgs e)

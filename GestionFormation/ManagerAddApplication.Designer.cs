@@ -39,12 +39,12 @@
             this.btnValidate = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbFirstName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbTel = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbMail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTraining)).BeginInit();
@@ -61,6 +61,7 @@
             this.dgvTraining.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTraining.Location = new System.Drawing.Point(12, 219);
             this.dgvTraining.Name = "dgvTraining";
+            this.dgvTraining.ReadOnly = true;
             this.dgvTraining.RowHeadersVisible = false;
             this.dgvTraining.RowTemplate.Height = 24;
             this.dgvTraining.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -77,6 +78,7 @@
             this.dgvInterest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInterest.Location = new System.Drawing.Point(483, 219);
             this.dgvInterest.Name = "dgvInterest";
+            this.dgvInterest.ReadOnly = true;
             this.dgvInterest.RowHeadersVisible = false;
             this.dgvInterest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInterest.Size = new System.Drawing.Size(305, 185);
@@ -158,19 +160,19 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Nom:";
             // 
-            // textBox1
+            // tbName
             // 
-            this.textBox1.Location = new System.Drawing.Point(179, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 22);
-            this.textBox1.TabIndex = 9;
+            this.tbName.Location = new System.Drawing.Point(179, 62);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(183, 22);
+            this.tbName.TabIndex = 9;
             // 
-            // textBox2
+            // tbFirstName
             // 
-            this.textBox2.Location = new System.Drawing.Point(179, 103);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(183, 22);
-            this.textBox2.TabIndex = 11;
+            this.tbFirstName.Location = new System.Drawing.Point(179, 103);
+            this.tbFirstName.Name = "tbFirstName";
+            this.tbFirstName.Size = new System.Drawing.Size(183, 22);
+            this.tbFirstName.TabIndex = 11;
             // 
             // label4
             // 
@@ -181,12 +183,12 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Prénom:";
             // 
-            // textBox3
+            // tbTel
             // 
-            this.textBox3.Location = new System.Drawing.Point(483, 58);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(183, 22);
-            this.textBox3.TabIndex = 13;
+            this.tbTel.Location = new System.Drawing.Point(483, 58);
+            this.tbTel.Name = "tbTel";
+            this.tbTel.Size = new System.Drawing.Size(183, 22);
+            this.tbTel.TabIndex = 13;
             // 
             // label5
             // 
@@ -197,12 +199,12 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Téléphone:";
             // 
-            // textBox4
+            // tbMail
             // 
-            this.textBox4.Location = new System.Drawing.Point(483, 103);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(183, 22);
-            this.textBox4.TabIndex = 15;
+            this.tbMail.Location = new System.Drawing.Point(483, 103);
+            this.tbMail.Name = "tbMail";
+            this.tbMail.Size = new System.Drawing.Size(183, 22);
+            this.tbMail.TabIndex = 15;
             // 
             // label6
             // 
@@ -229,13 +231,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(800, 492);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tbMail);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tbTel);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbFirstName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnValidate);
@@ -268,12 +270,12 @@
         private System.Windows.Forms.Button btnValidate;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbTel;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbMail;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
     }

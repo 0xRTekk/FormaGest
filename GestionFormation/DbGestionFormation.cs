@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Dapper;
+using System.Data;
+using System.Configuration;
+using MySql.Data.MySqlClient;
+
 
 namespace GestionFormation
 {
@@ -28,7 +32,7 @@ namespace GestionFormation
         {
             //Db locale WAMP
             String connString = "Server='127.0.0.1'; User='root'; Password=''; Database='gestion_formation'; SslMode=none";
-            
+
             dbConn = new MySqlConnection(connString);
         }
 
@@ -262,20 +266,52 @@ namespace GestionFormation
         //    return inscrits;
         //}
 
-        public void AddParticipant(String name, String f_name, String email, String tel, String sess)
+        public void AddParticipant(String name, String f_name, String email, String tel)
         {
             String strQuery = "INSERT INTO participant (name, first_name, email, telephone, id_session) " +
-                "VALUES (@theName,@theFirst_name,@theEmail,@theTel,@TheSess)";
+                "VALUES (@theName,@theFirst_name,@theEmail,@theTel)";
             var dynamicParameters = new DynamicParameters();
             dynamicParameters.Add("theName", name);
             dynamicParameters.Add("theFirst_name", f_name);
             dynamicParameters.Add("theEmail", email);
             dynamicParameters.Add("theTel", tel);
-            dynamicParameters.Add("TheSess", sess);
 
             dbConn.Open();
             dbConn.Query(strQuery, dynamicParameters);
             dbConn.Close();
+        }
+
+        public int AddParticipantRtnId(String name, String f_name, String email, String tel)
+        {
+            using (MySqlCommand cmd = new MySqlCommand("addParticipantRtnId", dbConn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("?Pname", name);
+                cmd.Parameters["?Pname"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("?Pfirst_name", f_name);
+                cmd.Parameters["?Pfirst_name"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("?Pemail", email);
+                cmd.Parameters["?Pemail"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("?Ptelephone", tel);
+                cmd.Parameters["?Ptelephone"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("?PrtnId", MySqlDbType.Int64);
+                cmd.Parameters["?PrtnId"].Direction = ParameterDirection.Output;
+                
+                dbConn.Open();
+                // this ALWAYS returns a 0 for this insert
+                Int64 retval = (Int64)cmd.ExecuteNonQuery();
+                // Now get the OUT parameters
+                int idInserted = (int)cmd.Parameters["?PrtnId"].Value;
+                dbConn.Close();
+
+                return idInserted;
+            }
+            
         }
 
         public void UpdateParticipant(String name, String f_name, String email, String tel, String sess)
@@ -292,6 +328,31 @@ namespace GestionFormation
             dbConn.Open();
             dbConn.Query(strQuery, dynamicParameters);
             dbConn.Close();
+        }
+
+
+
+
+
+        ///
+        /// INTERETS
+        ///
+        public void addInterests(String id_formation, String id_participant)
+        {
+            using (MySqlCommand cmd = new MySqlCommand("addInteresser", dbConn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("?Pformation_id", id_formation);
+                cmd.Parameters["?Pformation_id"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("?Pparticipant_id", id_participant);
+                cmd.Parameters["?Pparticipant_id"].Direction = ParameterDirection.Input;
+
+                dbConn.Open();
+                int rowAffected = cmd.ExecuteNonQuery();
+                dbConn.Close();
+            }
         }
     }
 }
