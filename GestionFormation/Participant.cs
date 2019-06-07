@@ -28,6 +28,13 @@ namespace GestionFormation
 
         }
 
+        public Participant(int Id, String Name, String First_name)
+        {
+            id = Id;
+            name = Name;
+            first_name = First_name;
+        }
+
         public Participant(String Name, String First_name)
         {
             name = Name;

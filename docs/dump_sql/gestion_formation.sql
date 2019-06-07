@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 10 mai 2019 à 07:44
+-- Généré le :  ven. 07 juin 2019 à 15:43
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -21,8 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `gestion_formation`
 --
-CREATE DATABASE IF NOT EXISTS `gestion_formation` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `gestion_formation`;
+
+DELIMITER $$
+--
+-- Procédures
+--
+DROP PROCEDURE IF EXISTS `addInteresser`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addInteresser` (IN `Pformation_id` INT, IN `Pparticipant_id` INT)  NO SQL
+BEGIN
+INSERT INTO interesser (formation_id, participant_id) 
+VALUES (Pformation_id, Pparticipant_id);
+END$$
+
+DROP PROCEDURE IF EXISTS `addParticipantRtnId`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addParticipantRtnId` (IN `Pname` VARCHAR(50), IN `Pfirst_name` VARCHAR(50), IN `Pemail` VARCHAR(255), IN `Ptelephone` BIGINT, OUT `PrtnId` INT)  BEGIN
+INSERT INTO participant(name, first_name, email, telephone) VALUES (Pname, Pfirst_name, Pemail, Ptelephone);
+SET PrtnId = LAST_INSERT_ID();
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -34,11 +51,18 @@ DROP TABLE IF EXISTS `candidater`;
 CREATE TABLE IF NOT EXISTS `candidater` (
   `session_id` int(11) NOT NULL,
   `participant_id` int(11) NOT NULL,
-  `est_inscrit` tinyint(4) NOT NULL,
-  PRIMARY KEY (`session_id`,`participant_id`),
-  KEY `fk_session_has_participant_participant1_idx` (`participant_id`),
-  KEY `fk_session_has_participant_session1_idx` (`session_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `accepter` tinyint(1) NOT NULL,
+  `motif_refus` text,
+  KEY `session_id` (`session_id`),
+  KEY `participant_id` (`participant_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `candidater`
+--
+
+INSERT INTO `candidater` (`session_id`, `participant_id`, `accepter`, `motif_refus`) VALUES
+(30, 3, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -50,7 +74,6 @@ DROP TABLE IF EXISTS `formation`;
 CREATE TABLE IF NOT EXISTS `formation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `level` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
@@ -58,17 +81,16 @@ CREATE TABLE IF NOT EXISTS `formation` (
 -- Déchargement des données de la table `formation`
 --
 
-INSERT INTO `formation` (`id`, `name`, `level`) VALUES
-(1, 'nisi', 3),
-(2, 'leo.', 1),
-(3, 'In', 1),
-(4, 'netus', 3),
-(5, 'urna', 2),
-(6, 'ipsum.', 3),
-(7, 'scelerisque', 3),
-(8, 'velit', 1),
-(9, 'amet', 3),
-(10, 'egestas,', 3);
+INSERT INTO `formation` (`id`, `name`) VALUES
+(2, 'Games'),
+(3, 'Jewelery'),
+(4, 'Baby'),
+(5, 'Outdoors'),
+(6, 'Home'),
+(7, 'Shoes'),
+(8, 'Clothing'),
+(9, 'Clothing'),
+(10, 'Grocery');
 
 -- --------------------------------------------------------
 
@@ -105,6 +127,70 @@ INSERT INTO `incident` (`id`, `libelle`, `description`, `date_emission`, `date_r
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `interesser`
+--
+
+DROP TABLE IF EXISTS `interesser`;
+CREATE TABLE IF NOT EXISTS `interesser` (
+  `formation_id` int(11) NOT NULL,
+  `participant_id` int(11) NOT NULL,
+  KEY `id_formation` (`formation_id`),
+  KEY `id_participant` (`participant_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `interesser`
+--
+
+INSERT INTO `interesser` (`formation_id`, `participant_id`) VALUES
+(9, 21),
+(3, 35),
+(4, 3),
+(8, 30),
+(2, 32),
+(8, 24),
+(2, 46),
+(7, 9),
+(4, 33),
+(6, 27),
+(4, 17),
+(10, 34),
+(8, 26),
+(3, 37),
+(10, 43),
+(8, 24),
+(6, 8),
+(6, 6),
+(10, 16),
+(4, 21),
+(9, 14),
+(10, 7),
+(7, 37),
+(3, 25),
+(6, 14),
+(9, 35),
+(10, 31),
+(10, 18),
+(9, 44),
+(2, 47),
+(6, 38),
+(6, 40),
+(2, 15),
+(3, 48),
+(2, 22),
+(4, 5),
+(7, 21),
+(6, 16),
+(8, 41),
+(10, 24),
+(10, 24),
+(10, 10),
+(2, 64),
+(3, 64);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `participant`
 --
 
@@ -114,36 +200,66 @@ CREATE TABLE IF NOT EXISTS `participant` (
   `name` varchar(50) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `telephone` int(11) NOT NULL,
-  `id_session` int(11) NOT NULL,
+  `telephone` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `participant`
 --
 
-INSERT INTO `participant` (`id`, `name`, `first_name`, `email`, `telephone`, `id_session`) VALUES
-(1, 'Reilly', 'Noel', '', 0, 7),
-(2, 'Noble', 'Mercedes', '', 0, 14),
-(3, 'Mckay', 'Brady', '', 0, 18),
-(4, 'Holloway', 'Forrest', '', 0, 3),
-(5, 'Marquez', 'Yoshio', '', 0, 11),
-(6, 'Golden', 'Yvonne', '', 0, 12),
-(7, 'Foreman', 'James', '', 0, 5),
-(8, 'Irwin', 'Darryl', '', 0, 6),
-(9, 'Dudley', 'Giacomo', '', 0, 14),
-(10, 'Stanton', 'Laith', '', 0, 16),
-(11, 'Goodman', 'Roanna', '', 0, 9),
-(12, 'Hopper', 'Owen', '', 0, 2),
-(13, 'Carney', 'Dahlia', '', 0, 1),
-(14, 'Obrien', 'Harding', '', 0, 13),
-(15, 'Head', 'Grace', '', 0, 5),
-(16, 'Greer', 'Ivy', '', 0, 15),
-(17, 'Knox', 'Zenaida', '', 0, 13),
-(18, 'Sexton', 'Flavia', '', 0, 11),
-(19, 'Moreno', 'Montana', '', 0, 14),
-(20, 'Pate', 'Harper', '', 0, 12);
+INSERT INTO `participant` (`id`, `name`, `first_name`, `email`, `telephone`) VALUES
+(1, 'Mingay', 'Hieronymus', 'hmingay0@ycombinator.com', '2147483647'),
+(2, 'Sawkin', 'Matthaeus', 'msawkin1@dot.gov', '2147483647'),
+(3, 'Offord', 'Cleon', 'cofford2@aboutads.info', '2147483647'),
+(4, 'Popland', 'Jocko', 'jpopland3@google.ru', '1461551874'),
+(5, 'Artois', 'Tandy', 'tartois4@discovery.com', '2147483647'),
+(6, 'Whitsun', 'Wren', 'wwhitsun5@bloomberg.com', '2147483647'),
+(7, 'Rumin', 'Selle', 'srumin6@cmu.edu', '2147483647'),
+(8, 'Pontin', 'Sarena', 'spontin7@comcast.net', '2147483647'),
+(9, 'Barr', 'Carver', 'cbarr8@who.int', '2147483647'),
+(10, 'Garmans', 'Andy', 'agarmans9@cnet.com', '1322182899'),
+(11, 'Greatbatch', 'Naoma', 'ngreatbatcha@eventbrite.com', '1831672185'),
+(12, 'Duley', 'Adrianna', 'aduleyb@live.com', '2147483647'),
+(13, 'Scahill', 'Garrett', 'gscahillc@delicious.com', '2147483647'),
+(14, 'Ensley', 'Trevor', 'tensleyd@fotki.com', '2147483647'),
+(15, 'Spradbery', 'Benedick', 'bspradberye@people.com.cn', '2147483647'),
+(16, 'Brunnstein', 'Glennis', 'gbrunnsteinf@unesco.org', '2147483647'),
+(17, 'Fiddyment', 'Nettie', 'nfiddymentg@census.gov', '2147483647'),
+(18, 'Iacobucci', 'Curry', 'ciacobuccih@clickbank.net', '2147483647'),
+(19, 'Matthis', 'Freeland', 'fmatthisi@usda.gov', '2147483647'),
+(20, 'Fitzhenry', 'Godfree', 'gfitzhenryj@geocities.jp', '2147483647'),
+(21, 'Lembrick', 'Mina', 'mlembrickk@epa.gov', '2147483647'),
+(22, 'Neicho', 'Ailee', 'aneichol@live.com', '2147483647'),
+(23, 'Morris', 'Frederique', 'fmorrism@wufoo.com', '2147483647'),
+(24, 'Gage', 'Jany', 'jgagen@tinyurl.com', '2147483647'),
+(25, 'Tidbold', 'Iolanthe', 'itidboldo@ow.ly', '1024079498'),
+(26, 'Brougham', 'Devan', 'dbroughamp@ocn.ne.jp', '2147483647'),
+(27, 'Diplock', 'Lorene', 'ldiplockq@cloudflare.com', '2147483647'),
+(28, 'Perri', 'Tilda', 'tperrir@bing.com', '2147483647'),
+(29, 'Sommer', 'Griffin', 'gsommers@mail.ru', '2147483647'),
+(30, 'Fidelus', 'Joe', 'jfidelust@phpbb.com', '2147483647'),
+(31, 'Hastie', 'Eugene', 'ehastieu@google.co.uk', '1757508676'),
+(32, 'Sharvell', 'Bendix', 'bsharvellv@g.co', '2147483647'),
+(33, 'Friend', 'Hertha', 'hfriendw@ocn.ne.jp', '2147483647'),
+(34, 'Walas', 'Kurt', 'kwalasx@lycos.com', '2147483647'),
+(35, 'Ivashnikov', 'Allys', 'aivashnikovy@dmoz.org', '2147483647'),
+(36, 'Manns', 'Sam', 'smannsz@vkontakte.ru', '2147483647'),
+(37, 'Brookfield', 'Whitaker', 'wbrookfield10@about.me', '2147483647'),
+(38, 'Lovatt', 'Jacqueline', 'jlovatt11@hao123.com', '2147483647'),
+(39, 'Randlesome', 'Tonye', 'trandlesome12@creativecommons.org', '2147483647'),
+(40, 'Merrisson', 'Correna', 'cmerrisson13@answers.com', '2147483647'),
+(41, 'Doohey', 'Annamarie', 'adoohey14@php.net', '2147483647'),
+(42, 'Lenglet', 'Gwen', 'glenglet15@fc2.com', '2147483647'),
+(43, 'Staunton', 'Jacqueline', 'jstaunton16@symantec.com', '1125394661'),
+(44, 'Briddock', 'Chadd', 'cbriddock17@is.gd', '2147483647'),
+(45, 'Gladding', 'Jodee', 'jgladding18@mediafire.com', '1088280430'),
+(46, 'Bauldry', 'Sheppard', 'sbauldry19@free.fr', '2147483647'),
+(47, 'Shackell', 'Marybelle', 'mshackell1a@prlog.org', '2147483647'),
+(48, 'Moodey', 'Gwenette', 'gmoodey1b@ocn.ne.jp', '2147483647'),
+(49, 'O\'Lynn', 'Andrew', 'aolynn1c@msn.com', '2147483647'),
+(50, 'Sprigin', 'Kippy', 'ksprigin1d@indiegogo.com', '1727247636'),
+(64, 'Sulpice', 'Réli', 'cqsd', '3216549870');
 
 -- --------------------------------------------------------
 
@@ -159,7 +275,8 @@ CREATE TABLE IF NOT EXISTS `session` (
   `hour_end` varchar(50) NOT NULL,
   `place` varchar(100) NOT NULL,
   `id_formation` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `id_formation` (`id_formation`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
@@ -167,36 +284,36 @@ CREATE TABLE IF NOT EXISTS `session` (
 --
 
 INSERT INTO `session` (`id`, `date`, `hour_begin`, `hour_end`, `place`, `id_formation`) VALUES
-(1, '2019-12-21', '12', '20', 'Leamington', 8),
-(2, '2019-12-06', '8', '20', 'Paulatuk', 1),
-(3, '2018-09-24', '11', '16', 'Cerchio', 6),
-(4, '2019-03-16', '9', '15', 'Kelkheim', 7),
-(5, '2018-12-15', '10', '19', 'Baltimore', 1),
-(6, '2019-02-25', '10', '15', 'Lugnano in Teverina', 10),
-(7, '2019-04-07', '10', '20', 'Rhisnes', 9),
-(8, '2019-08-20', '11', '15', 'Newton Stewart', 5),
-(9, '2018-11-07', '10', '14', 'Emmen', 8),
-(10, '2019-10-30', '10', '15', 'Scarborough', 8),
-(11, '2019-01-10', '11', '20', 'Penna in Teverina', 7),
-(12, '2018-06-30', '10', '20', 'Campli', 6),
-(13, '2018-12-06', '8', '17', 'Hérouville-Saint-Clair', 1),
-(14, '2018-08-14', '11', '15', 'Cimolais', 4),
-(15, '2018-11-08', '12', '14', 'Orai', 6),
-(16, '2018-05-02', '12', '17', 'Hulst', 5),
-(17, '2018-06-02', '9', '16', 'Clauzetto', 8),
-(18, '2018-07-26', '9', '19', 'Santarém', 2),
-(19, '2020-01-21', '8', '20', 'Cupar', 5),
-(20, '2019-12-09', '10', '18', 'Warren', 5),
-(21, '2019-10-19', '9', '17', 'Cádiz', 7),
-(22, '2019-02-23', '11', '16', 'San Pablo', 10),
-(23, '2019-03-23', '12', '20', 'Missoula', 7),
-(24, '2018-07-23', '10', '19', 'Wetteren', 6),
-(25, '2018-12-06', '9', '15', 'St. Thomas', 1),
-(26, '2019-05-25', '10', '14', 'Tavigny', 9),
-(27, '2019-09-06', '10', '18', 'Schagen', 6),
-(28, '2018-10-30', '12', '14', 'Oberpullendorf', 3),
-(29, '2019-06-30', '10', '20', 'Meerdonk', 8),
-(30, '2019-12-02', '9', '20', 'Wisbech', 8);
+(1, '2018-07-22', '9', '14', '8 Jackson Drive', 8),
+(2, '2018-05-30', '9', '17', '8 Prairie Rose Plaza', 8),
+(3, '2018-07-04', '10', '14', '58046 Truax Road', 6),
+(4, '2019-01-04', '9', '13', '022 Hauk Terrace', 5),
+(5, '2018-10-10', '8', '15', '4 Eagan Place', 4),
+(6, '2019-02-27', '11', '14', '52451 Loeprich Hill', 6),
+(7, '2018-10-27', '8', '15', '53713 John Wall Crossing', 2),
+(8, '2018-08-21', '10', '13', '022 Gina Terrace', 3),
+(9, '2018-06-23', '10', '16', '55143 Pleasure Terrace', 6),
+(10, '2018-11-04', '10', '15', '6 Merrick Park', 3),
+(11, '2018-08-12', '8', '17', '1959 Monterey Center', 2),
+(12, '2018-11-30', '8', '17', '42436 Burning Wood Junction', 4),
+(13, '2018-12-09', '11', '16', '5444 Steensland Court', 5),
+(14, '2018-09-05', '10', '16', '904 David Street', 9),
+(15, '2018-06-05', '11', '17', '370 Schurz Road', 8),
+(16, '2019-03-26', '10', '16', '59426 Johnson Place', 9),
+(17, '2018-09-30', '11', '16', '850 Raven Lane', 4),
+(18, '2018-07-31', '8', '16', '5 Jay Center', 7),
+(19, '2019-03-17', '8', '15', '93 Briar Crest Road', 6),
+(20, '2018-05-21', '10', '13', '97746 Tennessee Terrace', 6),
+(21, '2019-03-19', '10', '15', '3549 Pankratz Trail', 10),
+(22, '2018-07-28', '8', '16', '87008 Hoard Hill', 2),
+(23, '2018-08-05', '8', '17', '004 Moose Lane', 5),
+(24, '2018-06-03', '11', '15', '4 Rutledge Point', 7),
+(25, '2019-04-28', '9', '15', '903 Cottonwood Road', 5),
+(26, '2018-09-19', '10', '15', '01 Red Cloud Plaza', 3),
+(27, '2019-05-12', '10', '15', '9 Jenna Hill', 8),
+(28, '2019-03-21', '9', '17', '023 Lukken Court', 3),
+(29, '2018-07-17', '11', '15', '121 Haas Point', 5),
+(30, '2018-05-21', '10', '13', '63934 Meadow Ridge Avenue', 4);
 
 -- --------------------------------------------------------
 
@@ -221,9 +338,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `login`, `pass`, `role`, `heurePremiereCo`, `tentativeCo`, `demandeChangePass`) VALUES
-(1, 'admin', 'admin', 'administrateur', NULL, 0, 0),
-(2, 'gestio', 'gestio', 'gestionnaire', NULL, 0, 0),
-(4, 'guest', 'guest', 'utilisateur', NULL, 0, 0);
+(1, 'admin', '88329B8692B8A8A26E0A9A37421B3BD644024CFBF20F928E37510B43B7684B07', 'administrateur', NULL, 0, 0),
+(2, 'gestio', '164A48B61D83B559A94E28357D36CFD7497B3FEB0F6FE2565A29EC5178C8CDDC', 'gestionnaire', NULL, 0, 0),
+(3, 'guest', 'F9529F8231BABB3DF48E2B4F02CF67CA37763761116ED1A7F79EB79DD61A2747', 'utilisateur', NULL, 0, 0),
+(4, 'dev', '5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5', 'administrateur', NULL, 0, 1);
 
 --
 -- Contraintes pour les tables déchargées
@@ -233,8 +351,21 @@ INSERT INTO `user` (`id`, `login`, `pass`, `role`, `heurePremiereCo`, `tentative
 -- Contraintes pour la table `candidater`
 --
 ALTER TABLE `candidater`
-  ADD CONSTRAINT `fk_inscrit_participant1` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_inscrit_session1` FOREIGN KEY (`session_id`) REFERENCES `session` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `candidater_ibfk_1` FOREIGN KEY (`session_id`) REFERENCES `session` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `candidater_ibfk_2` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Contraintes pour la table `interesser`
+--
+ALTER TABLE `interesser`
+  ADD CONSTRAINT `fk_interesser_formation` FOREIGN KEY (`formation_id`) REFERENCES `formation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_interesser_participant` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `session`
+--
+ALTER TABLE `session`
+  ADD CONSTRAINT `fk_session_formation1` FOREIGN KEY (`id_formation`) REFERENCES `formation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -237,6 +237,17 @@ namespace GestionFormation
 
             return formations;
         }
+        public List<Formation> GetFormationsByPartiId(String idParticipant)
+        {
+            String strQuery = "SELECT id, name FROM formation WHERE id IN(SELECT formation_id FROM interesser WHERE participant_id = @theId)";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theId", idParticipant);
+            dbConn.Open();
+            var formations = dbConn.Query<Formation>(strQuery, dynamicParameters).ToList();
+            dbConn.Close();
+
+            return formations;
+        }
         public void DeleteFormation(String idFormation)
         {
             String strQuery = "DELETE FROM formation WHERE id = @theId";
@@ -252,19 +263,15 @@ namespace GestionFormation
         //PARTICIPANTS
         //
 
-        //A REFAIRE !!!!!!!!!!!!!!!!!!
+        public List<Participant> GetParticipants()
+        {
+            String strQuery = "SELECT id, name, first_name FROM participant";
+            dbConn.Open();
+            List<Participant> participants = dbConn.Query<Participant>(strQuery).ToList();
+            dbConn.Close();
 
-        //public List<Participant> GetInscrits(String idSession)
-        //{
-        //    String strQuery = "SELECT name, first_name FROM participant WHERE id_session = @idSession";
-        //    var dynamicParameters = new DynamicParameters();
-        //    dynamicParameters.Add("idSession", idSession);
-        //    dbConn.Open();
-        //    List<Participant> inscrits = dbConn.Query<Participant>(strQuery, dynamicParameters).ToList();
-        //    dbConn.Close();
-
-        //    return inscrits;
-        //}
+            return participants;
+        }
 
         public void AddParticipant(String name, String f_name, String email, String tel)
         {
@@ -353,6 +360,26 @@ namespace GestionFormation
                 int rowAffected = cmd.ExecuteNonQuery();
                 dbConn.Close();
             }
+        }
+
+
+
+        ///
+        /// CANDIDATER
+        ///
+        public void updateCandidater(String idSess, String idParti, String accepter, String refus)
+        {
+            String strQuery = "INSERT INTO candidater(session_id, participant_id, accepter, motif_refus) VALUES (@theIdSess,@theIdParti,@theAccepeter,@theRefus)";
+
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theIdSess", idSess);
+            dynamicParameters.Add("theIdParti", idParti);
+            dynamicParameters.Add("theAccepeter", accepter);
+            dynamicParameters.Add("theRefus", refus);
+
+            dbConn.Open();
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
         }
     }
 }

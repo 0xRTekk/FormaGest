@@ -13,7 +13,6 @@ namespace GestionFormation
         //
         private int id;
         private String name;
-        private List<Session> lesSessions = new List<Session>();
 
         //
         //Builders
@@ -23,6 +22,11 @@ namespace GestionFormation
             this.name = "inconnue";
         }
 
+        public Formation(int Id, String Name)
+        {
+            id = Id;
+            name = Name;
+        }
         public Formation(String Name)
         {
             name = Name;
@@ -33,22 +37,5 @@ namespace GestionFormation
         //
         public int Id { get; set; }
         public String Name { get; set; }
-        public Session LesSessions { get; set; }
-
-
-
-        //
-        //Public methods & functions
-        //
-        public void save()
-        {
-            // Call ConnectToDb(), check if there have been any changes & save Formation from the given id
-        }
-
-        public void delete()
-        {
-            // Call ConnectToDb(), delete Formation from the given id
-        }
-
     }
 }

@@ -29,7 +29,6 @@ namespace GestionFormation
             dgvTraining.DataSource = contextFormations;
 
             dgvTraining.Columns["Id"].Visible = false;
-            dgvTraining.Columns["LesSessions"].Visible = false;
             dgvTraining.Columns["Name"].HeaderText = "Formation";
             dgvTraining.Columns["Name"].Width = 212;
         }
