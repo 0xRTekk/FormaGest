@@ -27,14 +27,14 @@ DELIMITER $$
 -- Procédures
 --
 DROP PROCEDURE IF EXISTS `addInteresser`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `addInteresser` (IN `Pformation_id` INT, IN `Pparticipant_id` INT)  NO SQL
+CREATE DEFINER=`o93723`@`%` PROCEDURE `addInteresser` (IN `Pformation_id` INT, IN `Pparticipant_id` INT)  NO SQL
 BEGIN
 INSERT INTO interesser (formation_id, participant_id) 
 VALUES (Pformation_id, Pparticipant_id);
 END$$
 
 DROP PROCEDURE IF EXISTS `addParticipantRtnId`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `addParticipantRtnId` (IN `Pname` VARCHAR(50), IN `Pfirst_name` VARCHAR(50), IN `Pemail` VARCHAR(255), IN `Ptelephone` BIGINT, OUT `PrtnId` INT)  BEGIN
+CREATE DEFINER=`o93723`@`%` PROCEDURE `addParticipantRtnId` (IN `Pname` VARCHAR(50), IN `Pfirst_name` VARCHAR(50), IN `Pemail` VARCHAR(255), IN `Ptelephone` BIGINT, OUT `PrtnId` INT)  BEGIN
 INSERT INTO participant(name, first_name, email, telephone) VALUES (Pname, Pfirst_name, Pemail, Ptelephone);
 SET PrtnId = LAST_INSERT_ID();
 END$$

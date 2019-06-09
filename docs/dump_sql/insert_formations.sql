@@ -1,1 +1,0 @@
-INSERT INTO `formation` (`id`,`name`,`level`) VALUES (1,"nisi",3),(2,"leo.",1),(3,"In",1),(4,"netus",3),(5,"urna",2),(6,"ipsum.",3),(7,"scelerisque",3),(8,"velit",1),(9,"amet",3),(10,"egestas,",3);

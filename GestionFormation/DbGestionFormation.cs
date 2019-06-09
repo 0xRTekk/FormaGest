@@ -32,7 +32,6 @@ namespace GestionFormation
         {
             //Db locale WAMP
             String connString = "Server='127.0.0.1'; User='root'; Password=''; Database='gestion_formation'; SslMode=none";
-
             dbConn = new MySqlConnection(connString);
         }
 
