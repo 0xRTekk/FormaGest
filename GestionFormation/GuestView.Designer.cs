@@ -34,6 +34,7 @@
             this.dgvSessions = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.lbITicket = new System.Windows.Forms.LinkLabel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,11 +103,22 @@
             this.lbITicket.Text = "Ticket";
             this.lbITicket.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(653, 98);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // GuestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 458);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbITicket);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvSessions);
@@ -130,5 +142,6 @@
         private System.Windows.Forms.DataGridView dgvSessions;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.LinkLabel lbITicket;
+        private System.Windows.Forms.Button button1;
     }
 }

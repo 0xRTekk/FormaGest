@@ -380,5 +380,111 @@ namespace GestionFormation
             dbConn.Query(strQuery, dynamicParameters);
             dbConn.Close();
         }
+        public List<Candidater> getCandidater(String idSess, String idParti)
+        {
+            String strQuery = "SELECT session_id, participant_id, accepter, motif_refus FROM candidater WHERE session_id = @idSess AND participant_id = @idParti";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idSess", idSess);
+            dynamicParameters.Add("idParti", idParti);
+            dbConn.Open();
+            var candidater = dbConn.Query<Candidater>(strQuery, dynamicParameters).ToList();
+            dbConn.Close();
+            return candidater;
+        }
+
+
+
+
+
+        //
+        //FOO
+        //
+        public List<Foo> GetFoos()
+        {
+            String strQuery = "SELECT id, f1, f2, f3 FROM foo";
+            dbConn.Open();
+            var foos = dbConn.Query<Foo>(strQuery).ToList();
+            dbConn.Close();
+
+            return foos;
+        }
+        public Foo GetFoo(String id)
+        {
+            String strQuery = "SELECT id, f1, f2, f3 FROM foo WHERE id = @idFoo";
+            dbConn.Open();
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idFoo", id);
+            var foo = (Foo)dbConn.Query<Foo>(strQuery, dynamicParameters);
+            dbConn.Close();
+
+            return foo;
+        }
+        public void DeleteFoo(String id)
+        {
+            String strQuery = "DELETE FROM foo WHERE id = @idFoo";
+            dbConn.Open();
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idFoo", id);
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+        public void UpdateFoo(String id, String f1, String f2, String f3)
+        {
+            String strQuery = "UPDATE foo SET f1 = @F1, f2 = @F2, f3 = @F3 WHERE id = @idFoo";
+            dbConn.Open();
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idFoo", id);
+            dynamicParameters.Add("F1", f1);
+            dynamicParameters.Add("F2", f2);
+            dynamicParameters.Add("F3", f3);
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+
+
+        //
+        //BAR
+        //
+        public List<Bar> GetBars()
+        {
+            String strQuery = "SELECT id, f1, f2, f3 FROM bar";
+            dbConn.Open();
+            var bars = dbConn.Query<Bar>(strQuery).ToList();
+            dbConn.Close();
+
+            return bars;
+        }
+        public Bar GetBar(String id)
+        {
+            String strQuery = "SELECT id, f1, f2, f3 FROM bar WHERE id = @idBar";
+            dbConn.Open();
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idBar", id);
+            var bar = (Bar)dbConn.Query<Bar>(strQuery, dynamicParameters);
+            dbConn.Close();
+
+            return bar;
+        }
+        public void DeleteBar(String id)
+        {
+            String strQuery = "DELETE FROM bar WHERE id = @idBar";
+            dbConn.Open();
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idBar", id);
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
+        public void UpdateBar(String id, String f1, String f2, String f3)
+        {
+            String strQuery = "UPDATE bar SET f1 = @F1, f2 = @F2, f3 = @F3 WHERE id = @idBar";
+            dbConn.Open();
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idbar", id);
+            dynamicParameters.Add("F1", f1);
+            dynamicParameters.Add("F2", f2);
+            dynamicParameters.Add("F3", f3);
+            dbConn.Query(strQuery, dynamicParameters);
+            dbConn.Close();
+        }
     }
 }

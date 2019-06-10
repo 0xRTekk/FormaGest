@@ -89,6 +89,7 @@
     <Compile Include="AdminEditUser.Designer.cs">
       <DependentUpon>AdminEditUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bar.cs" />
     <Compile Include="Candidater.cs" />
     <Compile Include="AdminApplicationManagement.cs">
       <SubType>Form</SubType>
@@ -133,6 +134,13 @@
       <DependentUpon>Connection.cs</DependentUpon>
     </Compile>
     <Compile Include="DbGestionFormation.cs" />
+    <Compile Include="Foo.cs" />
+    <Compile Include="FooBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FooBar.Designer.cs">
+      <DependentUpon>FooBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formation.cs" />
     <Compile Include="GuestView.cs">
       <SubType>Form</SubType>
@@ -222,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Connection.resx">
       <DependentUpon>Connection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FooBar.resx">
+      <DependentUpon>FooBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuestView.resx">
       <DependentUpon>GuestView.cs</DependentUpon>

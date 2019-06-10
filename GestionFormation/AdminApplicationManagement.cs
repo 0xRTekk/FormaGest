@@ -19,6 +19,7 @@ namespace GestionFormation
         Participant selectParticipant = new Participant();
         Formation interetSelect = new Formation();
         Session selectSession = new Session();
+        List<Candidater> contextCandidater = new List<Candidater>();
 
 
         public AdminApplicationManagement()
@@ -78,6 +79,38 @@ namespace GestionFormation
             dgvSessions.Columns["Hour_end"].Width = 70;
             dgvSessions.Columns["Place"].HeaderText = "Adresse";
             dgvSessions.Columns["Place"].Width = 202;
+            foreach(Session session in contextSessions)
+            {
+                contextCandidater = db.getCandidater(session.Id.ToString(), selectParticipant.Id.ToString());
+
+                foreach (Candidater candidater in contextCandidater)
+                {
+                    if (candidater.Accepter == 1)
+                    {
+                        String searchValue = session.Id.ToString();
+                        foreach (DataGridViewRow row in dgvSessions.Rows)
+                        {
+                            if (row.Cells[1].Value.ToString().Equals(searchValue))
+                            {
+                                row.DefaultCellStyle.ForeColor = Color.Green;
+                                break;
+                            }
+                        }
+                    }
+                    else if (candidater.Accepter == 0 && candidater.Motif_refus != null)
+                    {
+                        String searchValue = session.Id.ToString();
+                        foreach (DataGridViewRow row in dgvSessions.Rows)
+                        {
+                            if (row.Cells[1].Value.ToString().Equals(searchValue))
+                            {
+                                row.DefaultCellStyle.ForeColor = Color.Red;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
         
         private void btnRefus_Click(object sender, EventArgs e)

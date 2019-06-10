@@ -69,5 +69,11 @@ namespace GestionFormation
             UserTicket userTicket = new UserTicket(this.contextUser);
             userTicket.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FooBar f = new FooBar();
+            f.ShowDialog();
+        }
     }
 }
