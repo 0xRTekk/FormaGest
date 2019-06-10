@@ -62,20 +62,7 @@ namespace GestionFormation
             cbTraining.DisplayMember = "name";
             cbTraining.ValueMember = "id";
 
-            //DataGrid binding from Session of Formation selected
-            contextFormation = (Formation)cbTraining.SelectedItem;
-            dgvSessions.DataSource = db.GetSessions(contextFormation.Id.ToString());
-
-            // Personnalisation apparence dataGridView
-            dgvSessions.Columns["Id"].Visible = false;
-            dgvSessions.Columns["Id"].Width = 200;
-            dgvSessions.Columns["LaFormation"].Visible = false;
-            dgvSessions.Columns["Hour_begin"].HeaderText = "Heure de début";
-            dgvSessions.Columns["Hour_begin"].Width = 130;
-            dgvSessions.Columns["Hour_end"].HeaderText = "Heure de fin";
-            dgvSessions.Columns["Hour_end"].Width = 130;
-            dgvSessions.Columns["Place"].HeaderText = "Adresse";
-            dgvSessions.Columns["Place"].Width = 222;
+            refreshDgv();
         }
 
         private void cbTraining_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,8 +78,7 @@ namespace GestionFormation
             db.DeleteSession(contextSession.Id.ToString());
 
             MessageBox.Show("Session supprimée");
-            dgvSessions.DataSource = null;
-            dgvSessions.DataSource = db.GetSessions(contextFormation.Id.ToString());
+            refreshDgv();
 
         }
 
@@ -122,6 +108,16 @@ namespace GestionFormation
         {
             dgvSessions.DataSource = null;
             dgvSessions.DataSource = db.GetSessions(contextFormation.Id.ToString());
+
+            dgvSessions.Columns["Id"].Visible = false;
+            dgvSessions.Columns["Id"].Width = 200;
+            dgvSessions.Columns["LaFormation"].Visible = false;
+            dgvSessions.Columns["Hour_begin"].HeaderText = "Heure de début";
+            dgvSessions.Columns["Hour_begin"].Width = 130;
+            dgvSessions.Columns["Hour_end"].HeaderText = "Heure de fin";
+            dgvSessions.Columns["Hour_end"].Width = 130;
+            dgvSessions.Columns["Place"].HeaderText = "Adresse";
+            dgvSessions.Columns["Place"].Width = 222;
         }
     }
 }

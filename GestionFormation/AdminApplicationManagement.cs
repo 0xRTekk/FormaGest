@@ -70,47 +70,7 @@ namespace GestionFormation
             contextSessions = db.GetSessions(interetSelect.Id.ToString());
             dgvSessions.DataSource = contextSessions;
 
-            dgvSessions.Columns["Id"].Visible = false;
-            dgvSessions.Columns["Date"].Width = 70;
-            dgvSessions.Columns["LaFormation"].Visible = false;
-            dgvSessions.Columns["Hour_begin"].HeaderText = "Heure de début";
-            dgvSessions.Columns["Hour_begin"].Width = 80;
-            dgvSessions.Columns["Hour_end"].HeaderText = "Heure de fin";
-            dgvSessions.Columns["Hour_end"].Width = 70;
-            dgvSessions.Columns["Place"].HeaderText = "Adresse";
-            dgvSessions.Columns["Place"].Width = 202;
-            foreach(Session session in contextSessions)
-            {
-                contextCandidater = db.getCandidater(session.Id.ToString(), selectParticipant.Id.ToString());
-
-                foreach (Candidater candidater in contextCandidater)
-                {
-                    if (candidater.Accepter == 1)
-                    {
-                        String searchValue = session.Id.ToString();
-                        foreach (DataGridViewRow row in dgvSessions.Rows)
-                        {
-                            if (row.Cells[1].Value.ToString().Equals(searchValue))
-                            {
-                                row.DefaultCellStyle.ForeColor = Color.Green;
-                                break;
-                            }
-                        }
-                    }
-                    else if (candidater.Accepter == 0 && candidater.Motif_refus != null)
-                    {
-                        String searchValue = session.Id.ToString();
-                        foreach (DataGridViewRow row in dgvSessions.Rows)
-                        {
-                            if (row.Cells[1].Value.ToString().Equals(searchValue))
-                            {
-                                row.DefaultCellStyle.ForeColor = Color.Red;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
+            refreshDGV();
         }
         
         private void btnRefus_Click(object sender, EventArgs e)
@@ -122,7 +82,6 @@ namespace GestionFormation
             {
                 MessageBox.Show("Candidature refusée");
                 refreshDGV();
-                dgvSessions.CurrentRow.DefaultCellStyle.ForeColor = Color.Red;
             }
             else
                 adminCancelApplication.Close();
@@ -136,8 +95,6 @@ namespace GestionFormation
             db.updateCandidater(selectSession.Id.ToString(), selectParticipant.Id.ToString(), accepter, refus);
             MessageBox.Show("Candidature acceptée");
             refreshDGV();
-            dgvSessions.CurrentRow.DefaultCellStyle.ForeColor = Color.Green;
-
         }
 
         private void refreshDGV()
@@ -151,6 +108,44 @@ namespace GestionFormation
             dgvSessions.Columns["Hour_end"].Width = 70;
             dgvSessions.Columns["Place"].HeaderText = "Adresse";
             dgvSessions.Columns["Place"].Width = 202;
+
+            colorDgvLines(contextSessions);
+        }
+
+        private void colorDgvLines (List<Session> sessions)
+        {
+            foreach (Session session in sessions)
+            {
+                contextCandidater = db.getCandidater(session.Id.ToString(), selectParticipant.Id.ToString());
+
+                foreach (Candidater candidater in contextCandidater)
+                {
+                    if (candidater.Accepter == 1)
+                    {
+                        String searchValue = session.Id.ToString();
+                        foreach (DataGridViewRow row in dgvSessions.Rows)
+                        {
+                            if (row.Cells["Id"].Value.ToString().Equals(searchValue))
+                            {
+                                row.DefaultCellStyle.ForeColor = Color.Green;
+                                break;
+                            }
+                        }
+                    }
+                    else if (candidater.Accepter == 0 && candidater.Motif_refus != null)
+                    {
+                        String searchValue = session.Id.ToString();
+                        foreach (DataGridViewRow row in dgvSessions.Rows)
+                        {
+                            if (row.Cells["Id"].Value.ToString().Equals(searchValue))
+                            {
+                                row.DefaultCellStyle.ForeColor = Color.Red;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

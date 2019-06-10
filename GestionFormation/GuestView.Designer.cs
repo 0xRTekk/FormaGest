@@ -33,8 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSessions = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbITicket = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSessions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,6 +73,7 @@
             this.dgvSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSessions.Location = new System.Drawing.Point(12, 154);
             this.dgvSessions.Name = "dgvSessions";
+            this.dgvSessions.ReadOnly = true;
             this.dgvSessions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvSessions.RowHeadersVisible = false;
             this.dgvSessions.RowTemplate.Height = 24;
@@ -92,34 +91,11 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Sessions:";
             // 
-            // lbITicket
-            // 
-            this.lbITicket.AutoSize = true;
-            this.lbITicket.Location = new System.Drawing.Point(740, 13);
-            this.lbITicket.Name = "lbITicket";
-            this.lbITicket.Size = new System.Drawing.Size(46, 17);
-            this.lbITicket.TabIndex = 4;
-            this.lbITicket.TabStop = true;
-            this.lbITicket.Text = "Ticket";
-            this.lbITicket.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(653, 98);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // GuestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 458);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lbITicket);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvSessions);
             this.Controls.Add(this.label1);
@@ -141,7 +117,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSessions;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel lbITicket;
-        private System.Windows.Forms.Button button1;
     }
 }

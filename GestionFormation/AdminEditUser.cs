@@ -49,14 +49,12 @@ namespace GestionFormation
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-            //this.Close();
         }
 
         private void btnResetPass_Click(object sender, EventArgs e)
         {
             db.ResetPass(user.Id);
             MessageBox.Show("Mot de passe remit à zéro");
-            //this.Close();
             this.DialogResult = DialogResult.OK;
         }
 
@@ -64,7 +62,6 @@ namespace GestionFormation
         {
             db.UpdateUser(user.Id, tbLogin.Text, cbRole.SelectedValue.ToString());
             MessageBox.Show("Modifications validés");
-            //this.Close();
             this.DialogResult = DialogResult.OK;
         }
     }

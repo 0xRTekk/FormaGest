@@ -87,11 +87,13 @@ namespace GestionFormation
         {
             dgvTraining.DataSource = null;
             dgvTraining.DataSource = contextFormations;
+            dgvTraining.Columns["Id"].Visible = false;
+            dgvTraining.Columns["Name"].HeaderText = "Formation";
+            dgvTraining.Columns["Name"].Width = 212;
 
             dgvInterest.DataSource = null;
             dgvInterest.DataSource = contextInterest;
             dgvInterest.Columns["Id"].Visible = false;
-            dgvInterest.Columns["LesSessions"].Visible = false;
             dgvInterest.Columns["Name"].HeaderText = "Formation";
             dgvInterest.Columns["Name"].Width = 212;
         }

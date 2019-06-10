@@ -80,9 +80,11 @@ namespace GestionFormation
         //
         public void ResetPass(int id)
         {
-            String strQuery = "UPDATE user SET pass = '12345', demandeChangePass = 1 WHERE id = @theId";
+            String thePassSha = SHA.GenerateSHA256String("12345");
+            String strQuery = "UPDATE user SET pass = @thePass, demandeChangePass = 1 WHERE id = @theId";
             var dynamicParameters = new DynamicParameters();
             dynamicParameters.Add("theId", id);
+            dynamicParameters.Add("thePass", thePassSha);
             dbConn.Open();
             dbConn.Query(strQuery, dynamicParameters);
             dbConn.Close();
@@ -272,6 +274,18 @@ namespace GestionFormation
             return participants;
         }
 
+        public List<Participant> GetParticipantById(String idParti)
+        {
+            String strQuery = "SELECT name, first_name FROM participant WHERE id = @theId";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("theId", idParti);
+            dbConn.Open();
+            List<Participant> participant = dbConn.Query<Participant>(strQuery, dynamicParameters).ToList();
+            dbConn.Close();
+
+            return participant;
+        }
+
         public void AddParticipant(String name, String f_name, String email, String tel)
         {
             String strQuery = "INSERT INTO participant (name, first_name, email, telephone, id_session) " +
@@ -366,6 +380,16 @@ namespace GestionFormation
         ///
         /// CANDIDATER
         ///
+        public List<Candidater> GetCandidatersAccepter(String sessionId)
+        {
+            String strQuery = "SELECT session_id, participant_id, accepter, motif_refus FROM candidater WHERE session_id = @idSess AND accepter = 1";
+            var dynamicParameters = new DynamicParameters();
+            dynamicParameters.Add("idSess", sessionId);
+            dbConn.Open();
+            var listeAccepter = dbConn.Query<Candidater>(strQuery, dynamicParameters).ToList();
+            dbConn.Close();
+            return listeAccepter;
+        }
         public void updateCandidater(String idSess, String idParti, String accepter, String refus)
         {
             String strQuery = "INSERT INTO candidater(session_id, participant_id, accepter, motif_refus) VALUES (@theIdSess,@theIdParti,@theAccepeter,@theRefus)";

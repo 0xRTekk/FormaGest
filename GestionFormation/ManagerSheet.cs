@@ -18,6 +18,7 @@ namespace GestionFormation
         private DbGestionFormation db = new DbGestionFormation();
         private Session contextSession = new Session();
         private List<Participant> contextParticipant = new List<Participant>();
+        private List<Candidater> contextCandidater = new List<Candidater>();
 
         public Session ContextSession { get; set; }
 
@@ -30,8 +31,12 @@ namespace GestionFormation
 
         private void ManagerSheet_Load(object sender, EventArgs e)
         {
-            //contextParticipant = db.GetInscrits(contextSession.Id.ToString());
-            //dgvParticipants.DataSource = contextParticipant;
+            contextCandidater = db.GetCandidatersAccepter(contextSession.Id.ToString());
+            foreach (Candidater participant in contextCandidater)
+            {
+                contextParticipant = (db.GetParticipantById(participant.Participant_id.ToString()));
+            }
+            refreshDgv();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -87,6 +92,20 @@ namespace GestionFormation
                     }
                 }
             }
+        }
+
+        private void refreshDgv()
+        {
+            dgvParticipants.DataSource = null;
+            dgvParticipants.DataSource = contextParticipant;
+            dgvParticipants.Columns[0].Visible = false;
+            dgvParticipants.Columns[3].Visible = false;
+            dgvParticipants.Columns[4].Visible = false;
+            dgvParticipants.Columns[5].Visible = false;
+            dgvParticipants.Columns[1].HeaderText = "Prénom";
+            dgvParticipants.Columns[1].Width = 130;
+            dgvParticipants.Columns[2].HeaderText = "Nom";
+            dgvParticipants.Columns[2].Width = 140;
         }
     }
 }
